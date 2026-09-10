@@ -1,0 +1,24 @@
+{
+    "type":  "minecraft:crafting_shaped",
+    "category":  "misc",
+    "pattern":  [
+                    " I ",
+                    " A ",
+                    " C "
+                ],
+    "key":  {
+                "I":  {
+                          "item":  "minecraft:iron_ingot"
+                      },
+                "A":  {
+                          "item":  "minecraft:anvil"
+                      },
+                "C":  {
+                          "item":  "minecraft:chest"
+                      }
+            },
+    "result":  {
+                   "item":  "smartbackpacks:anvil_upgrade",
+                   "count":  1
+               }
+}

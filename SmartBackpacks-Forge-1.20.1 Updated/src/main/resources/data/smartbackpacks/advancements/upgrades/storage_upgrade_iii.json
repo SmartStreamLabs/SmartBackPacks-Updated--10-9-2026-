@@ -1,0 +1,37 @@
+{
+  "parent": "smartbackpacks:upgrades/storage_upgrade_ii",
+  "display": {
+    "icon": {
+      "item": "smartbackpacks:storage_upgrade_iii"
+    },
+    "title": {
+      "text": "Expanding Horizons"
+    },
+    "description": {
+      "text": "Push your backpack capacity even further."
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "has_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "smartbackpacks:storage_upgrade_iii"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_item"
+    ]
+  ]
+}

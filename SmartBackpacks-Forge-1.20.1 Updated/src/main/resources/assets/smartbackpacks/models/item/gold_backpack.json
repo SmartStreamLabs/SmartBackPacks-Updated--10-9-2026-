@@ -1,0 +1,9 @@
+{
+  "parent": "smartbackpacks:item/backpack",
+  "textures": {
+    "2": "smartbackpacks:item/backpack/gold_base",
+    "1": "smartbackpacks:item/backpack/overlay",
+    "dyeable": "smartbackpacks:item/backpack/gold_dyeable",
+    "details": "smartbackpacks:item/backpack/gold_details"
+  }
+}

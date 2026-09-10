@@ -1,0 +1,20 @@
+{
+    "type":  "minecraft:crafting_shaped",
+    "pattern":  [
+                    "III",
+                    "ISI",
+                    "III"
+                ],
+    "key":  {
+                "I":  {
+                          "item":  "minecraft:iron_ingot"
+                      },
+                "S":  {
+                          "item":  "smartbackpacks:storage_upgrade_i"
+                      }
+            },
+    "result":  {
+                   "item":  "smartbackpacks:storage_upgrade_ii",
+                   "count":  1
+               }
+}

@@ -1,0 +1,21 @@
+{
+    "type":  "minecraft:crafting_shaped",
+    "category":  "misc",
+    "pattern":  [
+                    "GGG",
+                    "GBG",
+                    "GGG"
+                ],
+    "key":  {
+                "G":  {
+                          "item":  "minecraft:gold_ingot"
+                      },
+                "B":  {
+                          "item":  "smartbackpacks:iron_backpack"
+                      }
+            },
+    "result":  {
+                   "item":  "smartbackpacks:gold_backpack",
+                   "count":  1
+               }
+}

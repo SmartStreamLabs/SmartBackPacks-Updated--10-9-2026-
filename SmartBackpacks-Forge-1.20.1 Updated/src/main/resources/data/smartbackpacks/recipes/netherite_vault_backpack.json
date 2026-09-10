@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "UUU",
+    "UBU",
+    "UUU"
+  ],
+  "key": {
+    "U": {
+      "item": "smartbackpacks:ultimate_storage_upgrade"
+    },
+    "B": {
+      "item": "smartbackpacks:ancient_netherite_backpack"
+    }
+  },
+  "result": {
+    "item": "smartbackpacks:netherite_vault_backpack"
+  }
+}

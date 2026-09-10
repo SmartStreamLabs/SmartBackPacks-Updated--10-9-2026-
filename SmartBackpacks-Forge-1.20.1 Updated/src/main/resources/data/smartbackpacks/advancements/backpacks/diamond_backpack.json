@@ -1,0 +1,37 @@
+{
+  "parent": "smartbackpacks:backpacks/emerald_backpack",
+  "display": {
+    "icon": {
+      "item": "smartbackpacks:diamond_backpack"
+    },
+    "title": {
+      "text": "Storage Forever"
+    },
+    "description": {
+      "text": "Upgrade to a brilliant Diamond Backpack."
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "has_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "smartbackpacks:diamond_backpack"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_item"
+    ]
+  ]
+}

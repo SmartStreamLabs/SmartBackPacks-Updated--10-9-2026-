@@ -1,0 +1,23 @@
+{
+    "type":  "minecraft:crafting_shaped",
+    "pattern":  [
+                    "OEO",
+                    "ECE",
+                    "OEO"
+                ],
+    "key":  {
+                "O":  {
+                          "item":  "minecraft:obsidian"
+                      },
+                "E":  {
+                          "item":  "minecraft:ender_pearl"
+                      },
+                "C":  {
+                          "item":  "minecraft:ender_chest"
+                      }
+            },
+    "result":  {
+                   "item":  "smartbackpacks:ender_chest_upgrade",
+                   "count":  1
+               }
+}

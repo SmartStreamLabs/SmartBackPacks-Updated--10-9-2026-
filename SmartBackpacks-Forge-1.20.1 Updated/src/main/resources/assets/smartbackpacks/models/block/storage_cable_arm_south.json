@@ -1,0 +1,9 @@
+{
+  "ambientocclusion": false,
+  "textures": { "body": "smartbackpacks:block/storage_cable_body", "connector": "smartbackpacks:block/storage_cable_connector", "particle": "smartbackpacks:block/storage_cable_body" },
+  "elements": [{ "from": [6, 6, 10], "to": [10, 10, 16], "faces": {
+    "down": { "uv": [4, 4, 12, 12], "texture": "#body" }, "up": { "uv": [4, 4, 12, 12], "texture": "#body" },
+    "south": { "texture": "#connector" },
+    "west": { "uv": [4, 4, 12, 12], "texture": "#body" }, "east": { "uv": [4, 4, 12, 12], "texture": "#body" }
+  }}]
+}

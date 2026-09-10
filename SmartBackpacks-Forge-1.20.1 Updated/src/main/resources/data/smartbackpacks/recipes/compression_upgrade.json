@@ -1,0 +1,30 @@
+{
+    "type":  "minecraft:crafting_shaped",
+    "category":  "misc",
+    "pattern":  [
+                    "IPI",
+                    "RHR",
+                    "ICI"
+                ],
+    "key":  {
+                "I":  {
+                          "item":  "minecraft:iron_ingot"
+                      },
+                "P":  {
+                          "item":  "minecraft:piston"
+                      },
+                "R":  {
+                          "item":  "minecraft:redstone"
+                      },
+                "H":  {
+                          "item":  "minecraft:hopper"
+                      },
+                "C":  {
+                          "item":  "minecraft:piston"
+                      }
+            },
+    "result":  {
+                   "item":  "smartbackpacks:compression_upgrade",
+                   "count":  1
+               }
+}

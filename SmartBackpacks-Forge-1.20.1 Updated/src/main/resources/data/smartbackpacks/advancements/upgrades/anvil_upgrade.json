@@ -1,0 +1,37 @@
+{
+  "parent": "smartbackpacks:upgrades/crafting_table_upgrade",
+  "display": {
+    "icon": {
+      "item": "smartbackpacks:anvil_upgrade"
+    },
+    "title": {
+      "text": "Heavy Duty"
+    },
+    "description": {
+      "text": "Somehow fit an anvil inside your backpack."
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "has_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "smartbackpacks:anvil_upgrade"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_item"
+    ]
+  ]
+}

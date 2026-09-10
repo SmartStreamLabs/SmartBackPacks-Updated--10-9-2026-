@@ -1,0 +1,37 @@
+{
+  "parent": "smartbackpacks:upgrades/storage_upgrade_v",
+  "display": {
+    "icon": {
+      "item": "smartbackpacks:ultimate_storage_upgrade"
+    },
+    "title": {
+      "text": "Beyond Capacity"
+    },
+    "description": {
+      "text": "Unlock the Ultimate Storage Upgrade."
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "has_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "smartbackpacks:ultimate_storage_upgrade"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_item"
+    ]
+  ]
+}

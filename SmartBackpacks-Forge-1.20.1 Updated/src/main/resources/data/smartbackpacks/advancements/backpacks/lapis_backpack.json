@@ -1,0 +1,37 @@
+{
+  "parent": "smartbackpacks:backpacks/coal_backpack",
+  "display": {
+    "icon": {
+      "item": "smartbackpacks:lapis_backpack"
+    },
+    "title": {
+      "text": "Blue-Sky Storage"
+    },
+    "description": {
+      "text": "Carry your adventures in a Lapis Lazuli Backpack."
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "has_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "smartbackpacks:lapis_backpack"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_item"
+    ]
+  ]
+}

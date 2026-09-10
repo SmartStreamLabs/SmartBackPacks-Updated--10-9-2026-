@@ -1,0 +1,6 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "smartbackpacks:item/fluid_transfer_upgrade"
+  }
+}

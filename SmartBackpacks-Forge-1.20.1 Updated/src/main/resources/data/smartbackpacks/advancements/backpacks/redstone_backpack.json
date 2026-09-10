@@ -1,0 +1,37 @@
+{
+  "parent": "smartbackpacks:backpacks/lapis_backpack",
+  "display": {
+    "icon": {
+      "item": "smartbackpacks:redstone_backpack"
+    },
+    "title": {
+      "text": "Powered Pockets"
+    },
+    "description": {
+      "text": "Upgrade to a Redstone Backpack."
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "has_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "smartbackpacks:redstone_backpack"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_item"
+    ]
+  ]
+}

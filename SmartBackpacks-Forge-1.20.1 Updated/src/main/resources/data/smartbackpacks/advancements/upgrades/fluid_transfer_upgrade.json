@@ -1,0 +1,37 @@
+{
+  "parent": "smartbackpacks:upgrades/fluid_storage_upgrade",
+  "display": {
+    "icon": {
+      "item": "smartbackpacks:fluid_transfer_upgrade"
+    },
+    "title": {
+      "text": "Go With the Flow"
+    },
+    "description": {
+      "text": "Move stored fluids wherever they are needed."
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "has_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "smartbackpacks:fluid_transfer_upgrade"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_item"
+    ]
+  ]
+}

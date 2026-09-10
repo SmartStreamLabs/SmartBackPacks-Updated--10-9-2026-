@@ -1,0 +1,21 @@
+{
+    "type":  "minecraft:crafting_shaped",
+    "category":  "misc",
+    "pattern":  [
+                    "QQQ",
+                    "QBQ",
+                    "QQQ"
+                ],
+    "key":  {
+                "Q":  {
+                          "item":  "minecraft:quartz"
+                      },
+                "B":  {
+                          "item":  "smartbackpacks:redstone_backpack"
+                      }
+            },
+    "result":  {
+                   "item":  "smartbackpacks:quartz_backpack",
+                   "count":  1
+               }
+}
