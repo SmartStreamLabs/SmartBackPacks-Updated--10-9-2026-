@@ -1,0 +1,35 @@
+{
+  "parent": "smartbackpacks:upgrades/filter_upgrade",
+  "display": {
+    "icon": {
+      "id": "smartbackpacks:courier_upgrade"
+    },
+    "title": {
+      "text": "Special Delivery"
+    },
+    "description": {
+      "text": "Send matching backpack items to a linked container."
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "has_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:courier_upgrade"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_item"
+    ]
+  ]
+}

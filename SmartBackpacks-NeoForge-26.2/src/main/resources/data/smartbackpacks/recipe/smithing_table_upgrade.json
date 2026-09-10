@@ -1,0 +1,18 @@
+﻿{
+    "type":  "minecraft:crafting_shaped",
+    "category":  "misc",
+    "pattern":  [
+                    " I ",
+                    " S ",
+                    " C "
+                ],
+    "key":  {
+                "I":  "minecraft:iron_ingot",
+                "S":  "minecraft:smithing_table",
+                "C":  "minecraft:chest"
+            },
+    "result":  {
+                   "id":  "smartbackpacks:smithing_table_upgrade",
+                   "count":  1
+               }
+}

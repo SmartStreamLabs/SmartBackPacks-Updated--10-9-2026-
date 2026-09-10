@@ -1,0 +1,20 @@
+﻿{
+    "type":  "minecraft:crafting_shaped",
+    "category":  "misc",
+    "pattern":  [
+                    " E ",
+                    "HCH",
+                    "RIR"
+                ],
+    "key":  {
+                "E":  "minecraft:ender_pearl",
+                "I":  "minecraft:iron_ingot",
+                "H":  "minecraft:hopper",
+                "C":  "minecraft:chest",
+                "R":  "minecraft:redstone"
+            },
+    "result":  {
+                   "id":  "smartbackpacks:pickup_upgrade",
+                   "count":  1
+               }
+}

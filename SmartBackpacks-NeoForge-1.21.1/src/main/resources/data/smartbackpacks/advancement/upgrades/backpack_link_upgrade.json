@@ -1,0 +1,35 @@
+{
+  "parent": "smartbackpacks:backpacks/leather_backpack",
+  "display": {
+    "icon": {
+      "id": "smartbackpacks:backpack_link_upgrade"
+    },
+    "title": {
+      "text": "Long-Distance Luggage"
+    },
+    "description": {
+      "text": "Link backpacks across the world."
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "has_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:backpack_link_upgrade"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_item"
+    ]
+  ]
+}

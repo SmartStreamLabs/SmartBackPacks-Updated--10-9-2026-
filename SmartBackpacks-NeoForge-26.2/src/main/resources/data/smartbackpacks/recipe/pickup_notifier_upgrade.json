@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "RBR",
+    "CGC",
+    "RPR"
+  ],
+  "key": {
+    "R": "minecraft:redstone",
+    "B": "minecraft:bell",
+    "C": "minecraft:comparator",
+    "G": "minecraft:glass_pane",
+    "P": "smartbackpacks:pickup_upgrade"
+  },
+  "result": {
+    "id": "smartbackpacks:pickup_notifier_upgrade",
+    "count": 1
+  }
+}

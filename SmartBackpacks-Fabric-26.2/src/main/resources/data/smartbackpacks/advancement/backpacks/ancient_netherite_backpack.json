@@ -1,0 +1,35 @@
+{
+  "parent": "smartbackpacks:backpacks/ultimate_diamond_backpack",
+  "display": {
+    "icon": {
+      "id": "smartbackpacks:ancient_netherite_backpack"
+    },
+    "title": {
+      "text": "Ancient Capacity"
+    },
+    "description": {
+      "text": "Forge the mighty Ultimate Netherite Backpack."
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "has_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:ancient_netherite_backpack"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_item"
+    ]
+  ]
+}

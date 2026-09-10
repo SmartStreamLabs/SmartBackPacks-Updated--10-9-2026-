@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "RRR",
+    "RBR",
+    "RRR"
+  ],
+  "key": {
+    "R": {
+      "item": "minecraft:redstone"
+    },
+    "B": {
+      "item": "smartbackpacks:lapis_backpack"
+    }
+  },
+  "result": {
+    "id": "smartbackpacks:redstone_backpack",
+    "count": 1
+  }
+}

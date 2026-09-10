@@ -1,0 +1,34 @@
+﻿{
+    "parent":  "minecraft:recipes/root",
+    "criteria":  {
+                     "has_diamond":  {
+                                         "trigger":  "minecraft:inventory_changed",
+                                         "conditions":  {
+                                                            "items":  [
+                                                                          {
+                                                                              "items":  [
+                                                                                            "minecraft:diamond"
+                                                                                        ]
+                                                                          }
+                                                                      ]
+                                                        }
+                                     },
+                     "has_base_backpack":  {
+                                               "trigger":  "minecraft:inventory_changed",
+                                               "conditions":  {
+                                                                  "items":  [
+                                                                                {
+                                                                                    "items":  [
+                                                                                                  "smartbackpacks:gold_backpack"
+                                                                                              ]
+                                                                                }
+                                                                            ]
+                                                              }
+                                           }
+                 },
+    "rewards":  {
+                    "recipes":  [
+                                    "smartbackpacks:diamond_backpack"
+                                ]
+                }
+}

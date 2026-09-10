@@ -1,0 +1,35 @@
+{
+  "parent": "smartbackpacks:upgrades/storage_upgrade_i",
+  "display": {
+    "icon": {
+      "id": "smartbackpacks:compression_upgrade"
+    },
+    "title": {
+      "text": "Space Saver"
+    },
+    "description": {
+      "text": "Compress materials to reclaim precious storage."
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "has_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:compression_upgrade"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_item"
+    ]
+  ]
+}

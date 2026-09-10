@@ -1,0 +1,35 @@
+{
+  "parent": "smartbackpacks:backpacks/leather_backpack",
+  "display": {
+    "icon": {
+      "id": "smartbackpacks:fluid_storage_upgrade"
+    },
+    "title": {
+      "text": "Liquid Assets"
+    },
+    "description": {
+      "text": "Store fluids inside your backpack."
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "has_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:fluid_storage_upgrade"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_item"
+    ]
+  ]
+}

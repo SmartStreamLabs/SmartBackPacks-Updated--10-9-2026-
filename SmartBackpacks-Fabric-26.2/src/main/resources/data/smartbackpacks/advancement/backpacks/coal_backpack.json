@@ -1,0 +1,35 @@
+{
+  "parent": "smartbackpacks:backpacks/leather_backpack",
+  "display": {
+    "icon": {
+      "id": "smartbackpacks:coal_backpack"
+    },
+    "title": {
+      "text": "Fueled for the Journey"
+    },
+    "description": {
+      "text": "Upgrade your storage with a Coal Backpack."
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "has_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:coal_backpack"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_item"
+    ]
+  ]
+}

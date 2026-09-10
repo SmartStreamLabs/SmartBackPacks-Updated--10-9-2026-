@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "BCB",
+    "FAF",
+    "GGG"
+  ],
+  "key": {
+    "B": {
+      "item": "minecraft:bread"
+    },
+    "C": {
+      "item": "minecraft:cooked_beef"
+    },
+    "F": {
+      "item": "smartbackpacks:filter_upgrade"
+    },
+    "A": {
+      "item": "minecraft:apple"
+    },
+    "G": {
+      "item": "minecraft:golden_carrot"
+    }
+  },
+  "result": {
+    "id": "smartbackpacks:auto_feed_upgrade",
+    "count": 1
+  }
+}

@@ -1,0 +1,46 @@
+﻿{
+    "parent":  "minecraft:recipes/root",
+    "criteria":  {
+                     "has_template":  {
+                                          "trigger":  "minecraft:inventory_changed",
+                                          "conditions":  {
+                                                             "items":  [
+                                                                           {
+                                                                               "items":  [
+                                                                                             "minecraft:netherite_upgrade_smithing_template"
+                                                                                         ]
+                                                                           }
+                                                                       ]
+                                                         }
+                                      },
+                     "has_netherite_ingot":  {
+                                                 "trigger":  "minecraft:inventory_changed",
+                                                 "conditions":  {
+                                                                    "items":  [
+                                                                                  {
+                                                                                      "items":  [
+                                                                                                    "minecraft:netherite_ingot"
+                                                                                                ]
+                                                                                  }
+                                                                              ]
+                                                                }
+                                             },
+                     "has_base_backpack":  {
+                                               "trigger":  "minecraft:inventory_changed",
+                                               "conditions":  {
+                                                                  "items":  [
+                                                                                {
+                                                                                    "items":  [
+                                                                                                  "smartbackpacks:diamond_backpack"
+                                                                                              ]
+                                                                                }
+                                                                            ]
+                                                              }
+                                           }
+                 },
+    "rewards":  {
+                    "recipes":  [
+                                    "smartbackpacks:netherite_backpack"
+                                ]
+                }
+}

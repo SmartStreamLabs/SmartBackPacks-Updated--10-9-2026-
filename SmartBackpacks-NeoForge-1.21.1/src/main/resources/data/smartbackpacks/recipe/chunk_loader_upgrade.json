@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "EOE",
+    "OCO",
+    "EOE"
+  ],
+  "key": {
+    "E": {
+      "item": "minecraft:ender_pearl"
+    },
+    "O": {
+      "item": "minecraft:obsidian"
+    },
+    "C": {
+      "item": "minecraft:clock"
+    }
+  },
+  "result": {
+    "id": "smartbackpacks:chunk_loader_upgrade",
+    "count": 1
+  }
+}

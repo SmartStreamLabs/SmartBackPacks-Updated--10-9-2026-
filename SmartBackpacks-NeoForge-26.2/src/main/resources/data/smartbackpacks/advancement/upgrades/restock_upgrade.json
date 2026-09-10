@@ -1,0 +1,35 @@
+{
+  "parent": "smartbackpacks:backpacks/leather_backpack",
+  "display": {
+    "icon": {
+      "id": "smartbackpacks:restock_upgrade"
+    },
+    "title": {
+      "text": "Never Run Dry"
+    },
+    "description": {
+      "text": "Automatically restock supplies from your backpack."
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "has_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:restock_upgrade"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_item"
+    ]
+  ]
+}

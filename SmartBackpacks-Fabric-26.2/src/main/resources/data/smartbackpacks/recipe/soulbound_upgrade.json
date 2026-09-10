@@ -1,0 +1,21 @@
+﻿{
+    "type":  "minecraft:crafting_shaped",
+    "category":  "misc",
+    "pattern":  [
+                    "TNT",
+                    "RBR",
+                    "ECE"
+                ],
+    "key":  {
+                "T":  "minecraft:totem_of_undying",
+                "N":  "minecraft:nether_star",
+                "R":  "minecraft:recovery_compass",
+                "B":  "minecraft:crying_obsidian",
+                "E":  "minecraft:echo_shard",
+                "C":  "minecraft:crying_obsidian"
+            },
+    "result":  {
+                   "id":  "smartbackpacks:soulbound_upgrade",
+                   "count":  1
+               }
+}

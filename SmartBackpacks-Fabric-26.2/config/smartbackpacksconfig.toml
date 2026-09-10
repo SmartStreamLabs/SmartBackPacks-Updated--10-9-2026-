@@ -1,0 +1,467 @@
+[wearing]
+# If true, backpacks can be worn on the player's back.
+canWearBackpackOnBack = true
+# If true, backpacks are allowed to use the Curios back slot.
+allowBackpackInCuriosSlot = true
+# If true, backpacks can be stored inside other backpacks.
+allowBackpackInBackpack = false
+# If true, other players can open a backpack while it is worn on someone's back.
+allowOtherPlayersToOpenWornBackpacks = false
+# If true, players see the Smart Backpacks welcome message when they join.
+showWelcomeMessage = false
+
+[pickup_notifier]
+# If true, Smart Backpacks sends compact HUD notifications after server-confirmed backpack insertions.
+enabled = true
+# If true, world item pickups collected by Pickup or Magnet systems produce notifications.
+showWorldPickups = true
+# If true, manual player transfers into backpack storage produce notifications. Disabled by default to avoid organization spam.
+showManualTransfers = false
+# If true, Smart Backpacks upgrade routing that stores items produces notifications.
+showUpgradeRouting = true
+# If true, automation insertion into placed backpacks may produce notifications when a player context is available.
+showAutomation = false
+# If true, processing outputs such as compression or smelting may produce notifications.
+showProcessingResults = true
+# If true, container-to-backpack transfers such as Restock produce notifications.
+showContainerTransfers = false
+# If true, notifications include the receiving backpack name.
+showBackpackName = true
+# If true, notifications include the destination section such as Main Storage or Quiver Storage.
+showDestination = true
+# If true, notifications include the total matching count in the current backpack when it can be calculated safely.
+showTotalStoredAmount = true
+# Ticks a pickup notification stays visible before fading out.
+displayTicks = 60
+# Ticks during which compatible pickups merge into one live notification.
+groupingWindowTicks = 40
+# Maximum pickup notifications visible on the HUD at once.
+maxVisible = 5
+# Maximum in-memory client notification entries kept before old visuals are dropped.
+queueLimit = 50
+
+[upgrades]
+# Pickup radius for the regular Magnet Upgrade.
+magnetRadius = 10
+# Pickup radius for the Advanced Magnet Upgrade.
+advancedMagnetRadius = 35
+# Projectile slots per Quiver Upgrade. The current GUI-safe default is 9.
+quiverSlotCount = 9
+# If true, multiple Quiver Upgrades can be installed in one backpack. Each upgrade keeps its own safe projectile storage.
+allowMultipleQuiverUpgrades = true
+# If true, Quiver Upgrades may store firework rockets for crossbows.
+allowQuiverFireworkRockets = true
+# If true, items in smartbackpacks quiver projectile tags can be stored and offered to compatible projectile weapons.
+allowQuiverModdedProjectileTags = true
+# Seconds before a normal pending Trash Can item is deleted while the backpack GUI stays open.
+trashCanDeletionDelaySeconds = 5
+# If true, normal pending Trash Can contents are deleted when the backpack GUI closes. Protected items are returned or kept pending instead of deleted silently.
+trashCanDeletePendingItemOnClose = true
+# If true, the Trash Can panel shows a Delete Now button.
+trashCanEnableDeleteNowButton = true
+# If true, multiple Trash Can Upgrades can be installed. Disabled by default because each backpack only exposes one safe trash slot.
+allowMultipleTrashCanUpgrades = false
+# Protection level for valuable Trash Can items.
+trashCanProtectionLevel = "VALUABLE_ITEMS"
+# If true, modded items require confirmation before manual Trash Can deletion.
+trashCanConfirmModdedItems = true
+# If true, container-like items with stored contents require confirmation before manual Trash Can deletion.
+trashCanConfirmContainerItems = true
+# If true, damaged durability items require confirmation before manual Trash Can deletion.
+trashCanConfirmDamagedItems = true
+# If true, Rescue Upgrades may activate server-side emergency actions.
+rescueUpgradeEnabled = true
+# If true, a Totem stored in a Rescue Upgrade may prevent death. Servers can disable this if they want vanilla hand-held Totem rules only.
+rescueAllowBackpackTotem = true
+# If true, Rescue Upgrades may automatically consume stored Golden Apples at low health.
+rescueAllowGoldenApple = true
+# If true, Rescue Upgrades may consume Enchanted Golden Apples. Disabled by default because they are very valuable.
+rescueAllowEnchantedGoldenApple = false
+# If true, Rescue Upgrades may place stored water during dangerous falls.
+rescueAllowFall = true
+# If true, Rescue Upgrades may place stored water when the player is in lava and low health.
+rescueAllowLava = true
+# If true, Rescue Upgrades may place stored water/extinguish fire when burning at low health.
+rescueAllowFire = true
+# If true, water rescue respects dimensions where water cannot exist, such as the Nether.
+rescueRespectDimensionWaterRestrictions = true
+# If true, successful Rescue Upgrade actions show action-bar feedback.
+rescueEnableNotifications = true
+# If true, multiple Rescue Upgrades can be installed in one backpack. Disabled by default to avoid duplicate emergency triggers.
+allowMultipleRescueUpgrades = false
+# Short global anti-spam cooldown after any Rescue Upgrade action.
+rescueGlobalCooldownSeconds = 5
+# Cooldown after a backpack Totem rescue.
+rescueTotemCooldownSeconds = 60
+# Cooldown after a Golden Apple rescue.
+rescueGoldenAppleCooldownSeconds = 30
+# Cooldown after a fall water rescue.
+rescueFallCooldownSeconds = 10
+# Cooldown after a lava/fire water rescue.
+rescueLavaCooldownSeconds = 20
+# Maximum downward blocks scanned for fall water rescue.
+rescueMaximumFallScanDistance = 32
+# If true, Builder Upgrades may refill matching building blocks from normal backpack storage.
+builderUpgradeEnabled = true
+# If true, Builder Upgrades may use Keep Full mode.
+builderAllowKeepFullMode = true
+# If true, Builder Upgrades may refill the offhand when the upgrade setting is enabled.
+builderAllowOffhandRefill = false
+# If true, Builder Upgrades may refill compatible modded block items.
+builderAllowModdedBlocks = true
+# If true, Builder Upgrades may refill container-like block items. Disabled by default for item safety.
+builderAllowContainerRefill = false
+# If true, Builder Upgrades may refill items tagged as dangerous. Disabled by default.
+builderAllowDangerousRefill = false
+# If true, multiple Builder Upgrades can be installed in one backpack.
+builderAllowMultipleUpgrades = false
+# If true, successful Builder Upgrade refills show action-bar feedback.
+builderFeedbackEnabled = true
+# Default low-stack threshold for new Builder Upgrades.
+builderDefaultRefillThreshold = 8
+# Minimum ticks between Builder Upgrade refill attempts per hand.
+builderAntiSpamDelayTicks = 2
+# If true, Torch Placer Upgrades may automatically place light sources from normal backpack storage.
+torchPlacerUpgradeEnabled = true
+# If true, Torch Placer Upgrades may use modded light-source items that are tagged as smartbackpacks:torch_placer_items.
+torchPlacerAllowModdedLights = true
+# If true, multiple Torch Placer Upgrades can be installed in one backpack. Disabled by default to avoid duplicate placement attempts.
+torchPlacerAllowMultipleUpgrades = false
+# If true, Torch Placer Upgrades may run for creative players. Useful for testing; placed torches still consume backpack storage.
+torchPlacerAllowCreative = true
+# If true, Torch Placer Upgrades may run for adventure players. Disabled by default.
+torchPlacerAllowAdventure = false
+# If true, Torch Placer Upgrade action-bar feedback may be shown when the upgrade setting is enabled.
+torchPlacerFeedbackEnabled = false
+# Ticks between automatic Torch Placer checks per player.
+torchPlacerCheckIntervalTicks = 10
+# Minimum ticks between successful Torch Placer placements per player.
+torchPlacerPlacementCooldownTicks = 20
+# Minimum ticks between failed Torch Placer placement attempts per player.
+torchPlacerFailureCooldownTicks = 20
+# If true, Capacity Warning Upgrades may calculate backpack fullness and notify players.
+capacityWarningUpgradeEnabled = true
+# If true, players may use Stack Capacity mode. If false, settings are forced to Occupied Slots mode.
+capacityWarningAllowStackCapacityMode = true
+# If true, multiple Capacity Warning Upgrades can be installed in one backpack. Disabled by default to avoid duplicate HUD/messages.
+capacityWarningAllowMultipleUpgrades = false
+# If true, the Always HUD display mode may stay visible. If false, Always behaves like threshold display.
+capacityWarningAllowPersistentHud = true
+# If true, enables extra debug consistency checks for capacity calculations. Kept off by default for performance.
+capacityWarningDebugConsistencyChecks = false
+# Default Capacity Warning threshold 1 percentage.
+capacityWarningDefaultThreshold1 = 75
+# Default Capacity Warning threshold 2 percentage.
+capacityWarningDefaultThreshold2 = 90
+# Default Capacity Warning threshold 3 percentage.
+capacityWarningDefaultThreshold3 = 100
+# Default percentage margin a backpack must drop below a threshold before that warning can trigger again.
+capacityWarningDefaultResetMargin = 3
+# Seconds between repeated Capacity Warning notifications of the same threshold for one backpack.
+capacityWarningNotificationCooldownSeconds = 5
+# Ticks between manual failed-insertion warnings.
+capacityWarningFailedInsertionCooldownTicks = 60
+# Maximum carried backpacks with Capacity Warning Upgrades tracked per player.
+capacityWarningMaxBackpacksTrackedPerPlayer = 16
+# Ticks between read-only capacity checks. Avoids scanning large backpacks every tick.
+capacityWarningCheckIntervalTicks = 20
+# Ticks between HUD refresh packets while persistent Capacity Warning HUD is visible.
+capacityWarningHudRefreshTicks = 100
+# If true, Item Lock Upgrades may protect backpack storage slots and stored stacks.
+itemLockUpgradeEnabled = true
+# If true, multiple Item Lock Upgrades can be installed in one backpack. Disabled by default to keep lock metadata unambiguous.
+itemLockAllowMultipleUpgrades = false
+# If true, players may lock stable logical backpack storage slots.
+itemLockAllowSlotLocks = true
+# If true, players may lock exact item variants using their item ID and data components.
+itemLockAllowItemLocks = true
+# If true, players may lock all stacks of one registered item type. Disabled by default because it is broad.
+itemLockAllowTypeLocks = false
+# If true, locked content may still be moved manually. Disabled by default to prevent accidental split, merge, or delete operations.
+itemLockAllowManualAccess = false
+# If true, automation may access locked content when the backpack lock data also allows it. Disabled by default.
+itemLockAllowAutomationAccess = false
+# If true, Backpack Link Upgrades may turn placed backpacks into teleport anchors.
+backpackLinkUpgradeEnabled = true
+# If true, multiple Backpack Link Upgrades can be installed in one backpack. Disabled by default because one anchor identity is stored per backpack.
+backpackLinkAllowMultipleUpgrades = false
+# If true, anchor owners may set Backpack Link destinations to Public.
+backpackLinkAllowPublicAnchors = true
+# If true, Backpack Link teleport may cross dimensions when both anchors are valid.
+backpackLinkAllowCrossDimension = true
+# Maximum linked destinations per Backpack Link anchor.
+backpackLinkMaxDestinations = 4
+# Maximum nearby block radius searched for a safe Backpack Link arrival position.
+backpackLinkSafeArrivalRadius = 4
+# Base XP level cost for same-dimension Backpack Link teleport.
+backpackLinkSameDimensionBaseXpLevels = 1
+# Additional XP levels charged per 1000 same-dimension blocks.
+backpackLinkDistanceXpPer1000Blocks = 1
+# XP level cost for cross-dimension Backpack Link teleport.
+backpackLinkCrossDimensionXpLevels = 8
+# Maximum XP level cost for one Backpack Link teleport.
+backpackLinkMaxXpLevelCost = 30
+# Legacy setting. Backpack Link teleport cooldown is disabled by default.
+backpackLinkCooldownSeconds = 0
+# Legacy setting. Backpack Link cross-dimension cooldown is disabled by default.
+backpackLinkCrossDimensionCooldownSeconds = 0
+
+[storage_network]
+# Enables Storage Controller and Storage Cable network access.
+storageNetworkEnabled = true
+# Maximum number of Storage Cable steps between a Controller and a connected Backpack.
+maximumCablePath = 30
+# Maximum number of Storage Cable nodes visited by one network scan.
+maximumNetworkNodes = 4096
+# Enables Storage Monitors and remote Storage Controller access.
+storageMonitorEnabled = true
+# Allows cross-dimension Monitor access when the Controller chunk is already loaded.
+storageMonitorCrossDimensionAccess = true
+
+[mob_backpacks]
+# Enables rare Smart Backpacks on supported hostile mobs. Default: true.
+mobBackpacksEnabled = true
+# Chance that an eligible mob receives a backpack. 0.01 = 1%. Range: 0.0 - 1.0.
+mobBackpackSpawnChance = 0.01
+# Chance that a genuine mob backpack drops on death. Range: 0.0 - 1.0.
+mobBackpackDropChance = 1.0
+# When true, only natural, chunk-generation and patrol spawns may receive backpacks.
+mobBackpackNaturalSpawnsOnly = true
+# Minimum thematic loot entries generated in a mob backpack. Range: 0 - 5.
+mobBackpackMinLootEntries = 2
+# Maximum thematic loot entries generated in a mob backpack. Range: 0 - 5.
+mobBackpackMaxLootEntries = 5
+
+[mob_backpacks.zombie]
+# Enables Mob Backpacks for zombie. Default: true.
+enabled = true
+# Spawn chance override for this mob. -1 uses the global chance; otherwise 0.0 - 1.0.
+chance = -1.0
+# Minecraft DyeColor name used for this mob's backpack.
+color = "green"
+
+[mob_backpacks.husk]
+# Enables Mob Backpacks for husk. Default: true.
+enabled = true
+# Spawn chance override for this mob. -1 uses the global chance; otherwise 0.0 - 1.0.
+chance = -1.0
+# Minecraft DyeColor name used for this mob's backpack.
+color = "yellow"
+
+[mob_backpacks.drowned]
+# Enables Mob Backpacks for drowned. Default: true.
+enabled = true
+# Spawn chance override for this mob. -1 uses the global chance; otherwise 0.0 - 1.0.
+chance = -1.0
+# Minecraft DyeColor name used for this mob's backpack.
+color = "cyan"
+
+[mob_backpacks.skeleton]
+# Enables Mob Backpacks for skeleton. Default: true.
+enabled = true
+# Spawn chance override for this mob. -1 uses the global chance; otherwise 0.0 - 1.0.
+chance = -1.0
+# Minecraft DyeColor name used for this mob's backpack.
+color = "light_gray"
+
+[mob_backpacks.stray]
+# Enables Mob Backpacks for stray. Default: true.
+enabled = true
+# Spawn chance override for this mob. -1 uses the global chance; otherwise 0.0 - 1.0.
+chance = -1.0
+# Minecraft DyeColor name used for this mob's backpack.
+color = "light_blue"
+
+[mob_backpacks.creeper]
+# Enables Mob Backpacks for creeper. Default: true.
+enabled = true
+# Spawn chance override for this mob. -1 uses the global chance; otherwise 0.0 - 1.0.
+chance = -1.0
+# Minecraft DyeColor name used for this mob's backpack.
+color = "lime"
+
+[mob_backpacks.pillager]
+# Enables Mob Backpacks for pillager. Default: true.
+enabled = true
+# Spawn chance override for this mob. -1 uses the global chance; otherwise 0.0 - 1.0.
+chance = -1.0
+# Minecraft DyeColor name used for this mob's backpack.
+color = "gray"
+
+[mob_backpacks.vindicator]
+# Enables Mob Backpacks for vindicator. Default: true.
+enabled = true
+# Spawn chance override for this mob. -1 uses the global chance; otherwise 0.0 - 1.0.
+chance = -1.0
+# Minecraft DyeColor name used for this mob's backpack.
+color = "gray"
+
+[mob_backpacks.witch]
+# Enables Mob Backpacks for witch. Default: true.
+enabled = true
+# Spawn chance override for this mob. -1 uses the global chance; otherwise 0.0 - 1.0.
+chance = -1.0
+# Minecraft DyeColor name used for this mob's backpack.
+color = "purple"
+
+[mob_backpacks.piglin]
+# Enables Mob Backpacks for piglin. Default: true.
+enabled = true
+# Spawn chance override for this mob. -1 uses the global chance; otherwise 0.0 - 1.0.
+chance = -1.0
+# Minecraft DyeColor name used for this mob's backpack.
+color = "orange"
+
+[mob_backpacks.zombified_piglin]
+# Enables Mob Backpacks for zombified_piglin. Default: true.
+enabled = true
+# Spawn chance override for this mob. -1 uses the global chance; otherwise 0.0 - 1.0.
+chance = -1.0
+# Minecraft DyeColor name used for this mob's backpack.
+color = "pink"
+
+[mob_backpacks.tier_weights]
+# Relative Mob Backpacks tier weight. Range: 0 - 100000.
+leatherWeight = 750
+# Relative Mob Backpacks tier weight. Range: 0 - 100000.
+coalWeight = 100
+# Relative Mob Backpacks tier weight. Range: 0 - 100000.
+copperWeight = 80
+# Relative Mob Backpacks tier weight. Range: 0 - 100000.
+ironWeight = 50
+# Relative Mob Backpacks tier weight. Range: 0 - 100000.
+goldWeight = 15
+# Relative Mob Backpacks tier weight. Range: 0 - 100000.
+emeraldWeight = 5
+
+[backpacks.leather]
+# If true, this backpack tier stays enabled.
+enabled = true
+# Stored slot count for this backpack tier. This is currently informational only and does not change existing backpacks yet.
+slots = 9
+# If true, this backpack tier is marked as wearable.
+wearable = true
+# If true, this backpack tier is marked as craftable.
+craftingEnabled = true
+# If true, this backpack tier is marked as fireproof.
+fireproof = false
+
+[backpacks.coal]
+# If true, this backpack tier stays enabled.
+enabled = true
+# Stored slot count for this backpack tier. This is currently informational only and does not change existing backpacks yet.
+slots = 18
+# If true, this backpack tier is marked as wearable.
+wearable = true
+# If true, this backpack tier is marked as craftable.
+craftingEnabled = true
+# If true, this backpack tier is marked as fireproof.
+fireproof = false
+
+[backpacks.lapis]
+# If true, this backpack tier stays enabled.
+enabled = true
+# Stored slot count for this backpack tier. This is currently informational only and does not change existing backpacks yet.
+slots = 27
+# If true, this backpack tier is marked as wearable.
+wearable = true
+# If true, this backpack tier is marked as craftable.
+craftingEnabled = true
+# If true, this backpack tier is marked as fireproof.
+fireproof = false
+
+[backpacks.redstone]
+# If true, this backpack tier stays enabled.
+enabled = true
+# Stored slot count for this backpack tier. This is currently informational only and does not change existing backpacks yet.
+slots = 36
+# If true, this backpack tier is marked as wearable.
+wearable = true
+# If true, this backpack tier is marked as craftable.
+craftingEnabled = true
+# If true, this backpack tier is marked as fireproof.
+fireproof = false
+
+[backpacks.quartz]
+# If true, this backpack tier stays enabled.
+enabled = true
+# Stored slot count for this backpack tier. This is currently informational only and does not change existing backpacks yet.
+slots = 45
+# If true, this backpack tier is marked as wearable.
+wearable = true
+# If true, this backpack tier is marked as craftable.
+craftingEnabled = true
+# If true, this backpack tier is marked as fireproof.
+fireproof = false
+
+[backpacks.copper]
+# If true, this backpack tier stays enabled.
+enabled = true
+# Stored slot count for this backpack tier. This is currently informational only and does not change existing backpacks yet.
+slots = 54
+# If true, this backpack tier is marked as wearable.
+wearable = true
+# If true, this backpack tier is marked as craftable.
+craftingEnabled = true
+# If true, this backpack tier is marked as fireproof.
+fireproof = false
+
+[backpacks.iron]
+# If true, this backpack tier stays enabled.
+enabled = true
+# Stored slot count for this backpack tier. This is currently informational only and does not change existing backpacks yet.
+slots = 63
+# If true, this backpack tier is marked as wearable.
+wearable = true
+# If true, this backpack tier is marked as craftable.
+craftingEnabled = true
+# If true, this backpack tier is marked as fireproof.
+fireproof = false
+
+[backpacks.gold]
+# If true, this backpack tier stays enabled.
+enabled = true
+# Stored slot count for this backpack tier. This is currently informational only and does not change existing backpacks yet.
+slots = 72
+# If true, this backpack tier is marked as wearable.
+wearable = true
+# If true, this backpack tier is marked as craftable.
+craftingEnabled = true
+# If true, this backpack tier is marked as fireproof.
+fireproof = false
+
+[backpacks.emerald]
+# If true, this backpack tier stays enabled.
+enabled = true
+# Stored slot count for this backpack tier. This is currently informational only and does not change existing backpacks yet.
+slots = 81
+# If true, this backpack tier is marked as wearable.
+wearable = true
+# If true, this backpack tier is marked as craftable.
+craftingEnabled = true
+# If true, this backpack tier is marked as fireproof.
+fireproof = false
+
+[backpacks.diamond]
+# If true, this backpack tier stays enabled.
+enabled = true
+# Stored slot count for this backpack tier. This is currently informational only and does not change existing backpacks yet.
+slots = 90
+# If true, this backpack tier is marked as wearable.
+wearable = true
+# If true, this backpack tier is marked as craftable.
+craftingEnabled = true
+# If true, this backpack tier is marked as fireproof.
+fireproof = false
+
+[backpacks.netherite]
+# If true, this backpack tier stays enabled.
+enabled = true
+# Stored slot count for this backpack tier. This is currently informational only and does not change existing backpacks yet.
+slots = 162
+# If true, this backpack tier is marked as wearable.
+wearable = true
+# If true, this backpack tier is marked as craftable.
+craftingEnabled = true
+# If true, this backpack tier is marked as fireproof.
+fireproof = true

@@ -1,0 +1,35 @@
+{
+  "parent": "smartbackpacks:upgrades/storage_upgrade_iii",
+  "display": {
+    "icon": {
+      "id": "smartbackpacks:storage_upgrade_iv"
+    },
+    "title": {
+      "text": "Warehouse on Your Back"
+    },
+    "description": {
+      "text": "Carry the space of a warehouse."
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "has_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:storage_upgrade_iv"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_item"
+    ]
+  ]
+}

@@ -1,0 +1,17 @@
+﻿{
+    "type":  "minecraft:crafting_shaped",
+    "pattern":  [
+                    " G ",
+                    "TBT",
+                    " G "
+                ],
+    "key":  {
+                "G":  "minecraft:glowstone_dust",
+                "T":  "minecraft:torch",
+                "B":  "smartbackpacks:wireless_upgrade"
+            },
+    "result":  {
+                   "id":  "smartbackpacks:light_upgrade",
+                   "count":  1
+               }
+}

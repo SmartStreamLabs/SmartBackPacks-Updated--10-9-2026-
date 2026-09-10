@@ -1,0 +1,18 @@
+﻿{
+    "type":  "minecraft:crafting_shaped",
+    "category":  "misc",
+    "pattern":  [
+                    " P ",
+                    " T ",
+                    " C "
+                ],
+    "key":  {
+                "P":  "minecraft:paper",
+                "T":  "minecraft:cartography_table",
+                "C":  "minecraft:chest"
+            },
+    "result":  {
+                   "id":  "smartbackpacks:cartography_table_upgrade",
+                   "count":  1
+               }
+}

@@ -1,0 +1,35 @@
+{
+  "display": {
+    "icon": {
+      "id": "smartbackpacks:leather_backpack"
+    },
+    "title": {
+      "text": "Packed and Ready"
+    },
+    "description": {
+      "text": "Obtain a Leather Backpack and begin carrying more."
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false,
+    "background": "minecraft:gui/advancements/backgrounds/stone"
+  },
+  "criteria": {
+    "has_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:leather_backpack"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_item"
+    ]
+  ]
+}

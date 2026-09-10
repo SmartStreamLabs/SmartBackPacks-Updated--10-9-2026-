@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "TCT",
+    "GSG",
+    "PWP"
+  ],
+  "key": {
+    "T": {
+      "item": "minecraft:redstone_torch"
+    },
+    "C": {
+      "item": "minecraft:comparator"
+    },
+    "G": {
+      "item": "minecraft:gold_ingot"
+    },
+    "S": {
+      "item": "smartbackpacks:storage_upgrade_i"
+    },
+    "P": {
+      "item": "minecraft:glass_pane"
+    },
+    "W": {
+      "item": "minecraft:clock"
+    }
+  },
+  "result": {
+    "id": "smartbackpacks:capacity_warning_upgrade",
+    "count": 1
+  }
+}

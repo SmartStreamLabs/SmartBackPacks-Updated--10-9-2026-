@@ -1,0 +1,19 @@
+﻿{
+    "type":  "minecraft:crafting_shaped",
+    "category":  "misc",
+    "pattern":  [
+                    "E E",
+                    "DMD",
+                    "N N"
+                ],
+    "key":  {
+                "E":  "minecraft:ender_eye",
+                "D":  "minecraft:diamond",
+                "M":  "smartbackpacks:magnet_upgrade",
+                "N":  "minecraft:netherite_ingot"
+            },
+    "result":  {
+                   "id":  "smartbackpacks:advanced_magnet_upgrade",
+                   "count":  1
+               }
+}

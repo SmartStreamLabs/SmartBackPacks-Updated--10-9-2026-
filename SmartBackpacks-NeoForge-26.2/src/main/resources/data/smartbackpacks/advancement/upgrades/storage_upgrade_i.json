@@ -1,0 +1,35 @@
+{
+  "parent": "smartbackpacks:backpacks/leather_backpack",
+  "display": {
+    "icon": {
+      "id": "smartbackpacks:storage_upgrade_i"
+    },
+    "title": {
+      "text": "More Room"
+    },
+    "description": {
+      "text": "Expand your backpack's storage capacity."
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "has_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:storage_upgrade_i"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_item"
+    ]
+  ]
+}

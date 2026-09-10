@@ -1,0 +1,35 @@
+{
+  "parent": "smartbackpacks:backpacks/quartz_backpack",
+  "display": {
+    "icon": {
+      "id": "smartbackpacks:copper_backpack"
+    },
+    "title": {
+      "text": "Copper Carryall"
+    },
+    "description": {
+      "text": "Forge a dependable Copper Backpack."
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "has_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:copper_backpack"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_item"
+    ]
+  ]
+}

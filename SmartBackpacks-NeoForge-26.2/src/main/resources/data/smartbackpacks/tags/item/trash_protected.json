@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:totem_of_undying",
+    "minecraft:elytra",
+    "minecraft:written_book",
+    "minecraft:filled_map"
+  ]
+}

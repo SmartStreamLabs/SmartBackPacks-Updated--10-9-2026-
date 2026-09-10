@@ -1,0 +1,20 @@
+﻿{
+    "type":  "minecraft:crafting_shaped",
+    "category":  "misc",
+    "pattern":  [
+                    "OEO",
+                    "BHB",
+                    "OLO"
+                ],
+    "key":  {
+                "O":  "minecraft:obsidian",
+                "E":  "minecraft:ender_eye",
+                "B":  "minecraft:black_dye",
+                "H":  "minecraft:hopper",
+                "L":  "minecraft:lava_bucket"
+            },
+    "result":  {
+                   "id":  "smartbackpacks:void_upgrade",
+                   "count":  1
+               }
+}

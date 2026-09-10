@@ -1,0 +1,35 @@
+{
+  "parent": "smartbackpacks:upgrades/crafting_table_upgrade",
+  "display": {
+    "icon": {
+      "id": "smartbackpacks:loom_upgrade"
+    },
+    "title": {
+      "text": "Woven Convenience"
+    },
+    "description": {
+      "text": "Bring a loom along for the journey."
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "has_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:loom_upgrade"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_item"
+    ]
+  ]
+}

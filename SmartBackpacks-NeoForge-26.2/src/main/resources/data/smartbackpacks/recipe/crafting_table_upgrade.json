@@ -1,0 +1,17 @@
+﻿{
+    "type":  "minecraft:crafting_shaped",
+    "pattern":  [
+                    "LIL",
+                    "ICI",
+                    "LIL"
+                ],
+    "key":  {
+                "L":  "minecraft:leather",
+                "I":  "minecraft:iron_ingot",
+                "C":  "minecraft:crafting_table"
+            },
+    "result":  {
+                   "id":  "smartbackpacks:crafting_table_upgrade",
+                   "count":  1
+               }
+}

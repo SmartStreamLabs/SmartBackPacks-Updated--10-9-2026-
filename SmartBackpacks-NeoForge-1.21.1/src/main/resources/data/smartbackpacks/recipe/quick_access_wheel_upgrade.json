@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "RGR",
+    "GFG",
+    "RCR"
+  ],
+  "key": {
+    "R": "minecraft:redstone",
+    "G": "minecraft:gold_ingot",
+    "F": "smartbackpacks:filter_upgrade",
+    "C": "minecraft:compass"
+  },
+  "result": {
+    "id": "smartbackpacks:quick_access_wheel_upgrade",
+    "count": 1
+  }
+}

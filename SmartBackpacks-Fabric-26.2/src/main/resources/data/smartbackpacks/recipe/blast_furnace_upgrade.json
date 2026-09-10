@@ -1,0 +1,18 @@
+﻿{
+    "type":  "minecraft:crafting_shaped",
+    "category":  "misc",
+    "pattern":  [
+                    " I ",
+                    " B ",
+                    " C "
+                ],
+    "key":  {
+                "I":  "minecraft:iron_ingot",
+                "B":  "minecraft:blast_furnace",
+                "C":  "minecraft:chest"
+            },
+    "result":  {
+                   "id":  "smartbackpacks:blast_furnace_upgrade",
+                   "count":  1
+               }
+}

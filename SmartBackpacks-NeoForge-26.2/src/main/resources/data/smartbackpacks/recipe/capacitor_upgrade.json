@@ -1,0 +1,19 @@
+﻿{
+    "type":  "minecraft:crafting_shaped",
+    "category":  "misc",
+    "pattern":  [
+                    "CRC",
+                    "RBR",
+                    "CLC"
+                ],
+    "key":  {
+                "C":  "minecraft:copper_ingot",
+                "R":  "minecraft:redstone",
+                "B":  "minecraft:redstone_block",
+                "L":  "minecraft:lightning_rod"
+            },
+    "result":  {
+                   "id":  "smartbackpacks:capacitor_upgrade",
+                   "count":  1
+               }
+}

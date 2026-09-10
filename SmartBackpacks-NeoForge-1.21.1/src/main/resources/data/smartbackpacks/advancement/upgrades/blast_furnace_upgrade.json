@@ -1,0 +1,35 @@
+{
+  "parent": "smartbackpacks:upgrades/furnace_upgrade",
+  "display": {
+    "icon": {
+      "id": "smartbackpacks:blast_furnace_upgrade"
+    },
+    "title": {
+      "text": "Full Blast"
+    },
+    "description": {
+      "text": "Bring blast-furnace speed to your backpack."
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "has_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:blast_furnace_upgrade"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_item"
+    ]
+  ]
+}

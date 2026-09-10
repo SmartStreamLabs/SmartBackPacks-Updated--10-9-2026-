@@ -1,0 +1,39 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "PRS",
+    "HFA",
+    "EIE"
+  ],
+  "key": {
+    "P": {
+      "item": "minecraft:diamond_pickaxe"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    },
+    "S": {
+      "item": "minecraft:diamond_shovel"
+    },
+    "H": {
+      "item": "minecraft:diamond_hoe"
+    },
+    "F": {
+      "item": "smartbackpacks:filter_upgrade"
+    },
+    "A": {
+      "item": "minecraft:diamond_axe"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "E": {
+      "item": "minecraft:ender_pearl"
+    }
+  },
+  "result": {
+    "id": "smartbackpacks:auto_tool_upgrade",
+    "count": 1
+  }
+}

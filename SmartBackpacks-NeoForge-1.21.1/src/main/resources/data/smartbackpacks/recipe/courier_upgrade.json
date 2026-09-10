@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "RER",
+    "CFC",
+    "RER"
+  ],
+  "key": {
+    "R": "minecraft:redstone",
+    "E": "minecraft:ender_pearl",
+    "C": "minecraft:chest",
+    "F": "smartbackpacks:filter_upgrade"
+  },
+  "result": {
+    "id": "smartbackpacks:courier_upgrade",
+    "count": 1
+  }
+}

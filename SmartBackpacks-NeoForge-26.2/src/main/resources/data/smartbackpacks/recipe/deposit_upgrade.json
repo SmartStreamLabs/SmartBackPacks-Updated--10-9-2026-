@@ -1,0 +1,19 @@
+﻿{
+    "type":  "minecraft:crafting_shaped",
+    "category":  "misc",
+    "pattern":  [
+                    " R ",
+                    "HCH",
+                    " I "
+                ],
+    "key":  {
+                "I":  "minecraft:iron_ingot",
+                "H":  "minecraft:hopper",
+                "C":  "minecraft:chest",
+                "R":  "minecraft:redstone"
+            },
+    "result":  {
+                   "id":  "smartbackpacks:deposit_upgrade",
+                   "count":  1
+               }
+}

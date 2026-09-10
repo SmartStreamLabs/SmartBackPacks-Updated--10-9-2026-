@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": ["GEG", "RDR", "GCG"],
+  "key": {
+    "G": "minecraft:copper_ingot",
+    "E": "minecraft:ender_pearl",
+    "R": "minecraft:redstone",
+    "D": "minecraft:diamond",
+    "C": "minecraft:comparator"
+  },
+  "result": { "id": "smartbackpacks:storage_controller", "count": 1 }
+}

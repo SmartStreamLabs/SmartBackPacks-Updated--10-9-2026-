@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " B ",
+    "GBG",
+    " N "
+  ],
+  "key": {
+    "B": {
+      "item": "minecraft:blaze_rod"
+    },
+    "G": {
+      "item": "minecraft:glass_bottle"
+    },
+    "N": {
+      "item": "minecraft:nether_wart"
+    }
+  },
+  "result": {
+    "id": "smartbackpacks:brewing_stand_upgrade",
+    "count": 1
+  }
+}

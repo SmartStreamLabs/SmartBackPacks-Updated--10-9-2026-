@@ -1,0 +1,21 @@
+﻿{
+    "type":  "minecraft:crafting_shaped",
+    "category":  "misc",
+    "pattern":  [
+                    "OTO",
+                    "RBR",
+                    "LSL"
+                ],
+    "key":  {
+                "O":  "minecraft:observer",
+                "T":  "minecraft:torch",
+                "R":  "minecraft:redstone",
+                "B":  "minecraft:chest",
+                "L":  "minecraft:lantern",
+                "S":  "minecraft:stone_bricks"
+            },
+    "result":  {
+                   "id":  "smartbackpacks:torch_placer_upgrade",
+                   "count":  1
+               }
+}

@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "BNB",
+    "NSN",
+    "BNB"
+  ],
+  "key": {
+    "B": {
+      "item": "minecraft:netherite_block"
+    },
+    "N": {
+      "item": "minecraft:netherite_ingot"
+    },
+    "S": {
+      "item": "smartbackpacks:storage_upgrade_iv"
+    }
+  },
+  "result": {
+    "id": "smartbackpacks:storage_upgrade_v",
+    "count": 1
+  }
+}

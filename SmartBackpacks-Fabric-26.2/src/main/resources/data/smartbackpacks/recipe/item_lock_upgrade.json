@@ -1,0 +1,21 @@
+﻿{
+    "type":  "minecraft:crafting_shaped",
+    "category":  "misc",
+    "pattern":  [
+                    "ITI",
+                    "GFG",
+                    "RNR"
+                ],
+    "key":  {
+                "I":  "minecraft:iron_bars",
+                "T":  "minecraft:tripwire_hook",
+                "G":  "minecraft:gold_ingot",
+                "F":  "smartbackpacks:filter_upgrade",
+                "R":  "minecraft:redstone",
+                "N":  "minecraft:name_tag"
+            },
+    "result":  {
+                   "id":  "smartbackpacks:item_lock_upgrade",
+                   "count":  1
+               }
+}

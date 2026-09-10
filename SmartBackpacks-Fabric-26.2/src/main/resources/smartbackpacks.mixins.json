@@ -1,0 +1,18 @@
+{
+  "required": true,
+  "package": "com.teamsmartstreamlabs.smartbackpacks.fabric.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "InventorySoulboundMixin",
+    "ItemEntityPickupMixin",
+    "MobBackpackSpawnMixin"
+  ],
+  "client": [
+    "ItemInHandRendererBackpackMixin",
+    "LivingEntityRenderStateMobBackpackMixin",
+    "LivingEntityRendererMobBackpackMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

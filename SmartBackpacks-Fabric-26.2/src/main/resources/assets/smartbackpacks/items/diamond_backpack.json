@@ -1,0 +1,12 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "smartbackpacks:item/diamond_backpack",
+    "tints": [
+      {
+        "type": "minecraft:dye",
+        "default": -8760528
+      }
+    ]
+  }
+}

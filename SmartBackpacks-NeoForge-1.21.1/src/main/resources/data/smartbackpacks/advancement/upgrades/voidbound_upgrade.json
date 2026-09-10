@@ -1,0 +1,35 @@
+{
+  "parent": "smartbackpacks:upgrades/void_upgrade",
+  "display": {
+    "icon": {
+      "id": "smartbackpacks:voidbound_upgrade"
+    },
+    "title": {
+      "text": "Nothing Gets Lost"
+    },
+    "description": {
+      "text": "Bind dropped backpack items against destruction."
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "has_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:voidbound_upgrade"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_item"
+    ]
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "parent": "smartbackpacks:upgrades/crafting_table_upgrade",
+  "display": {
+    "icon": {
+      "id": "smartbackpacks:enchanting_table_upgrade"
+    },
+    "title": {
+      "text": "Arcane on the Go"
+    },
+    "description": {
+      "text": "Bring enchanting power on every journey."
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "has_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:enchanting_table_upgrade"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_item"
+    ]
+  ]
+}

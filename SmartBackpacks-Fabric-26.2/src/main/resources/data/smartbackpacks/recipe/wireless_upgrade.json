@@ -1,0 +1,18 @@
+﻿{
+    "type":  "minecraft:crafting_shaped",
+    "pattern":  [
+                    "EPE",
+                    "RBR",
+                    "EPE"
+                ],
+    "key":  {
+                "E":  "minecraft:ender_pearl",
+                "P":  "minecraft:phantom_membrane",
+                "R":  "minecraft:redstone",
+                "B":  "minecraft:ender_chest"
+            },
+    "result":  {
+                   "id":  "smartbackpacks:wireless_upgrade",
+                   "count":  1
+               }
+}

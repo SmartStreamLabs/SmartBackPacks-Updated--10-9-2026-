@@ -1,0 +1,17 @@
+﻿{
+    "type":  "minecraft:crafting_shaped",
+    "category":  "misc",
+    "pattern":  [
+                    "EEE",
+                    "EBE",
+                    "EEE"
+                ],
+    "key":  {
+                "E":  "minecraft:emerald",
+                "B":  "smartbackpacks:gold_backpack"
+            },
+    "result":  {
+                   "id":  "smartbackpacks:emerald_backpack",
+                   "count":  1
+               }
+}

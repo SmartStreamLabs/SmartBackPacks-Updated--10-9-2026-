@@ -1,0 +1,9 @@
+{
+  "parent": "smartbackpacks:item/backpack",
+  "textures": {
+    "2": "smartbackpacks:item/backpack/redstone_base",
+    "1": "smartbackpacks:item/backpack/overlay",
+    "dyeable": "smartbackpacks:item/backpack/redstone_dyeable",
+    "details": "smartbackpacks:item/backpack/redstone_details"
+  }
+}

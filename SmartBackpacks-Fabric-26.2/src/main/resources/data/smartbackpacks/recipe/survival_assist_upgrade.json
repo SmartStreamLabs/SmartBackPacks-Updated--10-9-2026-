@@ -1,0 +1,22 @@
+﻿{
+    "type":  "minecraft:crafting_shaped",
+    "category":  "misc",
+    "pattern":  [
+                    "AMH",
+                    "MFG",
+                    "CPF"
+                ],
+    "key":  {
+                "A":  "minecraft:potion",
+                "M":  "minecraft:milk_bucket",
+                "H":  "minecraft:honey_bottle",
+                "F":  "smartbackpacks:filter_upgrade",
+                "G":  "minecraft:ghast_tear",
+                "C":  "minecraft:golden_carrot",
+                "P":  "minecraft:pufferfish"
+            },
+    "result":  {
+                   "id":  "smartbackpacks:survival_assist_upgrade",
+                   "count":  1
+               }
+}

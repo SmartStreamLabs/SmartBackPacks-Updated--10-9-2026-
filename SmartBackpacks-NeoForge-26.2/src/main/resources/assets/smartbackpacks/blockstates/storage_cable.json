@@ -1,0 +1,17 @@
+{
+  "multipart": [
+    { "apply": { "model": "smartbackpacks:block/storage_cable_core" } },
+    { "when": { "north": "true" }, "apply": { "model": "smartbackpacks:block/storage_cable_arm_north" } },
+    { "when": { "south": "true" }, "apply": { "model": "smartbackpacks:block/storage_cable_arm_south" } },
+    { "when": { "east": "true" }, "apply": { "model": "smartbackpacks:block/storage_cable_arm_east" } },
+    { "when": { "west": "true" }, "apply": { "model": "smartbackpacks:block/storage_cable_arm_west" } },
+    { "when": { "up": "true" }, "apply": { "model": "smartbackpacks:block/storage_cable_arm_up" } },
+    { "when": { "down": "true" }, "apply": { "model": "smartbackpacks:block/storage_cable_arm_down" } },
+    { "when": { "backpack_north": "true" }, "apply": { "model": "smartbackpacks:block/storage_cable_backpack_connector" } },
+    { "when": { "backpack_south": "true" }, "apply": { "model": "smartbackpacks:block/storage_cable_backpack_connector", "y": 180, "uvlock": true } },
+    { "when": { "backpack_east": "true" }, "apply": { "model": "smartbackpacks:block/storage_cable_backpack_connector", "y": 90, "uvlock": true } },
+    { "when": { "backpack_west": "true" }, "apply": { "model": "smartbackpacks:block/storage_cable_backpack_connector", "y": 270, "uvlock": true } },
+    { "when": { "backpack_up": "true" }, "apply": { "model": "smartbackpacks:block/storage_cable_backpack_connector", "x": 90, "uvlock": true } },
+    { "when": { "backpack_down": "true" }, "apply": { "model": "smartbackpacks:block/storage_cable_backpack_connector", "x": 270, "uvlock": true } }
+  ]
+}

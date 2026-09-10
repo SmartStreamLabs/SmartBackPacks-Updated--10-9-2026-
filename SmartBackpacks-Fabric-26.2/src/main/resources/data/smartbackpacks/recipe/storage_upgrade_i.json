@@ -1,0 +1,16 @@
+﻿{
+    "type":  "minecraft:crafting_shaped",
+    "pattern":  [
+                    "CCC",
+                    "CLC",
+                    "CCC"
+                ],
+    "key":  {
+                "C":  "minecraft:copper_ingot",
+                "L":  "minecraft:leather"
+            },
+    "result":  {
+                   "id":  "smartbackpacks:storage_upgrade_i",
+                   "count":  1
+               }
+}

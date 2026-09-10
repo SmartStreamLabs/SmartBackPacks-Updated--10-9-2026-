@@ -1,0 +1,16 @@
+﻿{
+    "type":  "minecraft:crafting_shaped",
+    "pattern":  [
+                    "GGG",
+                    "GSG",
+                    "GGG"
+                ],
+    "key":  {
+                "G":  "minecraft:gold_ingot",
+                "S":  "smartbackpacks:storage_upgrade_ii"
+            },
+    "result":  {
+                   "id":  "smartbackpacks:storage_upgrade_iii",
+                   "count":  1
+               }
+}

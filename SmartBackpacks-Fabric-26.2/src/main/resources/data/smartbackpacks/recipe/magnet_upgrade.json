@@ -1,0 +1,19 @@
+﻿{
+    "type":  "minecraft:crafting_shaped",
+    "category":  "misc",
+    "pattern":  [
+                    " E ",
+                    "IPI",
+                    "RIR"
+                ],
+    "key":  {
+                "E":  "minecraft:ender_pearl",
+                "I":  "minecraft:iron_ingot",
+                "P":  "minecraft:piston",
+                "R":  "minecraft:redstone"
+            },
+    "result":  {
+                   "id":  "smartbackpacks:magnet_upgrade",
+                   "count":  1
+               }
+}

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": ["COC", "RER", "CDC"],
+  "key": {
+    "C": "minecraft:copper_ingot",
+    "O": "minecraft:observer",
+    "R": "minecraft:redstone",
+    "E": "minecraft:ender_eye",
+    "D": "minecraft:diamond"
+  },
+  "result": { "id": "smartbackpacks:storage_monitor", "count": 1 }
+}

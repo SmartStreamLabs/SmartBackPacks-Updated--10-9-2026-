@@ -1,0 +1,35 @@
+{
+  "parent": "smartbackpacks:backpacks/copper_backpack",
+  "display": {
+    "icon": {
+      "id": "smartbackpacks:iron_backpack"
+    },
+    "title": {
+      "text": "Iron-Clad Inventory"
+    },
+    "description": {
+      "text": "Secure your supplies in an Iron Backpack."
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "has_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:iron_backpack"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_item"
+    ]
+  ]
+}

@@ -1,0 +1,18 @@
+﻿{
+    "type":  "minecraft:crafting_shaped",
+    "category":  "misc",
+    "pattern":  [
+                    " D ",
+                    " J ",
+                    " C "
+                ],
+    "key":  {
+                "D":  "minecraft:music_disc_13",
+                "J":  "minecraft:jukebox",
+                "C":  "minecraft:chest"
+            },
+    "result":  {
+                   "id":  "smartbackpacks:jukebox_upgrade",
+                   "count":  1
+               }
+}
