@@ -1,0 +1,28 @@
+{
+  "parent": "smartbackpacks:usage/seasoned_traveler",
+  "display": {
+    "icon": {
+      "item": "smartbackpacks:diamond_backpack"
+    },
+    "title": {
+      "translate": "advancement.smartbackpacks.usage.long_haul.title"
+    },
+    "description": {
+      "translate": "advancement.smartbackpacks.usage.long_haul.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "used": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "used"
+    ]
+  ]
+}

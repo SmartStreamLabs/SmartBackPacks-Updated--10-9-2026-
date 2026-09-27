@@ -1,0 +1,26 @@
+{
+  "type": "smartbackpacks:backpack_workbench",
+  "pattern": [
+    "LBL",
+    "BFB",
+    "LXL"
+  ],
+  "key": {
+    "L": {
+      "item": "minecraft:lapis_lazuli"
+    },
+    "B": {
+      "item": "minecraft:experience_bottle"
+    },
+    "F": {
+      "item": "smartbackpacks:fluid_storage_upgrade"
+    },
+    "X": {
+      "item": "minecraft:glass_bottle"
+    }
+  },
+  "result": {
+    "item": "smartbackpacks:xp_transfer_upgrade",
+    "count": 1
+  }
+}

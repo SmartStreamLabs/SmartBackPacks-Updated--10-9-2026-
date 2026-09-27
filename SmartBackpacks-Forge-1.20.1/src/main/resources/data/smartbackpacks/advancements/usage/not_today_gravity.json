@@ -1,0 +1,28 @@
+{
+  "parent": "smartbackpacks:upgrades/fall_protection_upgrade",
+  "display": {
+    "icon": {
+      "item": "smartbackpacks:fall_protection_upgrade"
+    },
+    "title": {
+      "translate": "advancement.smartbackpacks.usage.not_today_gravity.title"
+    },
+    "description": {
+      "translate": "advancement.smartbackpacks.usage.not_today_gravity.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "used": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "used"
+    ]
+  ]
+}

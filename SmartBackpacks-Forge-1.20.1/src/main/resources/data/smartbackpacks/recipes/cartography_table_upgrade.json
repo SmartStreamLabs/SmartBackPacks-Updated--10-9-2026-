@@ -1,0 +1,24 @@
+{
+  "type": "smartbackpacks:backpack_workbench",
+  "category": "misc",
+  "pattern": [
+    " P ",
+    " T ",
+    " C "
+  ],
+  "key": {
+    "P": {
+      "item": "minecraft:paper"
+    },
+    "T": {
+      "item": "minecraft:cartography_table"
+    },
+    "C": {
+      "item": "minecraft:chest"
+    }
+  },
+  "result": {
+    "item": "smartbackpacks:cartography_table_upgrade",
+    "count": 1
+  }
+}

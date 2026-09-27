@@ -1,0 +1,28 @@
+{
+  "parent": "smartbackpacks:usage/why_walk",
+  "display": {
+    "icon": {
+      "item": "smartbackpacks:flight_upgrade"
+    },
+    "title": {
+      "translate": "advancement.smartbackpacks.usage.backpack_airlines.title"
+    },
+    "description": {
+      "translate": "advancement.smartbackpacks.usage.backpack_airlines.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "used": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "used"
+    ]
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "parent": "smartbackpacks:upgrades/crafting_table_upgrade",
+  "display": {
+    "icon": {
+      "item": "smartbackpacks:grindstone_upgrade"
+    },
+    "title": {
+      "translate": "advancement.smartbackpacks.upgrades.grindstone_upgrade.title"
+    },
+    "description": {
+      "translate": "advancement.smartbackpacks.upgrades.grindstone_upgrade.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "has_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "smartbackpacks:grindstone_upgrade"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_item"
+    ]
+  ]
+}

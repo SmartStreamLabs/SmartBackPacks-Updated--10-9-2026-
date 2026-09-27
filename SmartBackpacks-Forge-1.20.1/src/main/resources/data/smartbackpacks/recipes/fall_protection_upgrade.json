@@ -1,0 +1,29 @@
+{
+  "type": "smartbackpacks:backpack_workbench",
+  "category": "misc",
+  "pattern": [
+    "FPF",
+    "MUM",
+    "FGF"
+  ],
+  "key": {
+    "F": {
+      "item": "minecraft:feather"
+    },
+    "P": {
+      "item": "minecraft:phantom_membrane"
+    },
+    "M": {
+      "item": "minecraft:string"
+    },
+    "U": {
+      "item": "smartbackpacks:survival_assist_upgrade"
+    },
+    "G": {
+      "item": "minecraft:golden_apple"
+    }
+  },
+  "result": {
+    "item": "smartbackpacks:fall_protection_upgrade"
+  }
+}

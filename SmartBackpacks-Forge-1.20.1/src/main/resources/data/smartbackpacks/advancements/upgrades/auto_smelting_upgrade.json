@@ -1,0 +1,37 @@
+{
+  "parent": "smartbackpacks:upgrades/furnace_upgrade",
+  "display": {
+    "icon": {
+      "item": "smartbackpacks:auto_smelting_upgrade"
+    },
+    "title": {
+      "translate": "advancement.smartbackpacks.upgrades.auto_smelting_upgrade.title"
+    },
+    "description": {
+      "translate": "advancement.smartbackpacks.upgrades.auto_smelting_upgrade.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "has_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "smartbackpacks:auto_smelting_upgrade"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_item"
+    ]
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "display": {
+    "icon": {
+      "item": "smartbackpacks:leather_backpack"
+    },
+    "title": {
+      "translate": "advancement.smartbackpacks.backpacks.leather_backpack.title"
+    },
+    "description": {
+      "translate": "advancement.smartbackpacks.backpacks.leather_backpack.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "has_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "smartbackpacks:leather_backpack"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_item"
+    ]
+  ],
+  "parent": "smartbackpacks:categories/backpacks"
+}

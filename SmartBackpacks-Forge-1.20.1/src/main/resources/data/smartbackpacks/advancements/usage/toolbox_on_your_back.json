@@ -1,0 +1,28 @@
+{
+  "parent": "smartbackpacks:usage/right_tool_for_the_job",
+  "display": {
+    "icon": {
+      "item": "smartbackpacks:auto_tool_upgrade"
+    },
+    "title": {
+      "translate": "advancement.smartbackpacks.usage.toolbox_on_your_back.title"
+    },
+    "description": {
+      "translate": "advancement.smartbackpacks.usage.toolbox_on_your_back.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "used": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "used"
+    ]
+  ]
+}

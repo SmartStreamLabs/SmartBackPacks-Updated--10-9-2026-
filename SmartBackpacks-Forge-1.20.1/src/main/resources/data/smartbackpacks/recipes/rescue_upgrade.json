@@ -1,0 +1,33 @@
+{
+  "type": "smartbackpacks:backpack_workbench",
+  "category": "misc",
+  "pattern": [
+    "GTG",
+    "WCW",
+    "ORO"
+  ],
+  "key": {
+    "G": {
+      "item": "minecraft:golden_apple"
+    },
+    "T": {
+      "item": "minecraft:totem_of_undying"
+    },
+    "W": {
+      "item": "minecraft:water_bucket"
+    },
+    "C": {
+      "item": "minecraft:chest"
+    },
+    "O": {
+      "item": "minecraft:obsidian"
+    },
+    "R": {
+      "item": "minecraft:redstone_block"
+    }
+  },
+  "result": {
+    "item": "smartbackpacks:rescue_upgrade",
+    "count": 1
+  }
+}

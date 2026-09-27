@@ -1,0 +1,37 @@
+{
+  "parent": "smartbackpacks:backpacks/quartz_backpack",
+  "display": {
+    "icon": {
+      "item": "smartbackpacks:copper_backpack"
+    },
+    "title": {
+      "translate": "advancement.smartbackpacks.backpacks.copper_backpack.title"
+    },
+    "description": {
+      "translate": "advancement.smartbackpacks.backpacks.copper_backpack.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "has_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "smartbackpacks:copper_backpack"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_item"
+    ]
+  ]
+}

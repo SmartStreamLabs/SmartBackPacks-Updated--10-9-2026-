@@ -1,0 +1,29 @@
+{
+  "type": "smartbackpacks:backpack_workbench",
+  "category": "misc",
+  "pattern": [
+    "IMI",
+    "AUA",
+    "IXI"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "M": {
+      "item": "minecraft:enchanted_book"
+    },
+    "A": {
+      "item": "minecraft:anvil"
+    },
+    "U": {
+      "item": "smartbackpacks:anvil_upgrade"
+    },
+    "X": {
+      "item": "minecraft:experience_bottle"
+    }
+  },
+  "result": {
+    "item": "smartbackpacks:repair_upgrade"
+  }
+}

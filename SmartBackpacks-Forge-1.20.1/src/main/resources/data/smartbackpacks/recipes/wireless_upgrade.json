@@ -1,0 +1,26 @@
+{
+  "type": "smartbackpacks:backpack_workbench",
+  "pattern": [
+    "EPE",
+    "RBR",
+    "EPE"
+  ],
+  "key": {
+    "E": {
+      "item": "minecraft:ender_pearl"
+    },
+    "P": {
+      "item": "minecraft:phantom_membrane"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    },
+    "B": {
+      "item": "minecraft:ender_chest"
+    }
+  },
+  "result": {
+    "item": "smartbackpacks:wireless_upgrade",
+    "count": 1
+  }
+}

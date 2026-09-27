@@ -1,0 +1,28 @@
+{
+  "parent": "smartbackpacks:usage/not_today_gravity",
+  "display": {
+    "icon": {
+      "item": "smartbackpacks:fall_protection_upgrade"
+    },
+    "title": {
+      "translate": "advancement.smartbackpacks.usage.gravity_learns_nothing.title"
+    },
+    "description": {
+      "translate": "advancement.smartbackpacks.usage.gravity_learns_nothing.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "used": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "used"
+    ]
+  ]
+}

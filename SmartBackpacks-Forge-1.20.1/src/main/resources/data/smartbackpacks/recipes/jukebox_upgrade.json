@@ -1,0 +1,24 @@
+{
+  "type": "smartbackpacks:backpack_workbench",
+  "category": "misc",
+  "pattern": [
+    " D ",
+    " J ",
+    " C "
+  ],
+  "key": {
+    "D": {
+      "item": "minecraft:music_disc_13"
+    },
+    "J": {
+      "item": "minecraft:jukebox"
+    },
+    "C": {
+      "item": "minecraft:chest"
+    }
+  },
+  "result": {
+    "item": "smartbackpacks:jukebox_upgrade",
+    "count": 1
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "type": "smartbackpacks:backpack_workbench",
+  "category": "misc",
+  "pattern": [
+    "AEA",
+    "RDR",
+    "OYO"
+  ],
+  "key": {
+    "A": "minecraft:amethyst_shard",
+    "E": "minecraft:ender_pearl",
+    "Y": "minecraft:ender_eye",
+    "R": "minecraft:redstone",
+    "D": "minecraft:diamond",
+    "O": "minecraft:obsidian"
+  },
+  "result": {
+    "id": "smartbackpacks:link_crystal",
+    "count": 1
+  }
+}

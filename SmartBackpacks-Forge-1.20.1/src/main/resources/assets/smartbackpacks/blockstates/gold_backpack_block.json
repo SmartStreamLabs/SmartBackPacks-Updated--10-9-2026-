@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "smartbackpacks:block/gold_backpack_block" },
+    "facing=south": { "model": "smartbackpacks:block/gold_backpack_block", "y": 180 },
+    "facing=west": { "model": "smartbackpacks:block/gold_backpack_block", "y": 270 },
+    "facing=east": { "model": "smartbackpacks:block/gold_backpack_block", "y": 90 }
+  }
+}

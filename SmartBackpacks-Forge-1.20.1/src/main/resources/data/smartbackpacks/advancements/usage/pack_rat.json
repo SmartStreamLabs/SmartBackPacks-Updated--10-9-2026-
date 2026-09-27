@@ -1,0 +1,28 @@
+{
+  "parent": "smartbackpacks:usage/getting_organized",
+  "display": {
+    "icon": {
+      "item": "smartbackpacks:iron_backpack"
+    },
+    "title": {
+      "translate": "advancement.smartbackpacks.usage.pack_rat.title"
+    },
+    "description": {
+      "translate": "advancement.smartbackpacks.usage.pack_rat.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "used": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "used"
+    ]
+  ]
+}

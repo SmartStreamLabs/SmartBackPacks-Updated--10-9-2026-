@@ -1,0 +1,63 @@
+{
+  "parent": "smartbackpacks:root",
+  "display": {
+    "icon": {
+      "item": "smartbackpacks:netherite_vault_backpack"
+    },
+    "title": {
+      "translate": "advancement.smartbackpacks.categories.endgame.title"
+    },
+    "description": {
+      "translate": "advancement.smartbackpacks.categories.endgame.description"
+    },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "item_0": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "smartbackpacks:ancient_netherite_backpack"
+            ]
+          }
+        ]
+      }
+    },
+    "item_1": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "smartbackpacks:ultimate_diamond_backpack"
+            ]
+          }
+        ]
+      }
+    },
+    "item_2": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "smartbackpacks:netherite_vault_backpack"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "item_0",
+      "item_1",
+      "item_2"
+    ]
+  ]
+}

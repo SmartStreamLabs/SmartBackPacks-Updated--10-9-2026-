@@ -1,0 +1,27 @@
+{
+  "type": "smartbackpacks:backpack_workbench",
+  "category": "misc",
+  "pattern": [
+    "CRC",
+    "LIL",
+    "CRC"
+  ],
+  "key": {
+    "C": {
+      "item": "minecraft:copper_ingot"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    },
+    "L": {
+      "item": "minecraft:leather"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "result": {
+    "item": "smartbackpacks:storage_cable",
+    "count": 8
+  }
+}

@@ -1,0 +1,34 @@
+﻿{
+    "parent":  "minecraft:recipes/root",
+    "criteria":  {
+                     "has_emerald":  {
+                                         "trigger":  "minecraft:inventory_changed",
+                                         "conditions":  {
+                                                            "items":  [
+                                                                          {
+                                                                              "items":  [
+                                                                                            "minecraft:emerald"
+                                                                                        ]
+                                                                          }
+                                                                      ]
+                                                        }
+                                     },
+                     "has_base_backpack":  {
+                                               "trigger":  "minecraft:inventory_changed",
+                                               "conditions":  {
+                                                                  "items":  [
+                                                                                {
+                                                                                    "items":  [
+                                                                                                  "smartbackpacks:gold_backpack"
+                                                                                              ]
+                                                                                }
+                                                                            ]
+                                                              }
+                                           }
+                 },
+    "rewards":  {
+                    "recipes":  [
+                                    "smartbackpacks:emerald_backpack"
+                                ]
+                }
+}

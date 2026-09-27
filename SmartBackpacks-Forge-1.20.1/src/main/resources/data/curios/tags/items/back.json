@@ -1,0 +1,19 @@
+{
+  "replace": false,
+  "values": [
+    "smartbackpacks:leather_backpack",
+    "smartbackpacks:coal_backpack",
+    "smartbackpacks:lapis_backpack",
+    "smartbackpacks:redstone_backpack",
+    "smartbackpacks:quartz_backpack",
+    "smartbackpacks:copper_backpack",
+    "smartbackpacks:iron_backpack",
+    "smartbackpacks:gold_backpack",
+    "smartbackpacks:emerald_backpack",
+    "smartbackpacks:diamond_backpack",
+    "smartbackpacks:netherite_backpack",
+    "smartbackpacks:ancient_netherite_backpack",
+    "smartbackpacks:ultimate_diamond_backpack",
+    "smartbackpacks:netherite_vault_backpack"
+  ]
+}

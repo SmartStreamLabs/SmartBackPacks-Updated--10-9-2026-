@@ -1,0 +1,27 @@
+{
+  "type": "smartbackpacks:backpack_workbench",
+  "category": "misc",
+  "pattern": [
+    " G ",
+    " P ",
+    " B "
+  ],
+  "key": {
+    "G": {
+      "item": "minecraft:golden_carrot"
+    },
+    "P": {
+      "type": "forge:partial_nbt",
+      "item": "minecraft:potion",
+      "nbt": {
+        "Potion": "minecraft:night_vision"
+      }
+    },
+    "B": {
+      "item": "smartbackpacks:wireless_upgrade"
+    }
+  },
+  "result": {
+    "item": "smartbackpacks:night_vision_upgrade"
+  }
+}

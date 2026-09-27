@@ -1,0 +1,37 @@
+{
+  "parent": "smartbackpacks:backpacks/netherite_backpack",
+  "display": {
+    "icon": {
+      "item": "smartbackpacks:ultimate_diamond_backpack"
+    },
+    "title": {
+      "translate": "advancement.smartbackpacks.backpacks.ultimate_diamond_backpack.title"
+    },
+    "description": {
+      "translate": "advancement.smartbackpacks.backpacks.ultimate_diamond_backpack.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "has_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "smartbackpacks:ultimate_diamond_backpack"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_item"
+    ]
+  ]
+}

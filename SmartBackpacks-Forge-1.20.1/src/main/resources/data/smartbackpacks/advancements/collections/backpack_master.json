@@ -1,0 +1,232 @@
+{
+  "parent": "smartbackpacks:categories/endgame",
+  "display": {
+    "icon": {
+      "item": "smartbackpacks:netherite_vault_backpack"
+    },
+    "title": {
+      "translate": "advancement.smartbackpacks.collections.backpack_master.title"
+    },
+    "description": {
+      "translate": "advancement.smartbackpacks.collections.backpack_master.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "item_0": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "smartbackpacks:leather_backpack"
+            ]
+          }
+        ]
+      }
+    },
+    "item_1": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "smartbackpacks:coal_backpack"
+            ]
+          }
+        ]
+      }
+    },
+    "item_2": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "smartbackpacks:lapis_backpack"
+            ]
+          }
+        ]
+      }
+    },
+    "item_3": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "smartbackpacks:redstone_backpack"
+            ]
+          }
+        ]
+      }
+    },
+    "item_4": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "smartbackpacks:quartz_backpack"
+            ]
+          }
+        ]
+      }
+    },
+    "item_5": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "smartbackpacks:copper_backpack"
+            ]
+          }
+        ]
+      }
+    },
+    "item_6": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "smartbackpacks:iron_backpack"
+            ]
+          }
+        ]
+      }
+    },
+    "item_7": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "smartbackpacks:gold_backpack"
+            ]
+          }
+        ]
+      }
+    },
+    "item_8": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "smartbackpacks:emerald_backpack"
+            ]
+          }
+        ]
+      }
+    },
+    "item_9": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "smartbackpacks:diamond_backpack"
+            ]
+          }
+        ]
+      }
+    },
+    "item_10": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "smartbackpacks:netherite_backpack"
+            ]
+          }
+        ]
+      }
+    },
+    "item_11": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "smartbackpacks:ancient_netherite_backpack"
+            ]
+          }
+        ]
+      }
+    },
+    "item_12": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "smartbackpacks:ultimate_diamond_backpack"
+            ]
+          }
+        ]
+      }
+    },
+    "item_13": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "smartbackpacks:netherite_vault_backpack"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "item_0"
+    ],
+    [
+      "item_1"
+    ],
+    [
+      "item_2"
+    ],
+    [
+      "item_3"
+    ],
+    [
+      "item_4"
+    ],
+    [
+      "item_5"
+    ],
+    [
+      "item_6"
+    ],
+    [
+      "item_7"
+    ],
+    [
+      "item_8"
+    ],
+    [
+      "item_9"
+    ],
+    [
+      "item_10"
+    ],
+    [
+      "item_11"
+    ],
+    [
+      "item_12"
+    ],
+    [
+      "item_13"
+    ]
+  ]
+}

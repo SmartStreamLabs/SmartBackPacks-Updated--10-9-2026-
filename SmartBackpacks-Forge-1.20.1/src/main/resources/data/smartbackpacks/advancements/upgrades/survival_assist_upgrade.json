@@ -1,0 +1,37 @@
+{
+  "parent": "smartbackpacks:categories/survival",
+  "display": {
+    "icon": {
+      "item": "smartbackpacks:survival_assist_upgrade"
+    },
+    "title": {
+      "translate": "advancement.smartbackpacks.upgrades.survival_assist_upgrade.title"
+    },
+    "description": {
+      "translate": "advancement.smartbackpacks.upgrades.survival_assist_upgrade.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "has_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "smartbackpacks:survival_assist_upgrade"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_item"
+    ]
+  ]
+}

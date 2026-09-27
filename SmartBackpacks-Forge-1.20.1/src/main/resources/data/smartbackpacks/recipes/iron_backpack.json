@@ -1,0 +1,21 @@
+{
+  "type": "smartbackpacks:backpack_workbench",
+  "category": "misc",
+  "pattern": [
+    "III",
+    "IBI",
+    "III"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "B": {
+      "item": "smartbackpacks:copper_backpack"
+    }
+  },
+  "result": {
+    "item": "smartbackpacks:iron_backpack",
+    "count": 1
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "type": "smartbackpacks:backpack_workbench",
+  "category": "misc",
+  "pattern": [
+    "CCC",
+    "CBC",
+    "CCC"
+  ],
+  "key": {
+    "C": {
+      "item": "minecraft:coal"
+    },
+    "B": {
+      "item": "smartbackpacks:leather_backpack"
+    }
+  },
+  "result": {
+    "item": "smartbackpacks:coal_backpack",
+    "count": 1
+  }
+}

@@ -1,0 +1,9 @@
+﻿{
+    "type":  "minecraft:smithing_transform",
+    "template":  "minecraft:netherite_upgrade_smithing_template",
+    "base":  "smartbackpacks:netherite_backpack",
+    "addition":  "minecraft:diamond_block",
+    "result":  {
+                   "id":  "smartbackpacks:ultimate_diamond_backpack"
+               }
+}

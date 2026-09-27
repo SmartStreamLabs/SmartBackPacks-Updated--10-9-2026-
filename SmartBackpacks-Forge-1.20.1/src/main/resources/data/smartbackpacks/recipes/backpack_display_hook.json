@@ -1,0 +1,7 @@
+{
+  "type": "smartbackpacks:backpack_workbench",
+  "category": "misc",
+  "pattern": ["I", "C", "P"],
+  "key": {"I": {"item": "minecraft:iron_ingot"}, "C": {"item": "minecraft:chain"}, "P": {"tag": "minecraft:planks"}},
+  "result": {"item": "smartbackpacks:backpack_display_hook", "count": 2}
+}

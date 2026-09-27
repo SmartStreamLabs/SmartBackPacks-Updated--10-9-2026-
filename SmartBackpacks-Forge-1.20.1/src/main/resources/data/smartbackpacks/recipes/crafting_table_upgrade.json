@@ -1,0 +1,23 @@
+{
+  "type": "smartbackpacks:backpack_workbench",
+  "pattern": [
+    "LIL",
+    "ICI",
+    "LIL"
+  ],
+  "key": {
+    "L": {
+      "item": "minecraft:leather"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "C": {
+      "item": "minecraft:crafting_table"
+    }
+  },
+  "result": {
+    "item": "smartbackpacks:crafting_table_upgrade",
+    "count": 1
+  }
+}

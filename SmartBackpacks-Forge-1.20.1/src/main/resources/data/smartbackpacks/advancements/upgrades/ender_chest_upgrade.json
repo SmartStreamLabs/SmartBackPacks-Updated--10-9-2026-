@@ -1,0 +1,37 @@
+{
+  "parent": "smartbackpacks:upgrades/crafting_table_upgrade",
+  "display": {
+    "icon": {
+      "item": "smartbackpacks:ender_chest_upgrade"
+    },
+    "title": {
+      "translate": "advancement.smartbackpacks.upgrades.ender_chest_upgrade.title"
+    },
+    "description": {
+      "translate": "advancement.smartbackpacks.upgrades.ender_chest_upgrade.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "has_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "smartbackpacks:ender_chest_upgrade"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_item"
+    ]
+  ]
+}

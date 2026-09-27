@@ -1,0 +1,21 @@
+{
+  "type": "smartbackpacks:backpack_workbench",
+  "category": "misc",
+  "pattern": [
+    "CCC",
+    "CBC",
+    "CCC"
+  ],
+  "key": {
+    "C": {
+      "item": "minecraft:copper_ingot"
+    },
+    "B": {
+      "item": "smartbackpacks:quartz_backpack"
+    }
+  },
+  "result": {
+    "item": "smartbackpacks:copper_backpack",
+    "count": 1
+  }
+}

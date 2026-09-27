@@ -1,0 +1,33 @@
+{
+  "type": "smartbackpacks:backpack_workbench",
+  "category": "misc",
+  "pattern": [
+    "STS",
+    "PHP",
+    "RER"
+  ],
+  "key": {
+    "S": {
+      "item": "minecraft:string"
+    },
+    "T": {
+      "item": "minecraft:name_tag"
+    },
+    "P": {
+      "item": "minecraft:paper"
+    },
+    "H": {
+      "item": "minecraft:hopper"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    },
+    "E": {
+      "item": "minecraft:ender_pearl"
+    }
+  },
+  "result": {
+    "item": "smartbackpacks:filter_upgrade",
+    "count": 1
+  }
+}

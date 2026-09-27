@@ -1,0 +1,10 @@
+{
+  "required": true,
+  "minVersion": "0.8.5",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "smartbackpacks.drop-protection.refmap.json",
+  "package": "com.teamsmartstreamlabs.smartbackpacks.fabric.mixin",
+  "mixins": ["BlockBreakOwnerMixin", "ItemEntityDropProtectionMixin", "BackpackQuickInsertMixin", "BackpackQuickInsertServerMixin", "BackpackDropServerMixin"],
+  "client": ["BackpackDropClientMixin"],
+  "injectors": { "defaultRequire": 1 }
+}

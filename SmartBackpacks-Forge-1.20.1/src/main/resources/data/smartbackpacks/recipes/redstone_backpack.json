@@ -1,0 +1,21 @@
+{
+  "type": "smartbackpacks:backpack_workbench",
+  "category": "misc",
+  "pattern": [
+    "RRR",
+    "RBR",
+    "RRR"
+  ],
+  "key": {
+    "R": {
+      "item": "minecraft:redstone"
+    },
+    "B": {
+      "item": "smartbackpacks:lapis_backpack"
+    }
+  },
+  "result": {
+    "item": "smartbackpacks:redstone_backpack",
+    "count": 1
+  }
+}

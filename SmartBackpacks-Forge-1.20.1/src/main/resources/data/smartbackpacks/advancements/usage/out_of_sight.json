@@ -1,0 +1,28 @@
+{
+  "parent": "smartbackpacks:usage/didnt_need_that",
+  "display": {
+    "icon": {
+      "item": "smartbackpacks:void_upgrade"
+    },
+    "title": {
+      "translate": "advancement.smartbackpacks.usage.out_of_sight.title"
+    },
+    "description": {
+      "translate": "advancement.smartbackpacks.usage.out_of_sight.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "used": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "used"
+    ]
+  ]
+}

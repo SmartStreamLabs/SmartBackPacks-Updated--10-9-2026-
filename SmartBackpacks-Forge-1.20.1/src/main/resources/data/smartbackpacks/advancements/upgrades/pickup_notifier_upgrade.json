@@ -1,0 +1,37 @@
+{
+  "parent": "smartbackpacks:upgrades/pickup_upgrade",
+  "display": {
+    "icon": {
+      "item": "smartbackpacks:pickup_notifier_upgrade"
+    },
+    "title": {
+      "translate": "advancement.smartbackpacks.upgrades.pickup_notifier_upgrade.title"
+    },
+    "description": {
+      "translate": "advancement.smartbackpacks.upgrades.pickup_notifier_upgrade.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "has_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "smartbackpacks:pickup_notifier_upgrade"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_item"
+    ]
+  ]
+}

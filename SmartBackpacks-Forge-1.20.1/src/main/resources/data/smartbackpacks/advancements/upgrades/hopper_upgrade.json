@@ -1,0 +1,37 @@
+{
+  "parent": "smartbackpacks:categories/automation",
+  "display": {
+    "icon": {
+      "item": "smartbackpacks:hopper_upgrade"
+    },
+    "title": {
+      "translate": "advancement.smartbackpacks.upgrades.hopper_upgrade.title"
+    },
+    "description": {
+      "translate": "advancement.smartbackpacks.upgrades.hopper_upgrade.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "has_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "smartbackpacks:hopper_upgrade"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_item"
+    ]
+  ]
+}

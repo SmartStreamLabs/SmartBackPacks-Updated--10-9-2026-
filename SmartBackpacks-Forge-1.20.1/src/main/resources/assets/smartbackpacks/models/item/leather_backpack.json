@@ -1,0 +1,9 @@
+{
+  "parent": "smartbackpacks:item/backpack",
+  "textures": {
+    "2": "smartbackpacks:item/backpack/leather_base",
+    "1": "smartbackpacks:item/backpack/overlay",
+    "dyeable": "smartbackpacks:item/backpack/leather_dyeable",
+    "details": "smartbackpacks:item/backpack/leather_details"
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "parent": "smartbackpacks:upgrades/storage_upgrade_i",
+  "display": {
+    "icon": {
+      "item": "smartbackpacks:storage_upgrade_ii"
+    },
+    "title": {
+      "translate": "advancement.smartbackpacks.upgrades.storage_upgrade_ii.title"
+    },
+    "description": {
+      "translate": "advancement.smartbackpacks.upgrades.storage_upgrade_ii.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "has_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "smartbackpacks:storage_upgrade_ii"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_item"
+    ]
+  ]
+}

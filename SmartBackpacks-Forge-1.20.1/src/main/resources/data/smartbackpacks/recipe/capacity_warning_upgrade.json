@@ -1,0 +1,21 @@
+{
+  "type": "smartbackpacks:backpack_workbench",
+  "category": "misc",
+  "pattern": [
+    "TCT",
+    "GSG",
+    "PWP"
+  ],
+  "key": {
+    "T": "minecraft:redstone_torch",
+    "C": "minecraft:comparator",
+    "G": "minecraft:gold_ingot",
+    "S": "smartbackpacks:storage_upgrade_i",
+    "P": "minecraft:glass_pane",
+    "W": "minecraft:clock"
+  },
+  "result": {
+    "id": "smartbackpacks:capacity_warning_upgrade",
+    "count": 1
+  }
+}

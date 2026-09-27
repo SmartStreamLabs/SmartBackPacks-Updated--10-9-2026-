@@ -1,0 +1,41 @@
+{
+  "ambientocclusion": true,
+  "textures": {
+    "side": "smartbackpacks:block/storage_controller_side",
+    "top": "smartbackpacks:block/storage_controller_top",
+    "front": "smartbackpacks:block/storage_controller_front",
+    "particle": "smartbackpacks:block/storage_controller_side"
+  },
+  "elements": [
+    {
+      "from": [0, 0, 0],
+      "to": [16, 16, 16],
+      "faces": {
+        "down": { "texture": "#side", "cullface": "down" },
+        "up": { "texture": "#top", "cullface": "up" },
+        "north": { "texture": "#side", "cullface": "north" },
+        "south": { "texture": "#side", "cullface": "south" },
+        "west": { "texture": "#side", "cullface": "west" },
+        "east": { "texture": "#side", "cullface": "east" }
+      }
+    },
+    {
+      "from": [1.5, 2, -0.5],
+      "to": [14.5, 14.5, 0],
+      "faces": {
+        "down": { "uv": [1, 1, 2, 2], "texture": "#front" },
+        "up": { "uv": [1, 1, 2, 2], "texture": "#front" },
+        "north": { "uv": [3, 4, 13, 12], "texture": "#front" },
+        "west": { "uv": [1, 1, 2, 2], "texture": "#front" },
+        "east": { "uv": [1, 1, 2, 2], "texture": "#front" }
+      }
+    },
+    {
+      "from": [5.5, 0.75, -0.55],
+      "to": [10.5, 1.5, 0],
+      "faces": {
+        "north": { "uv": [5, 12, 8, 13], "texture": "#front" }
+      }
+    }
+  ]
+}

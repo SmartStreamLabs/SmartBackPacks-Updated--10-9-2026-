@@ -1,0 +1,37 @@
+{
+  "parent": "smartbackpacks:backpacks/gold_backpack",
+  "display": {
+    "icon": {
+      "item": "smartbackpacks:emerald_backpack"
+    },
+    "title": {
+      "translate": "advancement.smartbackpacks.backpacks.emerald_backpack.title"
+    },
+    "description": {
+      "translate": "advancement.smartbackpacks.backpacks.emerald_backpack.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "has_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "smartbackpacks:emerald_backpack"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_item"
+    ]
+  ]
+}

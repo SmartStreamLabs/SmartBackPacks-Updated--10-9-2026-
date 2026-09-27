@@ -1,0 +1,20 @@
+{
+  "type": "smartbackpacks:backpack_workbench",
+  "pattern": [
+    "GGG",
+    "GSG",
+    "GGG"
+  ],
+  "key": {
+    "G": {
+      "item": "minecraft:gold_ingot"
+    },
+    "S": {
+      "item": "smartbackpacks:storage_upgrade_ii"
+    }
+  },
+  "result": {
+    "item": "smartbackpacks:storage_upgrade_iii",
+    "count": 1
+  }
+}

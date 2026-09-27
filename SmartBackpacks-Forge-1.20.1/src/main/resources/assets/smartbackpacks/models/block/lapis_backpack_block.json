@@ -1,0 +1,10 @@
+{
+  "parent": "smartbackpacks:item/backpack",
+  "textures": {
+    "2": "smartbackpacks:block/backpack/lapis_base",
+    "1": "smartbackpacks:block/backpack/overlay",
+    "particle": "smartbackpacks:block/backpack/lapis_base",
+    "dyeable": "smartbackpacks:block/backpack/lapis_dyeable",
+    "details": "smartbackpacks:block/backpack/lapis_details"
+  }
+}

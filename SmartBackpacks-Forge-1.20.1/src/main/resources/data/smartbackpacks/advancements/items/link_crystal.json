@@ -1,0 +1,37 @@
+{
+  "parent": "smartbackpacks:categories/storage",
+  "display": {
+    "icon": {
+      "item": "smartbackpacks:link_crystal"
+    },
+    "title": {
+      "translate": "advancement.smartbackpacks.items.link_crystal.title"
+    },
+    "description": {
+      "translate": "advancement.smartbackpacks.items.link_crystal.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "item_0": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "smartbackpacks:link_crystal"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "item_0"
+    ]
+  ]
+}

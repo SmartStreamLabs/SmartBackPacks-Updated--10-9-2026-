@@ -1,0 +1,17 @@
+{
+  "type": "smartbackpacks:backpack_workbench",
+  "pattern": [
+    "SSS",
+    "SSS",
+    "SSS"
+  ],
+  "key": {
+    "S": {
+      "item": "smartbackpacks:storage_upgrade_v"
+    }
+  },
+  "result": {
+    "item": "smartbackpacks:ultimate_storage_upgrade",
+    "count": 1
+  }
+}

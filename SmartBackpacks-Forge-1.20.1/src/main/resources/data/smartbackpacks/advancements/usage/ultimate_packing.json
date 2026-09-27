@@ -1,0 +1,28 @@
+{
+  "parent": "smartbackpacks:usage/packed_tight",
+  "display": {
+    "icon": {
+      "item": "smartbackpacks:ultimate_diamond_backpack"
+    },
+    "title": {
+      "translate": "advancement.smartbackpacks.usage.ultimate_packing.title"
+    },
+    "description": {
+      "translate": "advancement.smartbackpacks.usage.ultimate_packing.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "used": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "used"
+    ]
+  ]
+}

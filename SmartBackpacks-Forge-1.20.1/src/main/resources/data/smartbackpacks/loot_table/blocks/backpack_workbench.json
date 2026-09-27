@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "smartbackpacks:backpack_workbench"
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "smartbackpacks:backpack_workbench",
+          "properties": {
+            "part": "left"
+          }
+        }
+      ]
+    }
+  ]
+}

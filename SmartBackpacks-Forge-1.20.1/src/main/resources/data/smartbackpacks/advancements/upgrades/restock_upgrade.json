@@ -1,0 +1,37 @@
+{
+  "parent": "smartbackpacks:categories/automation",
+  "display": {
+    "icon": {
+      "item": "smartbackpacks:restock_upgrade"
+    },
+    "title": {
+      "translate": "advancement.smartbackpacks.upgrades.restock_upgrade.title"
+    },
+    "description": {
+      "translate": "advancement.smartbackpacks.upgrades.restock_upgrade.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "has_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "smartbackpacks:restock_upgrade"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_item"
+    ]
+  ]
+}

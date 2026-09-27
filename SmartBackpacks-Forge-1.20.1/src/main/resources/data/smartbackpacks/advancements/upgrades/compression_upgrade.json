@@ -1,0 +1,37 @@
+{
+  "parent": "smartbackpacks:upgrades/storage_upgrade_i",
+  "display": {
+    "icon": {
+      "item": "smartbackpacks:compression_upgrade"
+    },
+    "title": {
+      "translate": "advancement.smartbackpacks.upgrades.compression_upgrade.title"
+    },
+    "description": {
+      "translate": "advancement.smartbackpacks.upgrades.compression_upgrade.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "has_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "smartbackpacks:compression_upgrade"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_item"
+    ]
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "type": "smartbackpacks:backpack_workbench",
+  "category": "misc",
+  "pattern": [
+    "SCS",
+    "IBI",
+    "PRP"
+  ],
+  "key": {
+    "S": {
+      "item": "minecraft:stone_bricks"
+    },
+    "C": {
+      "item": "minecraft:scaffolding"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "B": {
+      "item": "minecraft:chest"
+    },
+    "P": {
+      "item": "minecraft:oak_planks"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    }
+  },
+  "result": {
+    "item": "smartbackpacks:builder_upgrade",
+    "count": 1
+  }
+}

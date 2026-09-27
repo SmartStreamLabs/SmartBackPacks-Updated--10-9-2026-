@@ -1,0 +1,30 @@
+{
+  "type": "smartbackpacks:backpack_workbench",
+  "category": "misc",
+  "pattern": [
+    "RBR",
+    "CGC",
+    "RPR"
+  ],
+  "key": {
+    "R": {
+      "item": "minecraft:redstone"
+    },
+    "B": {
+      "item": "minecraft:bell"
+    },
+    "C": {
+      "item": "minecraft:comparator"
+    },
+    "G": {
+      "item": "minecraft:glass_pane"
+    },
+    "P": {
+      "item": "smartbackpacks:pickup_upgrade"
+    }
+  },
+  "result": {
+    "item": "smartbackpacks:pickup_notifier_upgrade",
+    "count": 1
+  }
+}

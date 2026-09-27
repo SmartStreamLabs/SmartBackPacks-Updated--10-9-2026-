@@ -1,0 +1,37 @@
+{
+  "parent": "smartbackpacks:backpacks/copper_backpack",
+  "display": {
+    "icon": {
+      "item": "smartbackpacks:iron_backpack"
+    },
+    "title": {
+      "translate": "advancement.smartbackpacks.backpacks.iron_backpack.title"
+    },
+    "description": {
+      "translate": "advancement.smartbackpacks.backpacks.iron_backpack.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "has_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "smartbackpacks:iron_backpack"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_item"
+    ]
+  ]
+}

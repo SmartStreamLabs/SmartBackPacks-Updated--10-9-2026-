@@ -1,0 +1,21 @@
+{
+  "type": "smartbackpacks:backpack_workbench",
+  "category": "misc",
+  "pattern": [
+    "DDD",
+    "DBD",
+    "DDD"
+  ],
+  "key": {
+    "D": {
+      "item": "minecraft:diamond"
+    },
+    "B": {
+      "item": "smartbackpacks:emerald_backpack"
+    }
+  },
+  "result": {
+    "item": "smartbackpacks:diamond_backpack",
+    "count": 1
+  }
+}

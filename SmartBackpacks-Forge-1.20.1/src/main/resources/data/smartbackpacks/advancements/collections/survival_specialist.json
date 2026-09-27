@@ -1,0 +1,202 @@
+{
+  "parent": "smartbackpacks:categories/survival",
+  "display": {
+    "icon": {
+      "item": "smartbackpacks:soulbound_upgrade"
+    },
+    "title": {
+      "translate": "advancement.smartbackpacks.collections.survival_specialist.title"
+    },
+    "description": {
+      "translate": "advancement.smartbackpacks.collections.survival_specialist.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "item_0": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "smartbackpacks:quiver_upgrade"
+            ]
+          }
+        ]
+      }
+    },
+    "item_1": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "smartbackpacks:rescue_upgrade"
+            ]
+          }
+        ]
+      }
+    },
+    "item_2": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "smartbackpacks:auto_feed_upgrade"
+            ]
+          }
+        ]
+      }
+    },
+    "item_3": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "smartbackpacks:survival_assist_upgrade"
+            ]
+          }
+        ]
+      }
+    },
+    "item_4": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "smartbackpacks:light_upgrade"
+            ]
+          }
+        ]
+      }
+    },
+    "item_5": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "smartbackpacks:night_vision_upgrade"
+            ]
+          }
+        ]
+      }
+    },
+    "item_6": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "smartbackpacks:flight_upgrade"
+            ]
+          }
+        ]
+      }
+    },
+    "item_7": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "smartbackpacks:repair_upgrade"
+            ]
+          }
+        ]
+      }
+    },
+    "item_8": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "smartbackpacks:fall_protection_upgrade"
+            ]
+          }
+        ]
+      }
+    },
+    "item_9": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "smartbackpacks:death_emergency_kit_upgrade"
+            ]
+          }
+        ]
+      }
+    },
+    "item_10": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "smartbackpacks:soulbound_upgrade"
+            ]
+          }
+        ]
+      }
+    },
+    "item_11": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "smartbackpacks:voidbound_upgrade"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "item_0"
+    ],
+    [
+      "item_1"
+    ],
+    [
+      "item_2"
+    ],
+    [
+      "item_3"
+    ],
+    [
+      "item_4"
+    ],
+    [
+      "item_5"
+    ],
+    [
+      "item_6"
+    ],
+    [
+      "item_7"
+    ],
+    [
+      "item_8"
+    ],
+    [
+      "item_9"
+    ],
+    [
+      "item_10"
+    ],
+    [
+      "item_11"
+    ]
+  ]
+}

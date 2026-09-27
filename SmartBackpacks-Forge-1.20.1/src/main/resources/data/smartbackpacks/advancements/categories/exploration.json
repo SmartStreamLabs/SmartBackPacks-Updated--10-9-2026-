@@ -1,0 +1,63 @@
+{
+  "parent": "smartbackpacks:root",
+  "display": {
+    "icon": {
+      "item": "smartbackpacks:wireless_upgrade"
+    },
+    "title": {
+      "translate": "advancement.smartbackpacks.categories.exploration.title"
+    },
+    "description": {
+      "translate": "advancement.smartbackpacks.categories.exploration.description"
+    },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "item_0": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "smartbackpacks:quick_access_wheel_upgrade"
+            ]
+          }
+        ]
+      }
+    },
+    "item_1": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "smartbackpacks:wireless_upgrade"
+            ]
+          }
+        ]
+      }
+    },
+    "item_2": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "smartbackpacks:chunk_loader_upgrade"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "item_0",
+      "item_1",
+      "item_2"
+    ]
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "parent": "smartbackpacks:upgrades/repair_upgrade",
+  "display": {
+    "icon": {
+      "item": "smartbackpacks:repair_upgrade"
+    },
+    "title": {
+      "translate": "advancement.smartbackpacks.usage.backpack_mechanic.title"
+    },
+    "description": {
+      "translate": "advancement.smartbackpacks.usage.backpack_mechanic.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "used": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "used"
+    ]
+  ]
+}
