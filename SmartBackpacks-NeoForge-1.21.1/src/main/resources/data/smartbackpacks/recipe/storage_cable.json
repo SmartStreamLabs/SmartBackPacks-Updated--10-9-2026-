@@ -1,11 +1,26 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": ["CRC", "LIL", "CRC"],
+  "type": "smartbackpacks:backpack_workbench",
+  "pattern": [
+    "CRC",
+    "LIL",
+    "CRC"
+  ],
   "key": {
-    "C": { "item": "minecraft:copper_ingot" },
-    "R": { "item": "minecraft:redstone" },
-    "L": { "item": "minecraft:leather" },
-    "I": { "item": "minecraft:iron_ingot" }
+    "C": {
+      "item": "minecraft:copper_ingot"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    },
+    "L": {
+      "item": "minecraft:leather"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    }
   },
-  "result": { "id": "smartbackpacks:storage_cable", "count": 8 }
+  "result": {
+    "id": "smartbackpacks:storage_cable",
+    "count": 8
+  }
 }

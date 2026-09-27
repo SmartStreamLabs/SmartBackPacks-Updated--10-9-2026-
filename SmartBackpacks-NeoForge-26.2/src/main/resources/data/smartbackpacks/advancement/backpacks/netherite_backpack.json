@@ -5,10 +5,10 @@
       "id": "smartbackpacks:netherite_backpack"
     },
     "title": {
-      "text": "Through Fire and Storage"
+      "translate": "advancement.smartbackpacks.backpacks.netherite_backpack.title"
     },
     "description": {
-      "text": "Carry a fireproof Netherite Backpack."
+      "translate": "advancement.smartbackpacks.backpacks.netherite_backpack.description"
     },
     "frame": "goal",
     "show_toast": true,

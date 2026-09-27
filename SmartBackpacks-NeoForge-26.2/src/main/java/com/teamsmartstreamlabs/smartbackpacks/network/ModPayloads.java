@@ -16,6 +16,7 @@ public final class ModPayloads {
     private static void registerPayloads(RegisterPayloadHandlersEvent event) {
         var registrar = event.registrar(VERSION);
         registrar.playToServer(OpenWornBackpackPayload.TYPE, OpenWornBackpackPayload.STREAM_CODEC, OpenWornBackpackPayload::handle);
+        registrar.playToServer(OpenStorageMonitorPayload.TYPE, OpenStorageMonitorPayload.STREAM_CODEC, OpenStorageMonitorPayload::handle);
         registrar.playToServer(SortOpenBackpackPayload.TYPE, SortOpenBackpackPayload.STREAM_CODEC, SortOpenBackpackPayload::handle);
         registrar.playToServer(SetBackpackScrollOffsetPayload.TYPE, SetBackpackScrollOffsetPayload.STREAM_CODEC, SetBackpackScrollOffsetPayload::handle);
         registrar.playToServer(PlaceHeldBackpackPayload.TYPE, PlaceHeldBackpackPayload.STREAM_CODEC, PlaceHeldBackpackPayload::handle);

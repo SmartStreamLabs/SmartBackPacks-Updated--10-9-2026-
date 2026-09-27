@@ -1,18 +1,18 @@
-﻿{
-    "type":  "minecraft:crafting_shaped",
-    "category":  "misc",
-    "pattern":  [
-                    " I ",
-                    " G ",
-                    " C "
-                ],
-    "key":  {
-                "I":  "minecraft:iron_ingot",
-                "G":  "minecraft:grindstone",
-                "C":  "minecraft:chest"
-            },
-    "result":  {
-                   "id":  "smartbackpacks:grindstone_upgrade",
-                   "count":  1
-               }
+{
+  "type": "smartbackpacks:backpack_workbench",
+  "category": "misc",
+  "pattern": [
+    " I ",
+    " G ",
+    " C "
+  ],
+  "key": {
+    "I": "minecraft:iron_ingot",
+    "G": "minecraft:grindstone",
+    "C": "minecraft:chest"
+  },
+  "result": {
+    "id": "smartbackpacks:grindstone_upgrade",
+    "count": 1
+  }
 }

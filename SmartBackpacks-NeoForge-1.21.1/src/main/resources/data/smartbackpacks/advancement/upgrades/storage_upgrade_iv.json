@@ -5,10 +5,10 @@
       "id": "smartbackpacks:storage_upgrade_iv"
     },
     "title": {
-      "text": "Warehouse on Your Back"
+      "translate": "advancement.smartbackpacks.upgrades.storage_upgrade_iv.title"
     },
     "description": {
-      "text": "Carry the space of a warehouse."
+      "translate": "advancement.smartbackpacks.upgrades.storage_upgrade_iv.description"
     },
     "frame": "goal",
     "show_toast": true,

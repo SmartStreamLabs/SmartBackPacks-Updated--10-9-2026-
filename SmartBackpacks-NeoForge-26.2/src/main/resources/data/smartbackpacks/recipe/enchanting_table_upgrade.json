@@ -1,20 +1,20 @@
-﻿{
-    "type":  "minecraft:crafting_shaped",
-    "pattern":  [
-                    "DOD",
-                    "OEU",
-                    "LBL"
-                ],
-    "key":  {
-                "D":  "minecraft:diamond",
-                "O":  "minecraft:obsidian",
-                "E":  "minecraft:enchanting_table",
-                "U":  "minecraft:obsidian",
-                "L":  "minecraft:lapis_lazuli",
-                "B":  "minecraft:book"
-            },
-    "result":  {
-                   "id":  "smartbackpacks:enchanting_table_upgrade",
-                   "count":  1
-               }
+{
+  "type": "smartbackpacks:backpack_workbench",
+  "pattern": [
+    "DOD",
+    "OEU",
+    "LBL"
+  ],
+  "key": {
+    "D": "minecraft:diamond",
+    "O": "minecraft:obsidian",
+    "E": "minecraft:enchanting_table",
+    "U": "minecraft:obsidian",
+    "L": "minecraft:lapis_lazuli",
+    "B": "minecraft:book"
+  },
+  "result": {
+    "id": "smartbackpacks:enchanting_table_upgrade",
+    "count": 1
+  }
 }

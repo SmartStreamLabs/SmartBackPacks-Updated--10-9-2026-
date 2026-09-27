@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ITI",
+    "LCL",
+    "PPP"
+  ],
+  "key": {
+    "I": "minecraft:iron_ingot",
+    "T": "minecraft:crafting_table",
+    "L": "minecraft:leather",
+    "C": "minecraft:chest",
+    "P": "#minecraft:planks"
+  },
+  "result": {
+    "id": "smartbackpacks:backpack_workbench",
+    "count": 1
+  }
+}

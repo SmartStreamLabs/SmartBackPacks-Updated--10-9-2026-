@@ -1,0 +1,31 @@
+{
+  "type": "smartbackpacks:backpack_workbench",
+  "category": "misc",
+  "pattern": [
+    " G ",
+    " P ",
+    " B "
+  ],
+  "key": {
+    "G": {
+      "item": "minecraft:golden_carrot"
+    },
+    "P": {
+      "type": "neoforge:components",
+      "items": "minecraft:potion",
+      "components": {
+        "minecraft:potion_contents": {
+          "potion": "minecraft:night_vision"
+        }
+      },
+      "strict": false
+    },
+    "B": {
+      "item": "smartbackpacks:wireless_upgrade"
+    }
+  },
+  "result": {
+    "id": "smartbackpacks:night_vision_upgrade",
+    "count": 1
+  }
+}

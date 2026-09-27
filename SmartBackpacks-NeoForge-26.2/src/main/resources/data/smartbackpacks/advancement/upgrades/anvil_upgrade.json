@@ -5,10 +5,10 @@
       "id": "smartbackpacks:anvil_upgrade"
     },
     "title": {
-      "text": "Heavy Duty"
+      "translate": "advancement.smartbackpacks.upgrades.anvil_upgrade.title"
     },
     "description": {
-      "text": "Somehow fit an anvil inside your backpack."
+      "translate": "advancement.smartbackpacks.upgrades.anvil_upgrade.description"
     },
     "frame": "goal",
     "show_toast": true,

@@ -14,6 +14,7 @@ import com.teamsmartstreamlabs.smartbackpacks.item.MagnetUpgradeItem;
 import com.teamsmartstreamlabs.smartbackpacks.pickup.PickupNotifierDestination;
 import com.teamsmartstreamlabs.smartbackpacks.pickup.PickupNotifierServer;
 import com.teamsmartstreamlabs.smartbackpacks.pickup.PickupNotifierSource;
+import com.teamsmartstreamlabs.smartbackpacks.protection.BlockDropProtection;
 import com.teamsmartstreamlabs.smartbackpacks.registry.ModDataComponents;
 
 import net.minecraft.core.NonNullList;
@@ -62,7 +63,8 @@ public final class MagnetUpgradeHandler {
                 entity != null
                         && entity.isAlive()
                         && !entity.getItem().isEmpty()
-                        && entity.tickCount > FRESH_DROP_PROTECTION_TICKS)) {
+                        && entity.tickCount > FRESH_DROP_PROTECTION_TICKS
+                        && BlockDropProtection.canMagnetCollect(player, entity))) {
             ItemStack entityStack = itemEntity.getItem();
             MagnetPickupTarget target = findPickupTarget(backpacks, player, itemEntity);
             if (target == null) {
@@ -80,6 +82,7 @@ public final class MagnetUpgradeHandler {
             }
 
             int inserted = entityStack.getCount() - remainder.getCount();
+            com.teamsmartstreamlabs.smartbackpacks.progress.BackpackProgression.add(player, "magnet_items_collected", inserted);
             PickupNotifierServer.reportInserted(player, target.backpack().stack(), target.backpack().tier(), entityStack.copyWithCount(inserted),
                     PickupNotifierDestination.MAIN_STORAGE, PickupNotifierSource.WORLD_PICKUP);
             if (remainder.isEmpty()) {
@@ -94,6 +97,9 @@ public final class MagnetUpgradeHandler {
 
     public static void onItemPickup(ItemEntityPickupEvent.Post event) {
         if (!(event.getPlayer() instanceof ServerPlayer player) || player.level().isClientSide()) {
+            return;
+        }
+        if (!BlockDropProtection.canMagnetCollect(player, event.getItemEntity())) {
             return;
         }
 
@@ -192,6 +198,7 @@ public final class MagnetUpgradeHandler {
             remaining = backpack.insert(remaining);
             int inserted = attempted.getCount() - remaining.getCount();
             if (inserted > 0) {
+                com.teamsmartstreamlabs.smartbackpacks.progress.BackpackProgression.add(player, "magnet_items_collected", inserted);
                 PickupNotifierServer.reportInserted(player, backpack.stack(), backpack.tier(), attempted.copyWithCount(inserted),
                         PickupNotifierDestination.MAIN_STORAGE, PickupNotifierSource.WORLD_PICKUP);
             }

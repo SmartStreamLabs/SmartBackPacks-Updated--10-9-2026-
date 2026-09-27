@@ -1,14 +1,14 @@
 {
-  "parent": "smartbackpacks:backpacks/leather_backpack",
+  "parent": "smartbackpacks:categories/automation",
   "display": {
     "icon": {
       "id": "smartbackpacks:trash_can_upgrade"
     },
     "title": {
-      "text": "Out of Sight"
+      "translate": "advancement.smartbackpacks.upgrades.trash_can_upgrade.title"
     },
     "description": {
-      "text": "Make unwanted items disappear automatically."
+      "translate": "advancement.smartbackpacks.upgrades.trash_can_upgrade.description"
     },
     "frame": "goal",
     "show_toast": true,

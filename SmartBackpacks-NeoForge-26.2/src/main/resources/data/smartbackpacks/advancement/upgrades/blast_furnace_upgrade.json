@@ -5,10 +5,10 @@
       "id": "smartbackpacks:blast_furnace_upgrade"
     },
     "title": {
-      "text": "Full Blast"
+      "translate": "advancement.smartbackpacks.upgrades.blast_furnace_upgrade.title"
     },
     "description": {
-      "text": "Bring blast-furnace speed to your backpack."
+      "translate": "advancement.smartbackpacks.upgrades.blast_furnace_upgrade.description"
     },
     "frame": "goal",
     "show_toast": true,

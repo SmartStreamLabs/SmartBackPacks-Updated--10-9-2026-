@@ -18,12 +18,12 @@ import com.teamsmartstreamlabs.smartbackpacks.item.CapacityWarningUpgradeItem;
 import com.teamsmartstreamlabs.smartbackpacks.menu.BackpackMenu;
 import com.teamsmartstreamlabs.smartbackpacks.network.CapacityWarningSyncPayload;
 import com.teamsmartstreamlabs.smartbackpacks.registry.ModDataComponents;
+import com.teamsmartstreamlabs.smartbackpacks.registry.ModSounds;
 
 import net.minecraft.core.NonNullList;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -50,19 +50,14 @@ public final class CapacityWarningUpgradeHandler {
         List<TrackedBackpack> backpacks = findCapacityWarningBackpacks(player);
         Set<String> seenKeys = new HashSet<>();
         List<PendingWarning> warnings = new ArrayList<>();
-        long gameTime = player.level().getGameTime();
 
         for (TrackedBackpack backpack : backpacks) {
             seenKeys.add(backpack.key());
             CapacityWarningSnapshot snapshot = CapacityWarningSnapshot.calculate(backpack.stack(), backpack.tier(), allowedCalculationMode(backpack.data()));
-            CapacityWarningState state = snapshot.stateFor(backpack.data());
             Tracker tracker = playerMemory.trackers.computeIfAbsent(backpack.key(), ignored -> Tracker.bootstrap(snapshot, backpack.data()));
-            PendingWarning warning = tracker.update(backpack, snapshot, state, gameTime);
+            PendingWarning warning = tracker.update(backpack, snapshot);
             if (warning != null) {
                 warnings.add(warning);
-            }
-            if (tracker.shouldSyncHud(backpack.data(), snapshot, state, gameTime, player.containerMenu instanceof BackpackMenu)) {
-                sendHudSync(player, backpack, snapshot, state, shouldShowHud(backpack.data(), state, player.containerMenu instanceof BackpackMenu));
             }
         }
 
@@ -99,12 +94,16 @@ public final class CapacityWarningUpgradeHandler {
         Component name = backpack.getHoverName();
         PlayerMessageHelper.sendStatus(player, Component.translatable("message.smartbackpacks.capacity_warning.failed_insertion",
                 name, rejected.getCount(), rejected.getHoverName()));
-        player.level().playSound(null, player.getX(), player.getY(), player.getZ(),
-                SoundEvents.ITEM_PICKUP, SoundSource.PLAYERS, 0.35F, 0.65F);
+        if (data.hud() && data.sound()) {
+            player.level().playSound(null, player.getX(), player.getY(), player.getZ(),
+                    ModSounds.CAPACITY_FULL.get(), SoundSource.PLAYERS, 0.5F, 1.0F);
+        }
 
         CapacityWarningSnapshot snapshot = CapacityWarningSnapshot.calculate(backpack, tier, allowedCalculationMode(data));
-        sendHudSync(player, new TrackedBackpack("manual", backpack, tier, data, stack -> {
-        }), snapshot, CapacityWarningState.FULL, data.hud());
+        if (data.hud()) {
+            sendHudSync(player, new TrackedBackpack("manual", backpack, tier, data, stack -> {
+            }), snapshot, CapacityWarningState.FULL, true, 100);
+        }
     }
 
     private static List<TrackedBackpack> findCapacityWarningBackpacks(ServerPlayer player) {
@@ -171,24 +170,11 @@ public final class CapacityWarningUpgradeHandler {
         return data.calculationMode();
     }
 
-    private static boolean shouldShowHud(CapacityWarningUpgradeData data, CapacityWarningState state, boolean backpackOpen) {
-        if (!data.hud() || data.hudMode() == CapacityWarningHudMode.DISABLED) {
-            return false;
-        }
-        return switch (data.hudMode()) {
-            case ALWAYS -> true;
-            case BACKPACK_OPEN_ONLY -> backpackOpen;
-            case TEMPORARY -> true;
-            case THRESHOLD_ONLY -> state != CapacityWarningState.NORMAL || backpackOpen;
-            case DISABLED -> false;
-        };
-    }
-
     private static void sendHudSync(ServerPlayer player, TrackedBackpack backpack, CapacityWarningSnapshot snapshot,
-            CapacityWarningState state, boolean showHud) {
+            CapacityWarningState state, boolean showHud, int percentage) {
         PacketDistributor.sendToPlayer(player, new CapacityWarningSyncPayload(
                 backpack.stack().getHoverName().getString(),
-                snapshot.displayPercentage(),
+                percentage,
                 state,
                 snapshot.occupiedSlots(),
                 snapshot.totalSlots(),
@@ -204,12 +190,14 @@ public final class CapacityWarningUpgradeHandler {
             if (this.backpack.data().actionBar()) {
                 PlayerMessageHelper.sendStatus(player, this.message());
             }
-            if (this.backpack.data().sound()) {
+            if (this.backpack.data().hud() && this.backpack.data().sound()) {
                 player.level().playSound(null, player.getX(), player.getY(), player.getZ(),
-                        this.sound(), SoundSource.PLAYERS, 0.6F, this.pitch());
+                        this.state == CapacityWarningState.FULL ? ModSounds.CAPACITY_FULL.get() : ModSounds.CAPACITY_WARNING.get(),
+                        SoundSource.PLAYERS, this.state == CapacityWarningState.FULL ? 0.65F : 0.4F, 1.0F);
             }
-            sendHudSync(player, this.backpack, this.snapshot, this.state,
-                    shouldShowHud(this.backpack.data(), this.state, player.containerMenu instanceof BackpackMenu));
+            if (this.backpack.data().hud()) {
+                sendHudSync(player, this.backpack, this.snapshot, this.state, true, this.threshold);
+            }
         }
 
         private Component message() {
@@ -224,21 +212,6 @@ public final class CapacityWarningUpgradeHandler {
             };
         }
 
-        private SoundEvent sound() {
-            return switch (this.state) {
-                case FULL -> SoundEvents.NOTE_BLOCK_BELL.value();
-                case CRITICAL -> SoundEvents.NOTE_BLOCK_PLING.value();
-                case WARNING, NORMAL -> SoundEvents.EXPERIENCE_ORB_PICKUP;
-            };
-        }
-
-        private float pitch() {
-            return switch (this.state) {
-                case FULL -> 0.65F;
-                case CRITICAL -> 0.9F;
-                case WARNING, NORMAL -> 1.2F;
-            };
-        }
     }
 
     private static final class PlayerMemory {
@@ -248,78 +221,41 @@ public final class CapacityWarningUpgradeHandler {
         private void pruneMissing(ServerPlayer player, Set<String> seenKeys) {
             this.trackers.entrySet().removeIf(entry -> {
                 boolean remove = !seenKeys.contains(entry.getKey());
-                if (remove && entry.getValue().hudVisible) {
-                    PacketDistributor.sendToPlayer(player, new CapacityWarningSyncPayload("", 0, CapacityWarningState.NORMAL, 0, 0, 0, false));
-                }
                 return remove;
             });
         }
     }
 
     private static final class Tracker {
-        private final boolean[] triggered = new boolean[3];
-        private final long[] lastWarningTick = {Long.MIN_VALUE, Long.MIN_VALUE, Long.MIN_VALUE};
-        private int lastSyncedPercentage = -1;
-        private CapacityWarningState lastSyncedState = CapacityWarningState.NORMAL;
-        private long lastHudSyncTick = Long.MIN_VALUE;
-        private boolean hudVisible;
+        private int lastBucket;
+        private ItemStack stack;
 
         private static Tracker bootstrap(CapacityWarningSnapshot snapshot, CapacityWarningUpgradeData data) {
-            return new Tracker();
+            Tracker tracker = new Tracker();
+            tracker.lastBucket = bucket(snapshot, data);
+            return tracker;
         }
 
-        private PendingWarning update(TrackedBackpack backpack, CapacityWarningSnapshot snapshot, CapacityWarningState state, long gameTime) {
-            CapacityWarningUpgradeData data = backpack.data();
-            for (int index = 0; index < 3; index++) {
-                if (!data.thresholdEnabled(index) || snapshot.percentage() < data.threshold(index) - data.resetMargin()) {
-                    this.triggered[index] = false;
-                }
+        private PendingWarning update(TrackedBackpack backpack, CapacityWarningSnapshot snapshot) {
+            int current = bucket(snapshot, backpack.data());
+            if (this.stack != backpack.stack()) {
+                this.stack = backpack.stack();
+                this.lastBucket = current;
+                return null;
             }
-
-            PendingWarning warning = null;
-            for (int index = 2; index >= 0; index--) {
-                if (!data.thresholdEnabled(index) || snapshot.percentage() < data.threshold(index) || this.triggered[index]) {
-                    continue;
-                }
-
-                this.triggered[index] = true;
-                for (int lower = 0; lower < index; lower++) {
-                    if (data.thresholdEnabled(lower) && snapshot.percentage() >= data.threshold(lower)) {
-                        this.triggered[lower] = true;
-                    }
-                }
-
-                if (gameTime - this.lastWarningTick[index] >= SmartBackpacksConfig.capacityWarningNotificationCooldownTicks()) {
-                    this.lastWarningTick[index] = gameTime;
-                    warning = new PendingWarning(backpack, snapshot, state, data.threshold(index));
-                    break;
-                }
+            int previous = this.lastBucket;
+            this.lastBucket = current;
+            if (current <= previous || current == 0) {
+                return null;
             }
-            return warning;
+            CapacityWarningState state = snapshot.percentage() >= 100.0D
+                    ? CapacityWarningState.FULL : current * backpack.data().thresholdStep() >= 80
+                    ? CapacityWarningState.CRITICAL : CapacityWarningState.WARNING;
+            return new PendingWarning(backpack, snapshot, state, Math.min(100, current * backpack.data().thresholdStep()));
         }
 
-        private boolean shouldSyncHud(CapacityWarningUpgradeData data, CapacityWarningSnapshot snapshot, CapacityWarningState state,
-                long gameTime, boolean backpackOpen) {
-            boolean showHud = shouldShowHud(data, state, backpackOpen);
-            if (!showHud) {
-                if (this.hudVisible) {
-                    this.hudVisible = false;
-                    return true;
-                }
-                return false;
-            }
-
-            boolean changed = this.lastSyncedPercentage != snapshot.displayPercentage() || this.lastSyncedState != state;
-            boolean refresh = data.hudMode() != CapacityWarningHudMode.TEMPORARY
-                    && gameTime - this.lastHudSyncTick >= SmartBackpacksConfig.capacityWarningHudRefreshTicks();
-            if (changed || refresh || !this.hudVisible) {
-                this.lastSyncedPercentage = snapshot.displayPercentage();
-                this.lastSyncedState = state;
-                this.lastHudSyncTick = gameTime;
-                this.hudVisible = true;
-                return true;
-            }
-            return false;
+        private static int bucket(CapacityWarningSnapshot snapshot, CapacityWarningUpgradeData data) {
+            return (int) Math.floor(snapshot.percentage() / data.thresholdStep());
         }
     }
 }

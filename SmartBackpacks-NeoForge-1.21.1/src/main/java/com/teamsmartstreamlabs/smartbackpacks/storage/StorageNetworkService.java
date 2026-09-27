@@ -8,6 +8,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.function.Predicate;
 
 import com.teamsmartstreamlabs.smartbackpacks.SmartBackpacksConfig;
 import com.teamsmartstreamlabs.smartbackpacks.block.BackpackBlock;
@@ -147,7 +148,7 @@ public final class StorageNetworkService {
 
         commit(states);
         ItemStack transfer = requestedStack.copyWithCount(extracted);
-        player.getInventory().add(transfer);
+        insertIntoPlayerInventory(player, transfer);
         if (!transfer.isEmpty()) {
             // Capacity was calculated immediately before extraction, but restore safely if another hook rejected insertion.
             ItemStack notRestored = insert(player, level, controllerPos, transfer);
@@ -235,6 +236,278 @@ public final class StorageNetworkService {
         return new Discovery(status, List.copyOf(backpacks), clampToInt(totalSlots), visitedCables.size());
     }
 
+    public static TransferResult importFrom(ServerLevel level, BlockPos devicePos, Direction front,
+            BlockPos externalPos, PlacedBackpackBlockEntity externalBackpack,
+            Predicate<ItemStack> filter, int maximumAmount) {
+        return importFrom(level, devicePos, front, externalPos, externalBackpack, filter, maximumAmount, false);
+    }
+
+    public static TransferResult importStacksFrom(ServerLevel level, BlockPos devicePos, Direction front,
+            BlockPos externalPos, PlacedBackpackBlockEntity externalBackpack,
+            Predicate<ItemStack> filter, int maximumStacks) {
+        return importFrom(level, devicePos, front, externalPos, externalBackpack, filter, maximumStacks, true);
+    }
+
+    private static TransferResult importFrom(ServerLevel level, BlockPos devicePos, Direction front,
+            BlockPos externalPos, PlacedBackpackBlockEntity externalBackpack,
+            Predicate<ItemStack> filter, int limit, boolean fullStacks) {
+        NetworkAccess access = findDeviceNetwork(level, devicePos, front);
+        if (access.result() != null) {
+            return access.result();
+        }
+        if (access.discovery().backpacks().contains(externalBackpack)) {
+            return TransferResult.INVALID_TARGET;
+        }
+
+        NonNullList<ItemStack> sourceItems = externalBackpack.createControllerStorageSnapshot();
+        List<EndpointState> networkStates = loadStates(access.discovery().backpacks());
+        boolean foundMatching = false;
+        int movedStacks = 0;
+        for (int slot = 0; slot < sourceItems.size() && (!fullStacks || movedStacks < Math.max(1, limit)); slot++) {
+            ItemStack stored = sourceItems.get(slot);
+            if (stored.isEmpty() || !filter.test(stored) || !externalBackpack.canControllerExtract(slot, stored)) {
+                continue;
+            }
+            foundMatching = true;
+            int requested = fullStacks ? stored.getCount() : Math.min(Math.max(1, limit), stored.getCount());
+            ItemStack remaining = stored.copyWithCount(requested);
+            insertIntoStates(networkStates, remaining, false);
+            int moved = requested - remaining.getCount();
+            if (moved <= 0) {
+                continue;
+            }
+
+            stored.shrink(moved);
+            if (stored.isEmpty()) {
+                sourceItems.set(slot, ItemStack.EMPTY);
+            }
+            movedStacks++;
+            if (!fullStacks) {
+                break;
+            }
+        }
+        if (movedStacks > 0) {
+            if (level.getBlockEntity(externalPos) != externalBackpack
+                    || !externalBackpack.claimStorageTransfer(level.getGameTime())) {
+                return TransferResult.BLOCKED;
+            }
+            commit(networkStates);
+            externalBackpack.applyControllerStorageSnapshot(sourceItems);
+            return TransferResult.SUCCESS;
+        }
+        return foundMatching ? TransferResult.NETWORK_FULL : TransferResult.NO_MATCHING_ITEMS;
+    }
+
+    public static TransferResult exportTo(ServerLevel level, BlockPos devicePos, Direction front,
+            BlockPos externalPos, PlacedBackpackBlockEntity externalBackpack,
+            Predicate<ItemStack> filter, int maximumAmount) {
+        NetworkAccess access = findDeviceNetwork(level, devicePos, front);
+        if (access.result() != null) {
+            return access.result();
+        }
+        if (access.discovery().backpacks().contains(externalBackpack)) {
+            return TransferResult.INVALID_TARGET;
+        }
+
+        List<EndpointState> networkStates = loadStates(access.discovery().backpacks());
+        EndpointState targetState = new EndpointState(externalBackpack, externalBackpack.createControllerStorageSnapshot());
+        boolean foundMatching = false;
+        for (EndpointState state : networkStates) {
+            for (int slot = 0; slot < state.items().size(); slot++) {
+                ItemStack stored = state.items().get(slot);
+                if (stored.isEmpty() || !filter.test(stored) || !state.backpack().canControllerExtract(slot, stored)) {
+                    continue;
+                }
+                foundMatching = true;
+                int requested = Math.min(Math.max(1, maximumAmount), stored.getCount());
+                ItemStack remaining = stored.copyWithCount(requested);
+                insertIntoStates(List.of(targetState), remaining, false);
+                int moved = requested - remaining.getCount();
+                if (moved <= 0) {
+                    continue;
+                }
+
+                if (level.getBlockEntity(externalPos) != externalBackpack
+                        || !externalBackpack.claimStorageTransfer(level.getGameTime())) {
+                    return TransferResult.BLOCKED;
+                }
+                stored.shrink(moved);
+                if (stored.isEmpty()) {
+                    state.items().set(slot, ItemStack.EMPTY);
+                }
+                state.changed = true;
+                commit(networkStates);
+                commit(List.of(targetState));
+                return TransferResult.SUCCESS;
+            }
+        }
+        return foundMatching ? TransferResult.TARGET_FULL : TransferResult.NO_MATCHING_ITEMS;
+    }
+
+    public static TransferResult exportToExternal(ServerLevel level, BlockPos devicePos, Direction front,
+            BlockPos externalPos, ExternalInventoryAccess external,
+            Predicate<ItemStack> filter, int maximumAmount) {
+        NetworkAccess access = findDeviceNetwork(level, devicePos, front);
+        if (access.result() != null) {
+            return access.result();
+        }
+        if (isNetworkEndpoint(access.discovery(), externalPos)) {
+            return TransferResult.INVALID_TARGET;
+        }
+
+        List<EndpointState> networkStates = loadStates(access.discovery().backpacks());
+        boolean foundMatching = false;
+        for (EndpointState state : networkStates) {
+            for (int slot = 0; slot < state.items().size(); slot++) {
+                ItemStack stored = state.items().get(slot);
+                if (stored.isEmpty() || !filter.test(stored) || !state.backpack().canControllerExtract(slot, stored)) {
+                    continue;
+                }
+                foundMatching = true;
+                int requested = Math.min(Math.max(1, maximumAmount), stored.getCount());
+                int accepted = Math.min(requested, external.simulateInsert(stored.copyWithCount(requested)));
+                if (accepted <= 0) {
+                    continue;
+                }
+                if (!external.isStillValid()) {
+                    return TransferResult.BLOCKED;
+                }
+
+                int moved = Math.min(accepted, external.insert(stored.copyWithCount(accepted)));
+                if (moved <= 0) {
+                    continue;
+                }
+                stored.shrink(moved);
+                if (stored.isEmpty()) {
+                    state.items().set(slot, ItemStack.EMPTY);
+                }
+                state.changed = true;
+                commit(networkStates);
+                return TransferResult.SUCCESS;
+            }
+        }
+        return foundMatching ? TransferResult.TARGET_FULL : TransferResult.NO_MATCHING_ITEMS;
+    }
+
+    public static TransferResult importFromExternal(ServerLevel level, BlockPos devicePos, Direction front,
+            BlockPos externalPos, ExternalInventoryAccess external,
+            Predicate<ItemStack> filter, int maximumAmount) {
+        NetworkAccess access = findDeviceNetwork(level, devicePos, front);
+        if (access.result() != null) {
+            return access.result();
+        }
+        if (isNetworkEndpoint(access.discovery(), externalPos)) {
+            return TransferResult.INVALID_TARGET;
+        }
+
+        boolean foundMatching = false;
+        for (ItemStack candidate : external.contents()) {
+            if (candidate.isEmpty() || !filter.test(candidate)) {
+                continue;
+            }
+            foundMatching = true;
+            int requested = Math.min(Math.max(1, maximumAmount), candidate.getCount());
+            ItemStack available = external.simulateExtract(candidate, requested);
+            if (available.isEmpty()) {
+                continue;
+            }
+
+            List<EndpointState> plannedStates = loadStates(access.discovery().backpacks());
+            ItemStack plannedRemainder = available.copy();
+            insertIntoStates(plannedStates, plannedRemainder, false);
+            int accepted = available.getCount() - plannedRemainder.getCount();
+            if (accepted <= 0) {
+                continue;
+            }
+            if (!external.isStillValid()) {
+                return TransferResult.BLOCKED;
+            }
+
+            ItemStack extracted = external.extract(candidate, accepted);
+            if (extracted.isEmpty()) {
+                continue;
+            }
+            List<EndpointState> finalStates = loadStates(access.discovery().backpacks());
+            ItemStack remainder = extracted.copy();
+            insertIntoStates(finalStates, remainder, false);
+            int moved = extracted.getCount() - remainder.getCount();
+            if (moved <= 0) {
+                external.insert(extracted);
+                continue;
+            }
+            if (!remainder.isEmpty()) {
+                external.insert(remainder);
+            }
+            commit(finalStates);
+            return TransferResult.SUCCESS;
+        }
+        return foundMatching ? TransferResult.NETWORK_FULL : TransferResult.NO_MATCHING_ITEMS;
+    }
+
+    private static boolean isNetworkEndpoint(Discovery discovery, BlockPos externalPos) {
+        return discovery.backpacks().stream().anyMatch(backpack -> backpack.getBlockPos().equals(externalPos));
+    }
+
+    private static NetworkAccess findDeviceNetwork(ServerLevel level, BlockPos devicePos, Direction front) {
+        if (!SmartBackpacksConfig.storageNetworkEnabled() || !level.hasChunkAt(devicePos)) {
+            return new NetworkAccess(TransferResult.OFFLINE, null);
+        }
+
+        ArrayDeque<CableNode> queue = new ArrayDeque<>();
+        Set<BlockPos> visitedCables = new HashSet<>();
+        Set<BlockPos> controllers = new HashSet<>();
+        for (Direction direction : DIRECTIONS) {
+            if (direction == front) {
+                continue;
+            }
+            BlockPos next = devicePos.relative(direction);
+            if (level.hasChunkAt(next) && level.getBlockState(next).getBlock() instanceof StorageCableBlock) {
+                BlockPos immutable = next.immutable();
+                visitedCables.add(immutable);
+                queue.addLast(new CableNode(immutable, 1));
+            }
+        }
+
+        while (!queue.isEmpty()) {
+            CableNode node = queue.removeFirst();
+            for (Direction direction : DIRECTIONS) {
+                BlockPos next = node.pos().relative(direction);
+                if (!level.hasChunkAt(next)) {
+                    continue;
+                }
+                BlockState state = level.getBlockState(next);
+                if (state.getBlock() instanceof StorageControllerBlock) {
+                    controllers.add(next.immutable());
+                    continue;
+                }
+                if (!(state.getBlock() instanceof StorageCableBlock)
+                        || node.depth() >= SmartBackpacksConfig.storageNetworkMaxCablePath()) {
+                    continue;
+                }
+                BlockPos immutable = next.immutable();
+                if (visitedCables.add(immutable)) {
+                    if (visitedCables.size() > SmartBackpacksConfig.storageNetworkMaxNodes()) {
+                        return new NetworkAccess(TransferResult.OFFLINE, null);
+                    }
+                    queue.addLast(new CableNode(immutable, node.depth() + 1));
+                }
+            }
+        }
+
+        List<BlockPos> sortedControllers = new ArrayList<>(controllers);
+        sortedControllers.sort(Comparator.comparingLong(BlockPos::asLong));
+        for (BlockPos controllerPos : sortedControllers) {
+            Discovery discovery = discover(level, controllerPos);
+            if (discovery.status() == Status.CONTROLLER_CONFLICT) {
+                return new NetworkAccess(TransferResult.CONTROLLER_CONFLICT, null);
+            }
+            if (discovery.status() == Status.ONLINE) {
+                return new NetworkAccess(null, discovery);
+            }
+        }
+        return new NetworkAccess(TransferResult.OFFLINE, null);
+    }
+
     private static List<EndpointState> loadStates(List<PlacedBackpackBlockEntity> backpacks) {
         List<EndpointState> states = new ArrayList<>(backpacks.size());
         for (PlacedBackpackBlockEntity backpack : backpacks) {
@@ -305,6 +578,20 @@ public final class StorageNetworkService {
         return (int) Math.min(capacity, requestedAmount);
     }
 
+    private static void insertIntoPlayerInventory(ServerPlayer player, ItemStack transfer) {
+        int legalStackLimit = Math.max(1, transfer.getMaxStackSize());
+        while (!transfer.isEmpty()) {
+            int offered = Math.min(legalStackLimit, transfer.getCount());
+            ItemStack legalStack = transfer.copyWithCount(offered);
+            player.getInventory().add(legalStack);
+            int accepted = offered - legalStack.getCount();
+            if (accepted <= 0) {
+                break;
+            }
+            transfer.shrink(accepted);
+        }
+    }
+
     private static long saturatedAdd(long left, long right) {
         return left > Long.MAX_VALUE - right ? Long.MAX_VALUE : left + right;
     }
@@ -314,6 +601,20 @@ public final class StorageNetworkService {
     }
 
     public record Discovery(Status status, List<PlacedBackpackBlockEntity> backpacks, int totalSlots, int cableNodes) {
+    }
+
+    public enum TransferResult {
+        SUCCESS,
+        NETWORK_FULL,
+        TARGET_FULL,
+        NO_MATCHING_ITEMS,
+        OFFLINE,
+        CONTROLLER_CONFLICT,
+        INVALID_TARGET,
+        BLOCKED
+    }
+
+    private record NetworkAccess(TransferResult result, Discovery discovery) {
     }
 
     private record CableNode(BlockPos pos, int depth) {

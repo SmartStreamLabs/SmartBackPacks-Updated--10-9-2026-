@@ -1,14 +1,14 @@
 {
-  "parent": "smartbackpacks:backpacks/leather_backpack",
+  "parent": "smartbackpacks:categories/survival",
   "display": {
     "icon": {
       "id": "smartbackpacks:survival_assist_upgrade"
     },
     "title": {
-      "text": "Always Prepared"
+      "translate": "advancement.smartbackpacks.upgrades.survival_assist_upgrade.title"
     },
     "description": {
-      "text": "Pack an automated helping hand for survival."
+      "translate": "advancement.smartbackpacks.upgrades.survival_assist_upgrade.description"
     },
     "frame": "goal",
     "show_toast": true,

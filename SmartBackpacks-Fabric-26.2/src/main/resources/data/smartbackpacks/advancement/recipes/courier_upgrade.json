@@ -1,0 +1,20 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_filter_upgrade": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:filter_upgrade"
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "recipes": [
+      "smartbackpacks:courier_upgrade"
+    ]
+  }
+}

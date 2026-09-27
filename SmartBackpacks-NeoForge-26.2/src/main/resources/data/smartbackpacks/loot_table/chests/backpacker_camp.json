@@ -1,0 +1,42 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "rolls": {"type": "minecraft:uniform", "min": 2, "max": 5},
+      "entries": [
+        {"type": "minecraft:item", "name": "minecraft:bread", "weight": 20},
+        {"type": "minecraft:item", "name": "minecraft:cooked_beef", "weight": 12},
+        {"type": "minecraft:item", "name": "minecraft:torch", "weight": 20},
+        {"type": "minecraft:item", "name": "minecraft:leather", "weight": 15},
+        {"type": "minecraft:item", "name": "minecraft:string", "weight": 15},
+        {"type": "minecraft:item", "name": "minecraft:coal", "weight": 16},
+        {"type": "minecraft:item", "name": "minecraft:iron_ingot", "weight": 8},
+        {"type": "minecraft:item", "name": "minecraft:paper", "weight": 10},
+        {"type": "minecraft:item", "name": "minecraft:emerald", "weight": 2},
+        {"type": "minecraft:item", "name": "minecraft:compass", "weight": 2}
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {"type": "minecraft:empty", "weight": 90},
+        {"type": "minecraft:item", "name": "smartbackpacks:pickup_upgrade", "weight": 4},
+        {"type": "minecraft:item", "name": "smartbackpacks:filter_upgrade", "weight": 3},
+        {"type": "minecraft:item", "name": "smartbackpacks:storage_upgrade_i", "weight": 2},
+        {"type": "minecraft:item", "name": "smartbackpacks:leather_backpack", "weight": 1}
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "smartbackpacks:leather_backpack",
+          "functions": [
+            {"function": "smartbackpacks:abandoned_backpack", "profile": "camp"}
+          ]
+        }
+      ]
+    }
+  ]
+}

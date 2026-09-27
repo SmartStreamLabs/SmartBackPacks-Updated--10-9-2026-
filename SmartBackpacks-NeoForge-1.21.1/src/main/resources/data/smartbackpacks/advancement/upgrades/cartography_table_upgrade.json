@@ -5,10 +5,10 @@
       "id": "smartbackpacks:cartography_table_upgrade"
     },
     "title": {
-      "text": "World in Your Pack"
+      "translate": "advancement.smartbackpacks.upgrades.cartography_table_upgrade.title"
     },
     "description": {
-      "text": "Take a cartography table on the road."
+      "translate": "advancement.smartbackpacks.upgrades.cartography_table_upgrade.description"
     },
     "frame": "task",
     "show_toast": true,

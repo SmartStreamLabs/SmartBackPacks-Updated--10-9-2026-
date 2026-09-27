@@ -1,18 +1,18 @@
-﻿{
-    "type":  "minecraft:crafting_shaped",
-    "pattern":  [
-                    "CRC",
-                    "BFB",
-                    "CRC"
-                ],
-    "key":  {
-                "C":  "minecraft:copper_ingot",
-                "R":  "minecraft:redstone",
-                "B":  "minecraft:bucket",
-                "F":  "smartbackpacks:fluid_storage_upgrade"
-            },
-    "result":  {
-                   "id":  "smartbackpacks:fluid_transfer_upgrade",
-                   "count":  1
-               }
+{
+  "type": "smartbackpacks:backpack_workbench",
+  "pattern": [
+    "CRC",
+    "BFB",
+    "CRC"
+  ],
+  "key": {
+    "C": "minecraft:copper_ingot",
+    "R": "minecraft:redstone",
+    "B": "minecraft:bucket",
+    "F": "smartbackpacks:fluid_storage_upgrade"
+  },
+  "result": {
+    "id": "smartbackpacks:fluid_transfer_upgrade",
+    "count": 1
+  }
 }

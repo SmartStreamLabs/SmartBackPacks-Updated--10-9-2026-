@@ -1,0 +1,28 @@
+{
+  "parent": "smartbackpacks:usage/lost_and_found",
+  "display": {
+    "icon": {
+      "id": "smartbackpacks:iron_backpack"
+    },
+    "title": {
+      "translate": "advancement.smartbackpacks.usage.collector_of_lost_packs.title"
+    },
+    "description": {
+      "translate": "advancement.smartbackpacks.usage.collector_of_lost_packs.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "used": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "used"
+    ]
+  ]
+}

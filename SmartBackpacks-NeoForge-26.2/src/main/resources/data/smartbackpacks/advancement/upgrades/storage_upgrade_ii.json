@@ -5,10 +5,10 @@
       "id": "smartbackpacks:storage_upgrade_ii"
     },
     "title": {
-      "text": "Double Down"
+      "translate": "advancement.smartbackpacks.upgrades.storage_upgrade_ii.title"
     },
     "description": {
-      "text": "Expand your backpack a second time."
+      "translate": "advancement.smartbackpacks.upgrades.storage_upgrade_ii.description"
     },
     "frame": "task",
     "show_toast": true,

@@ -8,6 +8,7 @@ import com.teamsmartstreamlabs.smartbackpacks.item.CapacityWarningUpgradeItem;
 import com.teamsmartstreamlabs.smartbackpacks.network.CapacityWarningSyncPayload;
 import com.teamsmartstreamlabs.smartbackpacks.registry.ModDataComponents;
 import com.teamsmartstreamlabs.smartbackpacks.registry.ModMenuTypes;
+import com.teamsmartstreamlabs.smartbackpacks.registry.ModSounds;
 import com.teamsmartstreamlabs.smartbackpacks.upgrade.CapacityWarningCalculationMode;
 import com.teamsmartstreamlabs.smartbackpacks.upgrade.CapacityWarningHudMode;
 import com.teamsmartstreamlabs.smartbackpacks.upgrade.CapacityWarningSnapshot;
@@ -17,7 +18,6 @@ import com.teamsmartstreamlabs.smartbackpacks.upgrade.CapacityWarningUpgradeData
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
@@ -78,7 +78,10 @@ public class CapacityWarningUpgradeMenu extends AbstractContainerMenu {
     }
 
     public void changeThreshold(int index, int delta) {
-        this.settings = this.settings.withThreshold(index, this.settings.threshold(index) + delta);
+        if (index != 0 || delta == 0) {
+            return;
+        }
+        this.settings = this.settings.withThreshold(0, this.settings.thresholdStep() == 10 ? 25 : 10);
         this.saveUpgradeData();
     }
 
@@ -131,11 +134,13 @@ public class CapacityWarningUpgradeMenu extends AbstractContainerMenu {
         CapacityWarningState state = snapshot.stateFor(this.settings);
         PlayerMessageHelper.sendStatus(serverPlayer, Component.translatable("message.smartbackpacks.capacity_warning.preview",
                 this.access.getBackpackStack(this.owner).getHoverName(), Math.max(snapshot.displayPercentage(), this.settings.threshold1())));
-        serverPlayer.level().playSound(null, serverPlayer.getX(), serverPlayer.getY(), serverPlayer.getZ(),
-                SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.PLAYERS, 0.55F, 1.0F);
+        if (this.settings.hud() && this.settings.sound()) {
+            serverPlayer.level().playSound(null, serverPlayer.getX(), serverPlayer.getY(), serverPlayer.getZ(),
+                    ModSounds.CAPACITY_WARNING.get(), SoundSource.PLAYERS, 0.4F, 1.0F);
+        }
         PacketDistributor.sendToPlayer(serverPlayer, new CapacityWarningSyncPayload(
                 this.access.getBackpackStack(this.owner).getHoverName().getString(),
-                Math.max(snapshot.displayPercentage(), this.settings.threshold1()),
+                Math.max(snapshot.displayPercentage(), this.settings.thresholdStep()),
                 state == CapacityWarningState.NORMAL ? CapacityWarningState.WARNING : state,
                 snapshot.occupiedSlots(),
                 snapshot.totalSlots(),

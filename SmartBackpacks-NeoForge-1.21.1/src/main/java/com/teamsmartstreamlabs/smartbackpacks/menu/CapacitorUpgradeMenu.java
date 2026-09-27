@@ -100,6 +100,7 @@ public class CapacitorUpgradeMenu extends AbstractContainerMenu {
             return;
         }
 
+        int beforeEnergy = CapacitorUpgradeHandler.getEnergyStored(upgradeStack);
         int space = CapacitorUpgradeHandler.receiveEnergy(upgradeStack, CapacitorUpgradeHandler.TRANSFER_RATE, true);
         if (space <= 0) {
             return;
@@ -113,6 +114,9 @@ public class CapacitorUpgradeMenu extends AbstractContainerMenu {
         CapacitorUpgradeHandler.receiveEnergy(upgradeStack, extracted, false);
         this.energyItemSlot.setChanged();
         this.saveUpgradeStack(upgradeStack);
+        if (this.owner instanceof net.minecraft.server.level.ServerPlayer serverPlayer)
+            com.teamsmartstreamlabs.smartbackpacks.progress.BackpackProgression.add(serverPlayer, "energy_stored_fe",
+                    Math.max(0L, (long) CapacitorUpgradeHandler.getEnergyStored(upgradeStack) - beforeEnergy));
     }
 
     @Override

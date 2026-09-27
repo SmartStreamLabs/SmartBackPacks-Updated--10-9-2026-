@@ -1,14 +1,14 @@
 {
-  "parent": "smartbackpacks:backpacks/leather_backpack",
+  "parent": "smartbackpacks:categories/energy_fluids",
   "display": {
     "icon": {
       "id": "smartbackpacks:xp_transfer_upgrade"
     },
     "title": {
-      "text": "Bottled Wisdom"
+      "translate": "advancement.smartbackpacks.upgrades.xp_transfer_upgrade.title"
     },
     "description": {
-      "text": "Move experience through your backpack."
+      "translate": "advancement.smartbackpacks.upgrades.xp_transfer_upgrade.description"
     },
     "frame": "goal",
     "show_toast": true,

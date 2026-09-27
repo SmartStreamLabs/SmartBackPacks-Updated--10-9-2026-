@@ -1,21 +1,21 @@
-﻿{
-    "type":  "minecraft:crafting_shaped",
-    "category":  "misc",
-    "pattern":  [
-                    "STS",
-                    "PHP",
-                    "RER"
-                ],
-    "key":  {
-                "S":  "minecraft:string",
-                "T":  "minecraft:name_tag",
-                "P":  "minecraft:paper",
-                "H":  "minecraft:hopper",
-                "R":  "minecraft:redstone",
-                "E":  "minecraft:ender_pearl"
-            },
-    "result":  {
-                   "id":  "smartbackpacks:filter_upgrade",
-                   "count":  1
-               }
+{
+  "type": "smartbackpacks:backpack_workbench",
+  "category": "misc",
+  "pattern": [
+    "STS",
+    "PHP",
+    "RER"
+  ],
+  "key": {
+    "S": "minecraft:string",
+    "T": "minecraft:name_tag",
+    "P": "minecraft:paper",
+    "H": "minecraft:hopper",
+    "R": "minecraft:redstone",
+    "E": "minecraft:ender_pearl"
+  },
+  "result": {
+    "id": "smartbackpacks:filter_upgrade",
+    "count": 1
+  }
 }

@@ -2,6 +2,7 @@ package com.teamsmartstreamlabs.smartbackpacks.registry;
 
 import com.teamsmartstreamlabs.smartbackpacks.SmartBackpacks;
 import com.teamsmartstreamlabs.smartbackpacks.menu.BackpackMenu;
+import com.teamsmartstreamlabs.smartbackpacks.menu.BackpackWorkbenchMenu;
 import com.teamsmartstreamlabs.smartbackpacks.menu.BackpackLinkUpgradeMenu;
 import com.teamsmartstreamlabs.smartbackpacks.menu.AutoFeedUpgradeMenu;
 import com.teamsmartstreamlabs.smartbackpacks.menu.BuilderUpgradeMenu;
@@ -16,10 +17,12 @@ import com.teamsmartstreamlabs.smartbackpacks.menu.PortableAutoSmeltingMenu;
 import com.teamsmartstreamlabs.smartbackpacks.menu.QuiverUpgradeMenu;
 import com.teamsmartstreamlabs.smartbackpacks.menu.QuickAccessWheelUpgradeMenu;
 import com.teamsmartstreamlabs.smartbackpacks.menu.RescueUpgradeMenu;
+import com.teamsmartstreamlabs.smartbackpacks.menu.DeathEmergencyKitUpgradeMenu;
 import com.teamsmartstreamlabs.smartbackpacks.menu.SurvivalAssistUpgradeMenu;
 import com.teamsmartstreamlabs.smartbackpacks.menu.TorchPlacerUpgradeMenu;
 import com.teamsmartstreamlabs.smartbackpacks.menu.XpTransferUpgradeMenu;
 import com.teamsmartstreamlabs.smartbackpacks.menu.StorageControllerMenu;
+import com.teamsmartstreamlabs.smartbackpacks.menu.StorageTransferMenu;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.inventory.MenuType;
@@ -58,6 +61,8 @@ public final class ModMenuTypes {
             MENUS.register("quick_access_wheel_upgrade", () -> IMenuTypeExtension.create(QuickAccessWheelUpgradeMenu::new));
     public static final DeferredHolder<MenuType<?>, MenuType<RescueUpgradeMenu>> RESCUE_UPGRADE =
             MENUS.register("rescue_upgrade", () -> IMenuTypeExtension.create(RescueUpgradeMenu::new));
+    public static final DeferredHolder<MenuType<?>, MenuType<DeathEmergencyKitUpgradeMenu>> DEATH_EMERGENCY_KIT_UPGRADE =
+            MENUS.register("death_emergency_kit_upgrade", () -> IMenuTypeExtension.create(DeathEmergencyKitUpgradeMenu::new));
     public static final DeferredHolder<MenuType<?>, MenuType<BuilderUpgradeMenu>> BUILDER_UPGRADE =
             MENUS.register("builder_upgrade", () -> IMenuTypeExtension.create(BuilderUpgradeMenu::new));
     public static final DeferredHolder<MenuType<?>, MenuType<TorchPlacerUpgradeMenu>> TORCH_PLACER_UPGRADE =
@@ -68,6 +73,11 @@ public final class ModMenuTypes {
             MENUS.register("backpack_link_upgrade", () -> IMenuTypeExtension.create(BackpackLinkUpgradeMenu::new));
     public static final DeferredHolder<MenuType<?>, MenuType<StorageControllerMenu>> STORAGE_CONTROLLER =
             MENUS.register("storage_controller", () -> IMenuTypeExtension.create(StorageControllerMenu::new));
+    public static final DeferredHolder<MenuType<?>, MenuType<StorageTransferMenu>> STORAGE_TRANSFER =
+            MENUS.register("storage_transfer", () -> IMenuTypeExtension.create(StorageTransferMenu::new));
+
+    public static final DeferredHolder<MenuType<?>, MenuType<BackpackWorkbenchMenu>> BACKPACK_WORKBENCH =
+            MENUS.register("backpack_workbench", () -> IMenuTypeExtension.create(BackpackWorkbenchMenu::new));
 
     private ModMenuTypes() {
     }

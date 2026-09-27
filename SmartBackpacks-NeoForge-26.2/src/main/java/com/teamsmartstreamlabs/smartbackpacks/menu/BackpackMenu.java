@@ -23,6 +23,8 @@ import com.teamsmartstreamlabs.smartbackpacks.item.FilterUpgradeItem;
 import com.teamsmartstreamlabs.smartbackpacks.item.HopperUpgradeItem;
 import com.teamsmartstreamlabs.smartbackpacks.item.ItemLockUpgradeItem;
 import com.teamsmartstreamlabs.smartbackpacks.item.MagnetUpgradeItem;
+import com.teamsmartstreamlabs.smartbackpacks.item.NightVisionUpgradeItem;
+import com.teamsmartstreamlabs.smartbackpacks.item.FlightUpgradeItem;
 import com.teamsmartstreamlabs.smartbackpacks.item.PickupUpgradeItem;
 import com.teamsmartstreamlabs.smartbackpacks.item.QuiverUpgradeItem;
 import com.teamsmartstreamlabs.smartbackpacks.item.RescueUpgradeItem;
@@ -78,6 +80,7 @@ public class BackpackMenu extends AbstractContainerMenu {
     private static final int UPGRADE_SLOT_COUNT = BackpackUpgradeInventory.UPGRADE_SLOT_COUNT;
 
     private final BackpackAccess access;
+    private final ItemStack openedHookBackpack;
     private final Player owner;
     private final BackpackInventory backpackInventory;
     private final BackpackUpgradeInventory backpackUpgradeInventory;
@@ -97,6 +100,8 @@ public class BackpackMenu extends AbstractContainerMenu {
     public BackpackMenu(int containerId, Inventory playerInventory, BackpackAccess access) {
         super(ModMenuTypes.BACKPACK.get(), containerId);
         this.access = access;
+        this.openedHookBackpack = access.source() == BackpackAccess.Source.DISPLAY_HOOK
+                ? access.getBackpackStack(playerInventory.player) : ItemStack.EMPTY;
         this.owner = playerInventory.player;
         this.tier = access.tier();
         this.lockedInventorySlot = access.getLockedInventorySlot();
@@ -112,6 +117,8 @@ public class BackpackMenu extends AbstractContainerMenu {
 
         if (!playerInventory.player.level().isClientSide()) {
             OpenBackpackTracker.markOpen(playerInventory.player, access);
+            if (playerInventory.player instanceof net.minecraft.server.level.ServerPlayer serverPlayer)
+                com.teamsmartstreamlabs.smartbackpacks.progress.BackpackProgression.onOpened(serverPlayer, this.backpackInventory.getBackpackStack());
         }
         this.getPlacedBackpackBlockEntity(playerInventory.player).ifPresent(PlacedBackpackBlockEntity::startOpen);
     }
@@ -263,6 +270,12 @@ public class BackpackMenu extends AbstractContainerMenu {
 
     public boolean isUpgradeEnabled(int upgradeSlot) {
         ItemStack stack = this.getUpgradeStack(upgradeSlot);
+        if (stack.getItem() instanceof FlightUpgradeItem) {
+            return stack.getOrDefault(ModDataComponents.FLIGHT_UPGRADE_ENABLED.get(), true);
+        }
+        if (stack.getItem() instanceof NightVisionUpgradeItem) {
+            return stack.getOrDefault(ModDataComponents.NIGHT_VISION_UPGRADE_ENABLED.get(), true);
+        }
         if (stack.getItem() instanceof MagnetUpgradeItem) {
             return stack.getOrDefault(ModDataComponents.MAGNET_UPGRADE_DATA.get(), MagnetUpgradeData.DEFAULT).enabled();
         }
@@ -306,6 +319,20 @@ public class BackpackMenu extends AbstractContainerMenu {
 
     public void toggleUpgradeEnabled(int upgradeSlot) {
         ItemStack stack = this.getUpgradeStack(upgradeSlot);
+        if (stack.getItem() instanceof FlightUpgradeItem) {
+            boolean enabled = stack.getOrDefault(ModDataComponents.FLIGHT_UPGRADE_ENABLED.get(), true);
+            stack.set(ModDataComponents.FLIGHT_UPGRADE_ENABLED.get(), !enabled);
+            this.backpackUpgradeInventory.setItem(upgradeSlot, stack);
+            this.broadcastChanges();
+            return;
+        }
+        if (stack.getItem() instanceof NightVisionUpgradeItem) {
+            boolean enabled = stack.getOrDefault(ModDataComponents.NIGHT_VISION_UPGRADE_ENABLED.get(), true);
+            stack.set(ModDataComponents.NIGHT_VISION_UPGRADE_ENABLED.get(), !enabled);
+            this.backpackUpgradeInventory.setItem(upgradeSlot, stack);
+            this.broadcastChanges();
+            return;
+        }
         if (stack.getItem() instanceof MagnetUpgradeItem) {
             MagnetUpgradeData data = stack.getOrDefault(ModDataComponents.MAGNET_UPGRADE_DATA.get(), MagnetUpgradeData.DEFAULT);
             stack.set(ModDataComponents.MAGNET_UPGRADE_DATA.get(),
@@ -650,6 +677,8 @@ public class BackpackMenu extends AbstractContainerMenu {
 
     @Override
     public boolean stillValid(Player player) {
+        if (!player.level().isClientSide() && this.access.source() == BackpackAccess.Source.DISPLAY_HOOK
+                && this.access.getBackpackStack(player) != this.openedHookBackpack) return false;
         return this.backpackInventory.stillValid(player);
     }
 
@@ -710,7 +739,102 @@ public class BackpackMenu extends AbstractContainerMenu {
             return;
         }
 
+        int progressSlot = ContainerInput == ContainerInput.PICKUP || ContainerInput == ContainerInput.SWAP
+                ? this.getLogicalBackpackSlot(slotId) : -1;
+        ItemStack beforeClick = progressSlot >= 0 ? this.backpackInventory.getItem(progressSlot).copy() : null;
+        ItemStack[] beforeDrag = this.snapshotDragStorage(player, ContainerInput == ContainerInput.QUICK_CRAFT);
+        if (this.handleLogicalStackPickup(slotId, button, ContainerInput)) {
+            this.recordManualInsertion(player, progressSlot, beforeClick);
+            return;
+        }
+
         super.clicked(slotId, button, ContainerInput, player);
+        this.recordManualInsertion(player, progressSlot, beforeClick);
+        this.recordDragInsertion(player, beforeDrag);
+    }
+
+    private ItemStack[] snapshotDragStorage(Player player, boolean dragging) {
+        if (!(player instanceof net.minecraft.server.level.ServerPlayer) || !dragging) return null;
+        ItemStack[] before = new ItemStack[this.backpackInventory.getContainerSize()];
+        for (int slot = 0; slot < before.length; slot++) before[slot] = this.backpackInventory.getItem(slot).copy();
+        return before;
+    }
+
+    private void recordDragInsertion(Player player, ItemStack[] before) {
+        if (!(player instanceof net.minecraft.server.level.ServerPlayer serverPlayer) || before == null) return;
+        long inserted = 0;
+        for (int slot = 0; slot < before.length; slot++) {
+            ItemStack after = this.backpackInventory.getItem(slot);
+            if (after.isEmpty()) continue;
+            inserted += ItemStack.isSameItemSameComponents(before[slot], after)
+                    ? Math.max(0, after.getCount() - before[slot].getCount()) : after.getCount();
+        }
+        if (inserted > 0) com.teamsmartstreamlabs.smartbackpacks.progress.BackpackProgression.recordInsertion(
+                serverPlayer, this.backpackInventory.getBackpackStack(), this.tier, inserted);
+    }
+
+    private void recordManualInsertion(Player player, int logicalSlot, ItemStack before) {
+        if (!(player instanceof net.minecraft.server.level.ServerPlayer serverPlayer) || logicalSlot < 0 || before == null) return;
+        ItemStack after = this.backpackInventory.getItem(logicalSlot);
+        if (after.isEmpty()) return;
+        long inserted = ItemStack.isSameItemSameComponents(before, after)
+                ? Math.max(0, after.getCount() - before.getCount()) : after.getCount();
+        if (inserted > 0) com.teamsmartstreamlabs.smartbackpacks.progress.BackpackProgression.recordInsertion(
+                serverPlayer, this.backpackInventory.getBackpackStack(), this.tier, inserted);
+    }
+
+    private boolean handleLogicalStackPickup(int slotId, int button, ContainerInput input) {
+        if (slotId < 0 || slotId >= this.getBackpackSlotCount()) {
+            return false;
+        }
+
+        int logicalSlot = this.getLogicalBackpackSlot(slotId);
+        if (logicalSlot < 0) {
+            return false;
+        }
+
+        ItemStack existing = this.backpackInventory.getItem(logicalSlot);
+        if (existing.isEmpty()) {
+            return false;
+        }
+
+        int vanillaLimit = Math.max(1, existing.getMaxStackSize());
+        int logicalLimit = this.backpackInventory.getMaxStackSize(existing);
+        if (logicalLimit <= vanillaLimit) {
+            return false;
+        }
+
+        if ((input == ContainerInput.SWAP || input == ContainerInput.THROW)
+                && existing.getCount() > vanillaLimit) {
+            return true;
+        }
+        if (input != ContainerInput.PICKUP) {
+            return false;
+        }
+
+        ItemStack carried = this.getCarried();
+        if (carried.isEmpty()) {
+            if (existing.getCount() <= vanillaLimit) {
+                return false;
+            }
+            int amount = button == 1 ? 1 : Math.min(vanillaLimit, existing.getCount());
+            this.setCarried(this.backpackInventory.removeItem(logicalSlot, amount));
+            return true;
+        }
+
+        if (ItemStack.isSameItemSameComponents(existing, carried)) {
+            int requested = button == 1 ? 1 : carried.getCount();
+            int transfer = Math.min(requested, logicalLimit - existing.getCount());
+            if (transfer > 0) {
+                existing.grow(transfer);
+                carried.shrink(transfer);
+                this.backpackInventory.setChanged();
+            }
+            return true;
+        }
+
+        // Swapping would place an illegal oversized stack on the vanilla cursor.
+        return existing.getCount() > vanillaLimit;
     }
 
     private boolean blocksLockedBackpackInteraction(int slotId, Player player) {
@@ -796,7 +920,7 @@ public class BackpackMenu extends AbstractContainerMenu {
             }
             if (this.moveItemStackToQuiverStorage(sourceStack, null)) {
                 // Projectile items can be promoted from normal storage into installed Quiver Upgrades.
-            } else if (!this.moveItemStackTo(sourceStack, playerStart, playerEnd, true)) {
+            } else if (!this.moveBackpackStackToPlayerInventory(sourceStack, playerStart, playerEnd)) {
                 return ItemStack.EMPTY;
             }
         } else if (index < playerStart) {
@@ -825,6 +949,21 @@ public class BackpackMenu extends AbstractContainerMenu {
         }
 
         return sourceCopy;
+    }
+
+    private boolean moveBackpackStackToPlayerInventory(ItemStack sourceStack, int playerStart, int playerEnd) {
+        boolean moved = false;
+        while (!sourceStack.isEmpty()) {
+            int previousCount = sourceStack.getCount();
+            if (!this.moveItemStackTo(sourceStack, playerStart, playerEnd, true)) {
+                break;
+            }
+            moved = true;
+            if (sourceStack.getCount() >= previousCount) {
+                break;
+            }
+        }
+        return moved;
     }
 
     private boolean moveItemStackToBackpackStorage(ItemStack sourceStack) {

@@ -1,0 +1,113 @@
+{
+  "parent": "smartbackpacks:categories/utility",
+  "display": {
+    "icon": {
+      "id": "smartbackpacks:filter_upgrade"
+    },
+    "title": {
+      "translate": "advancement.smartbackpacks.collections.upgrade_collection.title"
+    },
+    "description": {
+      "translate": "advancement.smartbackpacks.collections.upgrade_collection.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "item_0": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:quiver_upgrade"
+          }
+        ]
+      }
+    },
+    "item_1": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:quick_access_wheel_upgrade"
+          }
+        ]
+      }
+    },
+    "item_2": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:capacity_warning_upgrade"
+          }
+        ]
+      }
+    },
+    "item_3": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:item_lock_upgrade"
+          }
+        ]
+      }
+    },
+    "item_4": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:backpack_link_upgrade"
+          }
+        ]
+      }
+    },
+    "item_5": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:light_upgrade"
+          }
+        ]
+      }
+    },
+    "item_6": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:filter_upgrade"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "item_0"
+    ],
+    [
+      "item_1"
+    ],
+    [
+      "item_2"
+    ],
+    [
+      "item_3"
+    ],
+    [
+      "item_4"
+    ],
+    [
+      "item_5"
+    ],
+    [
+      "item_6"
+    ]
+  ]
+}

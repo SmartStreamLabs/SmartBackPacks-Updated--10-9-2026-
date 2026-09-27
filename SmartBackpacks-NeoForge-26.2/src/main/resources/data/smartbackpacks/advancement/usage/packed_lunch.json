@@ -1,0 +1,28 @@
+{
+  "parent": "smartbackpacks:upgrades/auto_feed_upgrade",
+  "display": {
+    "icon": {
+      "id": "smartbackpacks:auto_feed_upgrade"
+    },
+    "title": {
+      "translate": "advancement.smartbackpacks.usage.packed_lunch.title"
+    },
+    "description": {
+      "translate": "advancement.smartbackpacks.usage.packed_lunch.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "used": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "used"
+    ]
+  ]
+}

@@ -96,6 +96,7 @@ public class PlacedBackpackBlockEntity extends BlockEntity implements WorldlyCon
     private ItemStack storedBackpack = ItemStack.EMPTY;
     private long lastHopperReceiveGameTime = Long.MIN_VALUE;
     private long lastHopperTransferGameTime = Long.MIN_VALUE;
+    private long lastStorageTransferGameTime = Long.MIN_VALUE;
     private int openMenuCount;
     private boolean chunkForced;
     private int forcedChunkRadius;
@@ -724,6 +725,14 @@ public class PlacedBackpackBlockEntity extends BlockEntity implements WorldlyCon
 
     public int getControllerStackLimit(ItemStack stack) {
         return this.getMaxStackSize(stack);
+    }
+
+    public boolean claimStorageTransfer(long gameTime) {
+        if (this.lastStorageTransferGameTime == gameTime) {
+            return false;
+        }
+        this.lastStorageTransferGameTime = gameTime;
+        return true;
     }
 
     private void notifyInventoryChanged() {
@@ -1358,7 +1367,10 @@ public class PlacedBackpackBlockEntity extends BlockEntity implements WorldlyCon
 
         @Override
         public ItemStack getStackInSlot(int slot) {
-            return PlacedBackpackBlockEntity.this.getItem(slot);
+            ItemStack stack = PlacedBackpackBlockEntity.this.getItem(slot);
+            return stack.isEmpty()
+                    ? ItemStack.EMPTY
+                    : stack.copyWithCount(Math.min(stack.getCount(), Math.max(1, stack.getMaxStackSize())));
         }
 
         @Override
@@ -1413,7 +1425,7 @@ public class PlacedBackpackBlockEntity extends BlockEntity implements WorldlyCon
                 return ItemStack.EMPTY;
             }
 
-            int extracted = Math.min(amount, existing.getCount());
+            int extracted = Math.min(amount, Math.min(existing.getCount(), existing.getMaxStackSize()));
             ItemStack result = existing.copyWithCount(extracted);
             if (!simulate) {
                 existing.shrink(extracted);

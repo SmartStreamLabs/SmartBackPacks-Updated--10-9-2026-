@@ -5,10 +5,10 @@
       "id": "smartbackpacks:smoker_upgrade"
     },
     "title": {
-      "text": "Smoked on the Go"
+      "translate": "advancement.smartbackpacks.upgrades.smoker_upgrade.title"
     },
     "description": {
-      "text": "Cook food with a portable smoker."
+      "translate": "advancement.smartbackpacks.upgrades.smoker_upgrade.description"
     },
     "frame": "goal",
     "show_toast": true,

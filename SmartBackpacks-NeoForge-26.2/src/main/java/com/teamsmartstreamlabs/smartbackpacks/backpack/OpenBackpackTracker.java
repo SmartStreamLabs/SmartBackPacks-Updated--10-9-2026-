@@ -33,6 +33,7 @@ public final class OpenBackpackTracker {
             case CHEST -> BackpackAccess.chest(access.tier());
             case CURIO_BACK -> BackpackAccess.curioBack(access.slotIndex(), access.tier());
             case BLOCK -> BackpackAccess.block(access.blockPos(), access.tier());
+            case DISPLAY_HOOK -> BackpackAccess.displayHook(access.blockPos(), access.tier());
         };
     }
 

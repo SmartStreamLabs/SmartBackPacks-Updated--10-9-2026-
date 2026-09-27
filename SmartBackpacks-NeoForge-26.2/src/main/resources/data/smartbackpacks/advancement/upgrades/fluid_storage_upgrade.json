@@ -1,14 +1,14 @@
 {
-  "parent": "smartbackpacks:backpacks/leather_backpack",
+  "parent": "smartbackpacks:categories/energy_fluids",
   "display": {
     "icon": {
       "id": "smartbackpacks:fluid_storage_upgrade"
     },
     "title": {
-      "text": "Liquid Assets"
+      "translate": "advancement.smartbackpacks.upgrades.fluid_storage_upgrade.title"
     },
     "description": {
-      "text": "Store fluids inside your backpack."
+      "translate": "advancement.smartbackpacks.upgrades.fluid_storage_upgrade.description"
     },
     "frame": "goal",
     "show_toast": true,

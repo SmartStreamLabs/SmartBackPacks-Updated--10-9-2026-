@@ -1,0 +1,28 @@
+{
+  "parent": "smartbackpacks:upgrades/auto_smelting_upgrade",
+  "display": {
+    "icon": {
+      "id": "smartbackpacks:auto_smelting_upgrade"
+    },
+    "title": {
+      "translate": "advancement.smartbackpacks.usage.portable_furnace.title"
+    },
+    "description": {
+      "translate": "advancement.smartbackpacks.usage.portable_furnace.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "used": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "used"
+    ]
+  ]
+}

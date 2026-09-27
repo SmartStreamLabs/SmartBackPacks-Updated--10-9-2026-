@@ -1,6 +1,10 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": ["GEG", "RDR", "GCG"],
+  "type": "smartbackpacks:backpack_workbench",
+  "pattern": [
+    "GEG",
+    "RDR",
+    "GCG"
+  ],
   "key": {
     "G": "minecraft:copper_ingot",
     "E": "minecraft:ender_pearl",
@@ -8,5 +12,8 @@
     "D": "minecraft:diamond",
     "C": "minecraft:comparator"
   },
-  "result": { "id": "smartbackpacks:storage_controller", "count": 1 }
+  "result": {
+    "id": "smartbackpacks:storage_controller",
+    "count": 1
+  }
 }

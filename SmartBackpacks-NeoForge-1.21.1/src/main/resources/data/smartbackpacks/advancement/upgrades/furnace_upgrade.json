@@ -1,14 +1,14 @@
 {
-  "parent": "smartbackpacks:backpacks/leather_backpack",
+  "parent": "smartbackpacks:categories/machines",
   "display": {
     "icon": {
       "id": "smartbackpacks:furnace_upgrade"
     },
     "title": {
-      "text": "Hot Pockets"
+      "translate": "advancement.smartbackpacks.upgrades.furnace_upgrade.title"
     },
     "description": {
-      "text": "Smelt items from a portable furnace."
+      "translate": "advancement.smartbackpacks.upgrades.furnace_upgrade.description"
     },
     "frame": "task",
     "show_toast": true,

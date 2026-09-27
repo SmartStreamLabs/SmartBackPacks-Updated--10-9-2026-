@@ -1,0 +1,6 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "smartbackpacks:item/nested_storage_upgrade"
+  }
+}

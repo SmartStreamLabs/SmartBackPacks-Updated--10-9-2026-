@@ -76,6 +76,9 @@ public class BackpackInventory implements Container {
 
         // Persist after every meaningful inventory mutation so drops, relogs, and menu closes keep data intact.
         BackpackStackData.saveStorage(backpack, this.items);
+        if (this.owner instanceof net.minecraft.server.level.ServerPlayer serverPlayer) {
+            com.teamsmartstreamlabs.smartbackpacks.progress.BackpackProgression.checkFull(serverPlayer, this.tier, this.items);
+        }
         this.access.setBackpackStack(this.owner, backpack);
         this.owner.getInventory().setChanged();
     }

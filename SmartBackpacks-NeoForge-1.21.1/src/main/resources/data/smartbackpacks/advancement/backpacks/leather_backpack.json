@@ -4,16 +4,15 @@
       "id": "smartbackpacks:leather_backpack"
     },
     "title": {
-      "text": "Packed and Ready"
+      "translate": "advancement.smartbackpacks.backpacks.leather_backpack.title"
     },
     "description": {
-      "text": "Obtain a Leather Backpack and begin carrying more."
+      "translate": "advancement.smartbackpacks.backpacks.leather_backpack.description"
     },
     "frame": "task",
     "show_toast": true,
     "announce_to_chat": true,
-    "hidden": false,
-    "background": "minecraft:gui/advancements/backgrounds/stone"
+    "hidden": false
   },
   "criteria": {
     "has_item": {
@@ -31,5 +30,6 @@
     [
       "has_item"
     ]
-  ]
+  ],
+  "parent": "smartbackpacks:categories/backpacks"
 }

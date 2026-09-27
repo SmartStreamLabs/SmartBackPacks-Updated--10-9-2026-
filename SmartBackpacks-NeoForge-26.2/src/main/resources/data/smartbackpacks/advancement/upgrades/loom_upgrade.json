@@ -5,10 +5,10 @@
       "id": "smartbackpacks:loom_upgrade"
     },
     "title": {
-      "text": "Woven Convenience"
+      "translate": "advancement.smartbackpacks.upgrades.loom_upgrade.title"
     },
     "description": {
-      "text": "Bring a loom along for the journey."
+      "translate": "advancement.smartbackpacks.upgrades.loom_upgrade.description"
     },
     "frame": "task",
     "show_toast": true,

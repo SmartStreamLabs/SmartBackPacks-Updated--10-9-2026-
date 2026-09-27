@@ -5,10 +5,10 @@
       "id": "smartbackpacks:ancient_netherite_backpack"
     },
     "title": {
-      "text": "Ancient Capacity"
+      "translate": "advancement.smartbackpacks.backpacks.ancient_netherite_backpack.title"
     },
     "description": {
-      "text": "Forge the mighty Ultimate Netherite Backpack."
+      "translate": "advancement.smartbackpacks.backpacks.ancient_netherite_backpack.description"
     },
     "frame": "challenge",
     "show_toast": true,

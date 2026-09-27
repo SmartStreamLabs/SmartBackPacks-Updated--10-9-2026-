@@ -1,19 +1,19 @@
-﻿{
-    "type":  "minecraft:crafting_shaped",
-    "category":  "misc",
-    "pattern":  [
-                    "LAL",
-                    "SCS",
-                    "LAL"
-                ],
-    "key":  {
-                "L":  "minecraft:leather",
-                "A":  "minecraft:arrow",
-                "S":  "minecraft:string",
-                "C":  "minecraft:chest"
-            },
-    "result":  {
-                   "id":  "smartbackpacks:quiver_upgrade",
-                   "count":  1
-               }
+{
+  "type": "smartbackpacks:backpack_workbench",
+  "category": "misc",
+  "pattern": [
+    "LAL",
+    "SCS",
+    "LAL"
+  ],
+  "key": {
+    "L": "minecraft:leather",
+    "A": "minecraft:arrow",
+    "S": "minecraft:string",
+    "C": "minecraft:chest"
+  },
+  "result": {
+    "id": "smartbackpacks:quiver_upgrade",
+    "count": 1
+  }
 }

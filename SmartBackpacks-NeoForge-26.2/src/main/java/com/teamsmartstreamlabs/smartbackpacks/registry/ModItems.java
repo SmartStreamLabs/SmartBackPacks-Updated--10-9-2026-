@@ -7,6 +7,7 @@ import com.teamsmartstreamlabs.smartbackpacks.item.AutoSmeltingUpgradeItem;
 import com.teamsmartstreamlabs.smartbackpacks.item.AutoFeedUpgradeItem;
 import com.teamsmartstreamlabs.smartbackpacks.item.AutoToolUpgradeItem;
 import com.teamsmartstreamlabs.smartbackpacks.item.BackpackItem;
+import com.teamsmartstreamlabs.smartbackpacks.item.BackpackDisplayHookItem;
 import com.teamsmartstreamlabs.smartbackpacks.item.BackpackLinkUpgradeItem;
 import com.teamsmartstreamlabs.smartbackpacks.item.BlastFurnaceUpgradeItem;
 import com.teamsmartstreamlabs.smartbackpacks.item.BrewingStandUpgradeItem;
@@ -31,6 +32,10 @@ import com.teamsmartstreamlabs.smartbackpacks.item.ItemLockUpgradeItem;
 import com.teamsmartstreamlabs.smartbackpacks.item.JukeboxUpgradeItem;
 import com.teamsmartstreamlabs.smartbackpacks.item.LoomUpgradeItem;
 import com.teamsmartstreamlabs.smartbackpacks.item.LightUpgradeItem;
+import com.teamsmartstreamlabs.smartbackpacks.item.NightVisionUpgradeItem;
+import com.teamsmartstreamlabs.smartbackpacks.item.FlightUpgradeItem;
+import com.teamsmartstreamlabs.smartbackpacks.item.RepairUpgradeItem;
+import com.teamsmartstreamlabs.smartbackpacks.item.FallProtectionUpgradeItem;
 import com.teamsmartstreamlabs.smartbackpacks.item.LinkCrystalItem;
 import com.teamsmartstreamlabs.smartbackpacks.item.MagnetUpgradeItem;
 import com.teamsmartstreamlabs.smartbackpacks.item.NestedStorageUpgradeItem;
@@ -42,6 +47,7 @@ import com.teamsmartstreamlabs.smartbackpacks.item.RestockUpgradeItem;
 import com.teamsmartstreamlabs.smartbackpacks.item.RescueUpgradeItem;
 import com.teamsmartstreamlabs.smartbackpacks.item.SmokerUpgradeItem;
 import com.teamsmartstreamlabs.smartbackpacks.item.SoulboundUpgradeItem;
+import com.teamsmartstreamlabs.smartbackpacks.item.DeathEmergencyKitUpgradeItem;
 import com.teamsmartstreamlabs.smartbackpacks.item.SmithingTableUpgradeItem;
 import com.teamsmartstreamlabs.smartbackpacks.item.StorageUpgradeItem;
 import com.teamsmartstreamlabs.smartbackpacks.item.StorageSystemBlockItem;
@@ -82,8 +88,14 @@ public final class ModItems {
     public static final DeferredItem<Item> ANCIENT_NETHERITE_BACKPACK = registerBackpack("ancient_netherite_backpack", BackpackTier.ANCIENT_NETHERITE, fireproofBackpackProperties().rarity(Rarity.EPIC));
     public static final DeferredItem<Item> ULTIMATE_DIAMOND_BACKPACK = registerBackpack("ultimate_diamond_backpack", BackpackTier.ULTIMATE_DIAMOND, fireproofBackpackProperties().rarity(Rarity.EPIC));
     public static final DeferredItem<Item> NETHERITE_VAULT_BACKPACK = registerBackpack("netherite_vault_backpack", BackpackTier.NETHERITE_VAULT, fireproofBackpackProperties().rarity(Rarity.EPIC));
+    public static final DeferredItem<Item> BACKPACK_WORKBENCH = registerBlockItem("backpack_workbench", ModBlocks.BACKPACK_WORKBENCH);
+    public static final DeferredItem<Item> BACKPACK_DISPLAY_HOOK = registerItem("backpack_display_hook",
+            properties -> new BackpackDisplayHookItem(ModBlocks.BACKPACK_DISPLAY_HOOK.get(), properties),
+            new Item.Properties());
     public static final DeferredItem<Item> STORAGE_CONTROLLER = registerStorageBlockItem("storage_controller", ModBlocks.STORAGE_CONTROLLER);
     public static final DeferredItem<Item> STORAGE_CABLE = registerStorageBlockItem("storage_cable", ModBlocks.STORAGE_CABLE);
+    public static final DeferredItem<Item> STORAGE_IMPORTER = registerStorageBlockItem("storage_importer", ModBlocks.STORAGE_IMPORTER);
+    public static final DeferredItem<Item> STORAGE_EXPORTER = registerStorageBlockItem("storage_exporter", ModBlocks.STORAGE_EXPORTER);
     public static final DeferredItem<Item> STORAGE_MONITOR = registerItem("storage_monitor", StorageMonitorItem::new,
             new Item.Properties());
     public static final DeferredItem<Item> MAGNET_UPGRADE = registerItem("magnet_upgrade", MagnetUpgradeItem::new, false, new Item.Properties());
@@ -105,7 +117,12 @@ public final class ModItems {
     public static final DeferredItem<Item> AUTO_TOOL_UPGRADE = registerItem("auto_tool_upgrade", AutoToolUpgradeItem::new, new Item.Properties());
     public static final DeferredItem<Item> AUTO_FEED_UPGRADE = registerItem("auto_feed_upgrade", AutoFeedUpgradeItem::new, new Item.Properties());
     public static final DeferredItem<Item> SURVIVAL_ASSIST_UPGRADE = registerItem("survival_assist_upgrade", SurvivalAssistUpgradeItem::new, new Item.Properties());
-    public static final DeferredItem<Item> LIGHT_UPGRADE = registerItem("light_upgrade", LightUpgradeItem::new, new Item.Properties());
+public static final DeferredItem<Item> LIGHT_UPGRADE = registerItem("light_upgrade", LightUpgradeItem::new, new Item.Properties());
+    public static final DeferredItem<Item> NIGHT_VISION_UPGRADE = registerItem("night_vision_upgrade", NightVisionUpgradeItem::new, new Item.Properties());
+    public static final DeferredItem<Item> FLIGHT_UPGRADE = registerItem("flight_upgrade", FlightUpgradeItem::new, new Item.Properties().rarity(Rarity.EPIC));
+    public static final DeferredItem<Item> REPAIR_UPGRADE = registerItem("repair_upgrade", RepairUpgradeItem::new, new Item.Properties().rarity(Rarity.RARE));
+    public static final DeferredItem<Item> FALL_PROTECTION_UPGRADE = registerItem("fall_protection_upgrade", FallProtectionUpgradeItem::new, new Item.Properties().durability(32).rarity(Rarity.RARE));
+    public static final DeferredItem<Item> DEATH_EMERGENCY_KIT_UPGRADE = registerItem("death_emergency_kit_upgrade", DeathEmergencyKitUpgradeItem::new, new Item.Properties().rarity(Rarity.RARE));
     public static final DeferredItem<Item> WIRELESS_UPGRADE = registerItem("wireless_upgrade", WirelessUpgradeItem::new, new Item.Properties().rarity(Rarity.UNCOMMON));
     public static final DeferredItem<Item> SOULBOUND_UPGRADE = registerItem("soulbound_upgrade", SoulboundUpgradeItem::new, new Item.Properties().rarity(Rarity.EPIC));
     public static final DeferredItem<Item> FILTER_UPGRADE = registerItem("filter_upgrade", FilterUpgradeItem::new, new Item.Properties());

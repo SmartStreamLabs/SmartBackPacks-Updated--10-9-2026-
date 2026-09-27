@@ -1,0 +1,35 @@
+{
+  "parent": "smartbackpacks:categories/utility",
+  "display": {
+    "icon": {
+      "id": "smartbackpacks:backpack_workbench"
+    },
+    "title": {
+      "translate": "advancement.smartbackpacks.items.backpack_workbench.title"
+    },
+    "description": {
+      "translate": "advancement.smartbackpacks.items.backpack_workbench.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "item_0": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:backpack_workbench"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "item_0"
+    ]
+  ]
+}

@@ -27,6 +27,7 @@ import com.teamsmartstreamlabs.smartbackpacks.upgrade.PickupUpgradeData;
 import com.teamsmartstreamlabs.smartbackpacks.upgrade.QuiverUpgradeData;
 import com.teamsmartstreamlabs.smartbackpacks.upgrade.QuickAccessWheelUpgradeData;
 import com.teamsmartstreamlabs.smartbackpacks.upgrade.RescueUpgradeData;
+import com.teamsmartstreamlabs.smartbackpacks.upgrade.DeathEmergencyKitData;
 import com.teamsmartstreamlabs.smartbackpacks.upgrade.SmokerUpgradeData;
 import com.teamsmartstreamlabs.smartbackpacks.upgrade.SurvivalAssistUpgradeData;
 import com.teamsmartstreamlabs.smartbackpacks.upgrade.TorchPlacerUpgradeData;
@@ -47,6 +48,14 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 public final class ModDataComponents {
     private static final DeferredRegister.DataComponents COMPONENTS =
             DeferredRegister.createDataComponents(Registries.DATA_COMPONENT_TYPE, SmartBackpacks.MOD_ID);
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<Boolean>> NIGHT_VISION_UPGRADE_ENABLED =
+            COMPONENTS.registerComponentType("night_vision_upgrade_enabled", builder -> builder.persistent(Codec.BOOL));
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<Boolean>> FLIGHT_UPGRADE_ENABLED =
+            COMPONENTS.registerComponentType("flight_upgrade_enabled", builder -> builder.persistent(Codec.BOOL));
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<DeathEmergencyKitData>> DEATH_EMERGENCY_KIT_DATA =
+            COMPONENTS.registerComponentType("death_emergency_kit_data", builder -> builder.persistent(DeathEmergencyKitData.CODEC));
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<Long>> FALL_PROTECTION_COOLDOWN_UNTIL =
+            COMPONENTS.registerComponentType("fall_protection_cooldown_until", builder -> builder.persistent(Codec.LONG));
 
     public static final DeferredHolder<DataComponentType<?>, DataComponentType<ItemContainerContents>> BACKPACK_UPGRADES =
             COMPONENTS.registerComponentType("backpack_upgrades", builder -> builder.persistent(ItemContainerContents.CODEC));

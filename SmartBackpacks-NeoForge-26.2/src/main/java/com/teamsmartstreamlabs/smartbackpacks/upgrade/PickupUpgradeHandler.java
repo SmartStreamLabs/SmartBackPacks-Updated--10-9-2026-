@@ -14,6 +14,7 @@ import com.teamsmartstreamlabs.smartbackpacks.item.PickupUpgradeItem;
 import com.teamsmartstreamlabs.smartbackpacks.pickup.PickupNotifierDestination;
 import com.teamsmartstreamlabs.smartbackpacks.pickup.PickupNotifierServer;
 import com.teamsmartstreamlabs.smartbackpacks.pickup.PickupNotifierSource;
+import com.teamsmartstreamlabs.smartbackpacks.protection.BlockDropProtection;
 import com.teamsmartstreamlabs.smartbackpacks.registry.ModDataComponents;
 
 import net.minecraft.server.level.ServerPlayer;
@@ -51,7 +52,8 @@ public final class PickupUpgradeHandler {
                         && entity.isAlive()
                         && !entity.getItem().isEmpty()
                         && !entity.hasPickUpDelay()
-                        && entity.tickCount > FRESH_DROP_PROTECTION_TICKS)) {
+                        && entity.tickCount > FRESH_DROP_PROTECTION_TICKS
+                        && BlockDropProtection.canMagnetCollect(player, entity))) {
             if (!processedEntities.add(itemEntity.getId())) {
                 continue;
             }
@@ -80,6 +82,9 @@ public final class PickupUpgradeHandler {
 
     public static void onItemPickup(ItemEntityPickupEvent.Post event) {
         if (!(event.getPlayer() instanceof ServerPlayer player) || player.level().isClientSide()) {
+            return;
+        }
+        if (!BlockDropProtection.canMagnetCollect(player, event.getItemEntity())) {
             return;
         }
 

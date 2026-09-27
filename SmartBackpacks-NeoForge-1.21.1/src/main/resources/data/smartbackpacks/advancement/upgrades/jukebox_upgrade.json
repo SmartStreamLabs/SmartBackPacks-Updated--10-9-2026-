@@ -5,10 +5,10 @@
       "id": "smartbackpacks:jukebox_upgrade"
     },
     "title": {
-      "text": "Traveling Tunes"
+      "translate": "advancement.smartbackpacks.upgrades.jukebox_upgrade.title"
     },
     "description": {
-      "text": "Take your favorite music everywhere."
+      "translate": "advancement.smartbackpacks.upgrades.jukebox_upgrade.description"
     },
     "frame": "goal",
     "show_toast": true,

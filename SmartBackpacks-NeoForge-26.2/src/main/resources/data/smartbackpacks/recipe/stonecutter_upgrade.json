@@ -1,18 +1,18 @@
-﻿{
-    "type":  "minecraft:crafting_shaped",
-    "category":  "misc",
-    "pattern":  [
-                    " I ",
-                    " S ",
-                    " C "
-                ],
-    "key":  {
-                "I":  "minecraft:iron_ingot",
-                "S":  "minecraft:stonecutter",
-                "C":  "minecraft:chest"
-            },
-    "result":  {
-                   "id":  "smartbackpacks:stonecutter_upgrade",
-                   "count":  1
-               }
+{
+  "type": "smartbackpacks:backpack_workbench",
+  "category": "misc",
+  "pattern": [
+    " I ",
+    " S ",
+    " C "
+  ],
+  "key": {
+    "I": "minecraft:iron_ingot",
+    "S": "minecraft:stonecutter",
+    "C": "minecraft:chest"
+  },
+  "result": {
+    "id": "smartbackpacks:stonecutter_upgrade",
+    "count": 1
+  }
 }

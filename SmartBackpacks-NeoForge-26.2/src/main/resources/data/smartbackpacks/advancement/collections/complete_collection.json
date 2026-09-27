@@ -1,0 +1,789 @@
+{
+  "parent": "smartbackpacks:categories/endgame",
+  "display": {
+    "icon": {
+      "id": "smartbackpacks:ultimate_storage_upgrade"
+    },
+    "title": {
+      "translate": "advancement.smartbackpacks.collections.complete_collection.title"
+    },
+    "description": {
+      "translate": "advancement.smartbackpacks.collections.complete_collection.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "item_0": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:magnet_upgrade"
+          }
+        ]
+      }
+    },
+    "item_1": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:advanced_magnet_upgrade"
+          }
+        ]
+      }
+    },
+    "item_2": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:pickup_upgrade"
+          }
+        ]
+      }
+    },
+    "item_3": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:pickup_notifier_upgrade"
+          }
+        ]
+      }
+    },
+    "item_4": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:quiver_upgrade"
+          }
+        ]
+      }
+    },
+    "item_5": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:quick_access_wheel_upgrade"
+          }
+        ]
+      }
+    },
+    "item_6": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:trash_can_upgrade"
+          }
+        ]
+      }
+    },
+    "item_7": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:rescue_upgrade"
+          }
+        ]
+      }
+    },
+    "item_8": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:builder_upgrade"
+          }
+        ]
+      }
+    },
+    "item_9": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:torch_placer_upgrade"
+          }
+        ]
+      }
+    },
+    "item_10": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:capacity_warning_upgrade"
+          }
+        ]
+      }
+    },
+    "item_11": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:item_lock_upgrade"
+          }
+        ]
+      }
+    },
+    "item_12": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:backpack_link_upgrade"
+          }
+        ]
+      }
+    },
+    "item_13": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:hopper_upgrade"
+          }
+        ]
+      }
+    },
+    "item_14": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:nested_storage_upgrade"
+          }
+        ]
+      }
+    },
+    "item_15": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:auto_tool_upgrade"
+          }
+        ]
+      }
+    },
+    "item_16": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:auto_feed_upgrade"
+          }
+        ]
+      }
+    },
+    "item_17": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:survival_assist_upgrade"
+          }
+        ]
+      }
+    },
+    "item_18": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:light_upgrade"
+          }
+        ]
+      }
+    },
+    "item_19": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:night_vision_upgrade"
+          }
+        ]
+      }
+    },
+    "item_20": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:flight_upgrade"
+          }
+        ]
+      }
+    },
+    "item_21": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:repair_upgrade"
+          }
+        ]
+      }
+    },
+    "item_22": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:fall_protection_upgrade"
+          }
+        ]
+      }
+    },
+    "item_23": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:death_emergency_kit_upgrade"
+          }
+        ]
+      }
+    },
+    "item_24": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:wireless_upgrade"
+          }
+        ]
+      }
+    },
+    "item_25": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:soulbound_upgrade"
+          }
+        ]
+      }
+    },
+    "item_26": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:filter_upgrade"
+          }
+        ]
+      }
+    },
+    "item_27": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:courier_upgrade"
+          }
+        ]
+      }
+    },
+    "item_28": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:fluid_storage_upgrade"
+          }
+        ]
+      }
+    },
+    "item_29": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:fluid_transfer_upgrade"
+          }
+        ]
+      }
+    },
+    "item_30": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:capacitor_upgrade"
+          }
+        ]
+      }
+    },
+    "item_31": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:xp_transfer_upgrade"
+          }
+        ]
+      }
+    },
+    "item_32": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:restock_upgrade"
+          }
+        ]
+      }
+    },
+    "item_33": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:deposit_upgrade"
+          }
+        ]
+      }
+    },
+    "item_34": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:chunk_loader_upgrade"
+          }
+        ]
+      }
+    },
+    "item_35": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:crafting_table_upgrade"
+          }
+        ]
+      }
+    },
+    "item_36": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:ender_chest_upgrade"
+          }
+        ]
+      }
+    },
+    "item_37": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:enchanting_table_upgrade"
+          }
+        ]
+      }
+    },
+    "item_38": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:cartography_table_upgrade"
+          }
+        ]
+      }
+    },
+    "item_39": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:smithing_table_upgrade"
+          }
+        ]
+      }
+    },
+    "item_40": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:grindstone_upgrade"
+          }
+        ]
+      }
+    },
+    "item_41": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:loom_upgrade"
+          }
+        ]
+      }
+    },
+    "item_42": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:stonecutter_upgrade"
+          }
+        ]
+      }
+    },
+    "item_43": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:anvil_upgrade"
+          }
+        ]
+      }
+    },
+    "item_44": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:furnace_upgrade"
+          }
+        ]
+      }
+    },
+    "item_45": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:auto_smelting_upgrade"
+          }
+        ]
+      }
+    },
+    "item_46": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:compression_upgrade"
+          }
+        ]
+      }
+    },
+    "item_47": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:storage_upgrade_i"
+          }
+        ]
+      }
+    },
+    "item_48": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:storage_upgrade_ii"
+          }
+        ]
+      }
+    },
+    "item_49": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:storage_upgrade_iii"
+          }
+        ]
+      }
+    },
+    "item_50": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:storage_upgrade_iv"
+          }
+        ]
+      }
+    },
+    "item_51": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:storage_upgrade_v"
+          }
+        ]
+      }
+    },
+    "item_52": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:ultimate_storage_upgrade"
+          }
+        ]
+      }
+    },
+    "item_53": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:blast_furnace_upgrade"
+          }
+        ]
+      }
+    },
+    "item_54": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:smoker_upgrade"
+          }
+        ]
+      }
+    },
+    "item_55": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:brewing_stand_upgrade"
+          }
+        ]
+      }
+    },
+    "item_56": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:jukebox_upgrade"
+          }
+        ]
+      }
+    },
+    "item_57": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:void_upgrade"
+          }
+        ]
+      }
+    },
+    "item_58": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:voidbound_upgrade"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "item_0"
+    ],
+    [
+      "item_1"
+    ],
+    [
+      "item_2"
+    ],
+    [
+      "item_3"
+    ],
+    [
+      "item_4"
+    ],
+    [
+      "item_5"
+    ],
+    [
+      "item_6"
+    ],
+    [
+      "item_7"
+    ],
+    [
+      "item_8"
+    ],
+    [
+      "item_9"
+    ],
+    [
+      "item_10"
+    ],
+    [
+      "item_11"
+    ],
+    [
+      "item_12"
+    ],
+    [
+      "item_13"
+    ],
+    [
+      "item_14"
+    ],
+    [
+      "item_15"
+    ],
+    [
+      "item_16"
+    ],
+    [
+      "item_17"
+    ],
+    [
+      "item_18"
+    ],
+    [
+      "item_19"
+    ],
+    [
+      "item_20"
+    ],
+    [
+      "item_21"
+    ],
+    [
+      "item_22"
+    ],
+    [
+      "item_23"
+    ],
+    [
+      "item_24"
+    ],
+    [
+      "item_25"
+    ],
+    [
+      "item_26"
+    ],
+    [
+      "item_27"
+    ],
+    [
+      "item_28"
+    ],
+    [
+      "item_29"
+    ],
+    [
+      "item_30"
+    ],
+    [
+      "item_31"
+    ],
+    [
+      "item_32"
+    ],
+    [
+      "item_33"
+    ],
+    [
+      "item_34"
+    ],
+    [
+      "item_35"
+    ],
+    [
+      "item_36"
+    ],
+    [
+      "item_37"
+    ],
+    [
+      "item_38"
+    ],
+    [
+      "item_39"
+    ],
+    [
+      "item_40"
+    ],
+    [
+      "item_41"
+    ],
+    [
+      "item_42"
+    ],
+    [
+      "item_43"
+    ],
+    [
+      "item_44"
+    ],
+    [
+      "item_45"
+    ],
+    [
+      "item_46"
+    ],
+    [
+      "item_47"
+    ],
+    [
+      "item_48"
+    ],
+    [
+      "item_49"
+    ],
+    [
+      "item_50"
+    ],
+    [
+      "item_51"
+    ],
+    [
+      "item_52"
+    ],
+    [
+      "item_53"
+    ],
+    [
+      "item_54"
+    ],
+    [
+      "item_55"
+    ],
+    [
+      "item_56"
+    ],
+    [
+      "item_57"
+    ],
+    [
+      "item_58"
+    ]
+  ]
+}

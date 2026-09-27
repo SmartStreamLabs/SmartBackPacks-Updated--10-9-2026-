@@ -9,20 +9,29 @@ import net.neoforged.neoforge.event.LootTableLoadEvent;
 
 public final class ModLootEvents {
     private static final String BONUS_CHEST_POOL = "smartbackpacks_bonus_chest";
+    private static final String ABANDONED_POOL = "smartbackpacks_abandoned_backpack";
 
     private ModLootEvents() {
     }
 
     public static void onLootTableLoad(LootTableLoadEvent event) {
-        if (!event.getKey().equals(BuiltInLootTables.SPAWN_BONUS_CHEST)
-                || event.getTable().getPool(BONUS_CHEST_POOL) != null) {
-            return;
+        if (event.getKey().equals(BuiltInLootTables.SPAWN_BONUS_CHEST)
+                && event.getTable().getPool(BONUS_CHEST_POOL) == null) {
+            event.getTable().addPool(LootPool.lootPool()
+                    .name(BONUS_CHEST_POOL)
+                    .setRolls(ConstantValue.exactly(1.0F))
+                    .add(LootItem.lootTableItem(ModItems.LEATHER_BACKPACK.get()))
+                    .build());
+        }
+        AbandonedBackpackProfile profile = AbandonedBackpackProfile.forChest(event.getKey());
+        if (profile != null && event.getTable().getPool(ABANDONED_POOL) == null) {
+            event.getTable().addPool(LootPool.lootPool()
+                    .name(ABANDONED_POOL)
+                    .setRolls(ConstantValue.exactly(1.0F))
+                    .add(LootItem.lootTableItem(ModItems.LEATHER_BACKPACK.get())
+                            .apply(() -> new AbandonedBackpackLootFunction(profile)))
+                    .build());
         }
 
-        event.getTable().addPool(LootPool.lootPool()
-                .name(BONUS_CHEST_POOL)
-                .setRolls(ConstantValue.exactly(1.0F))
-                .add(LootItem.lootTableItem(ModItems.LEATHER_BACKPACK.get()))
-                .build());
     }
 }

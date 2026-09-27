@@ -1,168 +1,24 @@
-Smart Backpacks – SmartStreamLabs Custom License
-Version 1.0 – 2026
+MIT License
 
-Copyright © SmartStreamLabs.
-All rights reserved except where explicitly permitted below.
+Copyright (c) 2023 NeoForged project
 
-This license applies to Smart Backpacks, including its source code, compiled files, textures, models, sounds, artwork, documentation, and other original assets created for the project.
+This license applies to the template files as supplied by github.com/NeoForged/MDK
 
-────────────────────────────────────────
 
-1. PERSONAL USE
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-You may download, install, and use Smart Backpacks for personal use.
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-You may modify the mod privately for your own personal use, provided the modified version is not distributed, published, or shared publicly.
-
-────────────────────────────────────────
-
-2. MODPACKS
-
-You may include the official, unmodified Smart Backpacks release in public or private Minecraft modpacks.
-
-You do not need to request permission for normal modpack inclusion.
-
-The mod must remain credited to SmartStreamLabs.
-
-Whenever possible, modpacks should obtain Smart Backpacks from its official distribution page rather than rehosting the file independently.
-
-────────────────────────────────────────
-
-3. SERVERS
-
-Smart Backpacks may be used on public, private, commercial, and community Minecraft servers.
-
-Server access, donations, ranks, subscriptions, or other server monetization are allowed provided that Smart Backpacks itself is not sold or falsely represented as being created by the server owner.
-
-────────────────────────────────────────
-
-4. VIDEOS AND STREAMING
-
-You may create and monetize videos, livestreams, screenshots, tutorials, reviews, showcases, and other content featuring Smart Backpacks.
-
-Credit is appreciated but is not required for ordinary gameplay content.
-
-────────────────────────────────────────
-
-5. REDISTRIBUTION
-
-You may NOT redistribute, reupload, mirror, or republish Smart Backpacks as a standalone download without explicit permission from SmartStreamLabs.
-
-This includes uploading the original JAR to another mod hosting website, file hosting service, marketplace, or download page.
-
-Official Smart Backpacks files should be obtained from an official SmartStreamLabs distribution source.
-
-────────────────────────────────────────
-
-6. MODIFIED BUILDS, FORKS, AND PORTS
-
-You may NOT publicly distribute modified builds of Smart Backpacks without explicit permission from SmartStreamLabs.
-
-You may NOT publish unofficial ports, forks, continuations, backports, or renamed versions of Smart Backpacks as separate downloadable projects without explicit permission.
-
-Publicly forking source code through functionality provided by a source hosting platform does not by itself grant permission to distribute compiled or modified releases.
-
-Pull requests and contributions to the official project are allowed and welcomed where the repository permits them.
-
-────────────────────────────────────────
-
-7. SOURCE CODE AND ASSETS
-
-Access to the Smart Backpacks source code does not grant unrestricted permission to copy or reuse it in another project.
-
-You may create addons, integrations, compatibility mods, plugins, and extensions for Smart Backpacks as permitted under Section 13.
-
-Addons may interact with Smart Backpacks through its public APIs, events, tags, capabilities, data components, documented integration points, or other intended extension mechanisms.
-
-You may NOT copy substantial portions of Smart Backpacks source code into another mod or software project without explicit permission from SmartStreamLabs.
-
-You may NOT reuse Smart Backpacks textures, models, artwork, icons, sounds, branding, or other original assets in another project without explicit permission.
-
-Small code examples, API usage, and code necessary to interface with Smart Backpacks are permitted where reasonably required for addon or compatibility development.
-
-Creating an addon does not grant permission to redistribute or bundle the Smart Backpacks JAR itself.
-
-────────────────────────────────────────
-
-8. COMMERCIAL USE
-
-You may NOT sell Smart Backpacks itself.
-
-You may NOT sell modified copies, unofficial ports, redistributed downloads, source code, textures, models, or other Smart Backpacks assets.
-
-You may NOT place Smart Backpacks itself behind a paid download or access requirement.
-
-Normal monetization of Minecraft servers, modpacks, videos, streams, and other content that merely uses Smart Backpacks is allowed.
-
-────────────────────────────────────────
-
-9. CREDIT AND REPRESENTATION
-
-You may not claim Smart Backpacks or its original content as your own work.
-
-When redistributing Smart Backpacks in a situation explicitly permitted by this license, the original authorship must remain attributed to:
-
-SmartStreamLabs
-
-You may not imply that an unofficial project, modification, service, or product is officially endorsed by SmartStreamLabs unless permission has been granted.
-
-────────────────────────────────────────
-
-10. PERMISSION AND EXCEPTIONS
-
-SmartStreamLabs may grant additional permissions or exceptions on a case-by-case basis.
-
-Permission granted to one person or project does not automatically apply to others.
-
-SmartStreamLabs reserves the right to release future versions of Smart Backpacks under different licensing terms.
-
-────────────────────────────────────────
-
-11. DISCLAIMER
-
-Smart Backpacks is provided "AS IS", without warranty of any kind.
-
-SmartStreamLabs is not responsible for damages, data loss, corrupted worlds, server problems, incompatibilities, or other issues resulting from use of the software.
-
-Use of Smart Backpacks is at your own risk.
-
-────────────────────────────────────────
-
-12. MINECRAFT DISCLAIMER
-
-Smart Backpacks is an independent community-made project.
-
-NOT AN OFFICIAL MINECRAFT PRODUCT.
-NOT APPROVED BY OR ASSOCIATED WITH MOJANG OR MICROSOFT.
-
-────────────────────────────────────────
-
-13. ADDONS AND COMPATIBILITY MODS
-
-You may create and publicly distribute addons, compatibility mods, integrations, extensions, and plugins for Smart Backpacks.
-
-These projects are allowed provided that:
-
-- They require the official Smart Backpacks mod as a dependency where appropriate.
-- They do not redistribute or bundle the Smart Backpacks JAR without permission.
-- They do not copy substantial portions of Smart Backpacks source code.
-- They do not reuse Smart Backpacks textures, models, artwork, sounds, icons, or other original assets without permission.
-- They do not present themselves as an official SmartStreamLabs project unless permission has been granted.
-- They clearly state that Smart Backpacks is created by SmartStreamLabs.
-- They may use public APIs, documented integration points, events, tags, capabilities, data components, or other intended extension mechanisms provided by Smart Backpacks.
-
-Addons may be open-source or closed-source and may be distributed on mod hosting platforms, provided they comply with the terms above.
-
-Compatibility patches and integrations with other mods are also permitted.
-
-If an addon requires copying or modifying substantial Smart Backpacks internal code rather than using its public/integration interfaces, permission from SmartStreamLabs is required.
-
-
-
-
-
-────────────────────────────────────────
-
-By downloading, using, modifying, or distributing Smart Backpacks, you agree to comply with the terms of this license.
-
-For permissions not covered by this license, contact SmartStreamLabs.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

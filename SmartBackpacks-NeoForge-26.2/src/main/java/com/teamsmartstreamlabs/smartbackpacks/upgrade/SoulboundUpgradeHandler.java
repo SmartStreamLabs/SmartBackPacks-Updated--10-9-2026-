@@ -61,19 +61,26 @@ public final class SoulboundUpgradeHandler {
             return;
         }
 
+        boolean restored = false;
         for (ItemStack backpack : soulboundBackpacks) {
-            if (!player.getInventory().add(backpack.copy())) {
-                placeInFirstEmptySlot(player, backpack.copy());
+            if (player.getInventory().add(backpack.copy())) {
+                restored = true;
+            } else {
+                restored |= placeInFirstEmptySlot(player, backpack.copy());
             }
         }
 
         player.getInventory().setChanged();
+        if (restored && player instanceof net.minecraft.server.level.ServerPlayer serverPlayer) {
+            com.teamsmartstreamlabs.smartbackpacks.progress.BackpackProgression.add(
+                    serverPlayer, "soulbound_deaths_survived", 1);
+        }
     }
 
-    private static void placeInFirstEmptySlot(Player player, ItemStack stack) {
-        if (!player.getInventory().add(stack)) {
-            player.drop(stack, false);
-        }
+    private static boolean placeInFirstEmptySlot(Player player, ItemStack stack) {
+        if (player.getInventory().add(stack)) return true;
+        player.drop(stack, false);
+        return false;
     }
 
     private static boolean isSoulboundBackpack(ItemStack stack) {

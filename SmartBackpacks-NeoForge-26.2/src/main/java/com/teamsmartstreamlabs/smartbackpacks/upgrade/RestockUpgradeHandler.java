@@ -50,6 +50,7 @@ public final class RestockUpgradeHandler {
         container.setChanged();
         target.save().accept(target.backpack());
         player.getInventory().setChanged();
+        com.teamsmartstreamlabs.smartbackpacks.progress.BackpackProgression.add(player, "restock_operations", 1);
         event.setCancellationResult(InteractionResult.SUCCESS);
         event.setCanceled(true);
     }

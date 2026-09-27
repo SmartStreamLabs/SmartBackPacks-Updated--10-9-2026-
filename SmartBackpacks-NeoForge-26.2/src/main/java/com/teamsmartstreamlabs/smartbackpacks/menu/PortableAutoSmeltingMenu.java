@@ -59,7 +59,10 @@ public class PortableAutoSmeltingMenu extends FurnaceMenu {
             return;
         }
 
-        AutoSmeltingUpgradeData updated = AutoSmeltingUpgradeLogic.tick(level, backpack, backpackItem.getTier(), this.captureData());
+        AutoSmeltingUpgradeData updated = this.owner instanceof net.minecraft.server.level.ServerPlayer serverPlayer
+                ? AutoSmeltingUpgradeLogic.tick(level, backpack, backpackItem.getTier(), this.captureData(), count ->
+                        com.teamsmartstreamlabs.smartbackpacks.progress.BackpackProgression.add(serverPlayer, "auto_smelts_completed", count))
+                : AutoSmeltingUpgradeLogic.tick(level, backpack, backpackItem.getTier(), this.captureData());
         this.applyData(updated);
         this.access.setBackpackStack(this.owner, backpack);
         this.saveToUpgrade();

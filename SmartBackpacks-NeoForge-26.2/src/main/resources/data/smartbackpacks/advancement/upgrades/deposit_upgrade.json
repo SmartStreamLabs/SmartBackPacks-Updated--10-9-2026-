@@ -1,14 +1,14 @@
 {
-  "parent": "smartbackpacks:backpacks/leather_backpack",
+  "parent": "smartbackpacks:categories/automation",
   "display": {
     "icon": {
       "id": "smartbackpacks:deposit_upgrade"
     },
     "title": {
-      "text": "Put It Away"
+      "translate": "advancement.smartbackpacks.upgrades.deposit_upgrade.title"
     },
     "description": {
-      "text": "Deposit matching inventory items with ease."
+      "translate": "advancement.smartbackpacks.upgrades.deposit_upgrade.description"
     },
     "frame": "goal",
     "show_toast": true,

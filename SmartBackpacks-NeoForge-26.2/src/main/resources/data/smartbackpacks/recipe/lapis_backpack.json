@@ -1,17 +1,17 @@
-﻿{
-    "type":  "minecraft:crafting_shaped",
-    "category":  "misc",
-    "pattern":  [
-                    "LLL",
-                    "LBL",
-                    "LLL"
-                ],
-    "key":  {
-                "L":  "minecraft:lapis_lazuli",
-                "B":  "smartbackpacks:coal_backpack"
-            },
-    "result":  {
-                   "id":  "smartbackpacks:lapis_backpack",
-                   "count":  1
-               }
+{
+  "type": "smartbackpacks:backpack_workbench",
+  "category": "misc",
+  "pattern": [
+    "LLL",
+    "LBL",
+    "LLL"
+  ],
+  "key": {
+    "L": "minecraft:lapis_lazuli",
+    "B": "smartbackpacks:coal_backpack"
+  },
+  "result": {
+    "id": "smartbackpacks:lapis_backpack",
+    "count": 1
+  }
 }

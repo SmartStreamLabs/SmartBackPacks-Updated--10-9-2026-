@@ -28,12 +28,15 @@ import com.teamsmartstreamlabs.smartbackpacks.menu.PortableStonecutterMenu;
 import com.teamsmartstreamlabs.smartbackpacks.menu.QuiverUpgradeMenu;
 import com.teamsmartstreamlabs.smartbackpacks.menu.QuickAccessWheelUpgradeMenu;
 import com.teamsmartstreamlabs.smartbackpacks.menu.RescueUpgradeMenu;
+import com.teamsmartstreamlabs.smartbackpacks.menu.DeathEmergencyKitUpgradeMenu;
 import com.teamsmartstreamlabs.smartbackpacks.menu.AutoFeedUpgradeMenu;
 import com.teamsmartstreamlabs.smartbackpacks.menu.SurvivalAssistUpgradeMenu;
 import com.teamsmartstreamlabs.smartbackpacks.menu.TorchPlacerUpgradeMenu;
 import com.teamsmartstreamlabs.smartbackpacks.menu.XpTransferUpgradeMenu;
 import com.teamsmartstreamlabs.smartbackpacks.menu.StorageControllerMenu;
+import com.teamsmartstreamlabs.smartbackpacks.menu.StorageTransferMenu;
 import com.teamsmartstreamlabs.smartbackpacks.blockentity.PlacedBackpackBlockEntity;
+import com.teamsmartstreamlabs.smartbackpacks.blockentity.StorageTransferBlockEntity;
 import com.teamsmartstreamlabs.smartbackpacks.compat.CuriosCompat;
 import com.teamsmartstreamlabs.smartbackpacks.item.WirelessUpgradeItem;
 import com.teamsmartstreamlabs.smartbackpacks.storage.StorageMonitorLink;
@@ -71,6 +74,19 @@ public final class BackpackHelper {
         if (player.containerMenu instanceof StorageControllerMenu menu) {
             menu.refreshAndSync(player);
         }
+    }
+
+    public static void openStorageTransfer(ServerPlayer player, BlockPos pos) {
+        if (!(player.level().getBlockEntity(pos) instanceof StorageTransferBlockEntity blockEntity)) {
+            return;
+        }
+        MenuProvider provider = new SimpleMenuProvider(
+                (containerId, inventory, menuPlayer) -> new StorageTransferMenu(containerId, inventory, blockEntity),
+                Component.translatable(blockEntity.isImporter()
+                        ? "block.smartbackpacks.storage_importer"
+                        : "block.smartbackpacks.storage_exporter")
+        );
+        player.openMenu(provider, buffer -> buffer.writeBlockPos(pos));
     }
 
     public static void openStorageMonitor(ServerPlayer player, StorageMonitorLink link) {
@@ -276,6 +292,17 @@ public final class BackpackHelper {
         MenuProvider provider = new SimpleMenuProvider(
                 (containerId, inventory, menuPlayer) -> new RescueUpgradeMenu(containerId, inventory, access, upgradeSlot),
                 Component.translatable("item.smartbackpacks.rescue_upgrade")
+        );
+        player.openMenu(provider, buffer -> {
+            access.write(buffer);
+            buffer.writeVarInt(upgradeSlot);
+        });
+    }
+
+    public static void openDeathEmergencyKitUpgrade(ServerPlayer player, BackpackAccess access, int upgradeSlot) {
+        MenuProvider provider = new SimpleMenuProvider(
+                (containerId, inventory, menuPlayer) -> new DeathEmergencyKitUpgradeMenu(containerId, inventory, access, upgradeSlot),
+                Component.translatable("item.smartbackpacks.death_emergency_kit_upgrade")
         );
         player.openMenu(provider, buffer -> {
             access.write(buffer);

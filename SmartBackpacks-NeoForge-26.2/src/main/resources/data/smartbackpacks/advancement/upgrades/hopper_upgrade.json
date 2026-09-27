@@ -1,14 +1,14 @@
 {
-  "parent": "smartbackpacks:backpacks/leather_backpack",
+  "parent": "smartbackpacks:categories/automation",
   "display": {
     "icon": {
       "id": "smartbackpacks:hopper_upgrade"
     },
     "title": {
-      "text": "Storage in Motion"
+      "translate": "advancement.smartbackpacks.upgrades.hopper_upgrade.title"
     },
     "description": {
-      "text": "Let automation move items through your backpack."
+      "translate": "advancement.smartbackpacks.upgrades.hopper_upgrade.description"
     },
     "frame": "task",
     "show_toast": true,

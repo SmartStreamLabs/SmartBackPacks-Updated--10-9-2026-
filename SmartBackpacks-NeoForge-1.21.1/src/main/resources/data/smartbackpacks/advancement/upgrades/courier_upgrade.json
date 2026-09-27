@@ -5,10 +5,10 @@
       "id": "smartbackpacks:courier_upgrade"
     },
     "title": {
-      "text": "Special Delivery"
+      "translate": "advancement.smartbackpacks.upgrades.courier_upgrade.title"
     },
     "description": {
-      "text": "Send matching backpack items to a linked container."
+      "translate": "advancement.smartbackpacks.upgrades.courier_upgrade.description"
     },
     "frame": "goal",
     "show_toast": true,

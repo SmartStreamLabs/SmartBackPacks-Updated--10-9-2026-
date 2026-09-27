@@ -80,6 +80,9 @@ public final class AutoToolUpgradeHandler {
         BackpackStackData.saveStorage(toolBackpack.backpack(), storage);
         toolBackpack.saver().accept(toolBackpack.backpack());
         player.getInventory().setChanged();
+        if (!manualRequest) {
+            com.teamsmartstreamlabs.smartbackpacks.progress.BackpackProgression.add(player, "auto_tool_swaps", 1);
+        }
     }
 
     private static ToolBackpack findToolBackpack(ServerPlayer player) {

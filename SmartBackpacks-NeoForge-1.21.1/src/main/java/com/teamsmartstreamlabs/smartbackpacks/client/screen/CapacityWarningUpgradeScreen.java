@@ -30,6 +30,7 @@ public class CapacityWarningUpgradeScreen extends LegacyContainerScreen<Capacity
     private Button actionButton;
     private Button soundButton;
     private Button hudButton;
+    private Button stepButton;
     private Button failedButton;
     private final Button[] thresholdButtons = new Button[3];
 
@@ -49,9 +50,6 @@ public class CapacityWarningUpgradeScreen extends LegacyContainerScreen<Capacity
         this.modeButton = this.addRenderableWidget(Button.builder(this.modeLabel(), button -> this.cycle(CapacityWarningSettingsPayload.Action.CYCLE_CALCULATION_MODE))
                 .bounds(this.leftPos + 8, this.topPos + 34, 108, BUTTON_H)
                 .build());
-        this.hudModeButton = this.addRenderableWidget(Button.builder(this.hudModeLabel(), button -> this.cycle(CapacityWarningSettingsPayload.Action.CYCLE_HUD_MODE))
-                .bounds(this.leftPos + 124, this.topPos + 34, 108, BUTTON_H)
-                .build());
         this.actionButton = this.addRenderableWidget(Button.builder(this.toggleLabel("actionbar", this.menu.getSettings().actionBar()), button -> this.toggle(CapacityWarningSettingsPayload.Action.TOGGLE_ACTION_BAR))
                 .bounds(this.leftPos + 8, this.topPos + 56, 70, BUTTON_H)
                 .build());
@@ -61,15 +59,10 @@ public class CapacityWarningUpgradeScreen extends LegacyContainerScreen<Capacity
         this.hudButton = this.addRenderableWidget(Button.builder(this.toggleLabel("hud", this.menu.getSettings().hud()), button -> this.toggle(CapacityWarningSettingsPayload.Action.TOGGLE_HUD))
                 .bounds(this.leftPos + 162, this.topPos + 56, 70, BUTTON_H)
                 .build());
-        this.addThresholdRow(0, 80, CapacityWarningSettingsPayload.Action.TOGGLE_THRESHOLD_1, CapacityWarningSettingsPayload.Action.CHANGE_THRESHOLD_1);
-        this.addThresholdRow(1, 102, CapacityWarningSettingsPayload.Action.TOGGLE_THRESHOLD_2, CapacityWarningSettingsPayload.Action.CHANGE_THRESHOLD_2);
-        this.addThresholdRow(2, 124, CapacityWarningSettingsPayload.Action.TOGGLE_THRESHOLD_3, CapacityWarningSettingsPayload.Action.CHANGE_THRESHOLD_3);
-        this.addRenderableWidget(Button.builder(Component.literal("-"), button -> this.change(CapacityWarningSettingsPayload.Action.CHANGE_RESET_MARGIN, -1))
-                .bounds(this.leftPos + 8, this.topPos + 146, 22, BUTTON_H)
-                .build());
-        this.addRenderableWidget(Button.builder(Component.literal("+"), button -> this.change(CapacityWarningSettingsPayload.Action.CHANGE_RESET_MARGIN, 1))
-                .bounds(this.leftPos + 66, this.topPos + 146, 22, BUTTON_H)
-                .build());
+        this.stepButton = this.addRenderableWidget(Button.builder(this.stepLabel(), button -> {
+            this.change(CapacityWarningSettingsPayload.Action.CHANGE_THRESHOLD_1, 1);
+            this.updateButtons();
+        }).bounds(this.leftPos + 8, this.topPos + 80, 224, BUTTON_H).build());
         this.failedButton = this.addRenderableWidget(Button.builder(this.toggleLabel("failed", this.menu.getSettings().failedInsertionWarning()), button -> this.toggle(CapacityWarningSettingsPayload.Action.TOGGLE_FAILED_INSERTION))
                 .bounds(this.leftPos + 96, this.topPos + 146, 68, BUTTON_H)
                 .build());
@@ -115,10 +108,6 @@ public class CapacityWarningUpgradeScreen extends LegacyContainerScreen<Capacity
         guiGraphics.drawString(this.font, this.title, this.titleLabelX, this.titleLabelY, TEXT_COLOR, false);
         guiGraphics.drawString(this.font, Component.translatable("screen.smartbackpacks.capacity_warning.capacity",
                 snapshot.displayPercentage(), snapshot.occupiedSlots(), snapshot.totalSlots()), 8, 166, MUTED_TEXT, false);
-        guiGraphics.drawString(this.font, Component.translatable("screen.smartbackpacks.capacity_warning.threshold_1", data.threshold1()), 122, 85, TEXT_COLOR, false);
-        guiGraphics.drawString(this.font, Component.translatable("screen.smartbackpacks.capacity_warning.threshold_2", data.threshold2()), 122, 107, TEXT_COLOR, false);
-        guiGraphics.drawString(this.font, Component.translatable("screen.smartbackpacks.capacity_warning.threshold_3", data.threshold3()), 122, 129, TEXT_COLOR, false);
-        guiGraphics.drawString(this.font, Component.translatable("screen.smartbackpacks.capacity_warning.reset", data.resetMargin()), 34, 151, TEXT_COLOR, false);
     }
 
     private void toggleEnabled() {
@@ -171,10 +160,13 @@ public class CapacityWarningUpgradeScreen extends LegacyContainerScreen<Capacity
     private void updateButtons() {
         this.enabledButton.setMessage(this.enabledLabel());
         this.modeButton.setMessage(this.modeLabel());
-        this.hudModeButton.setMessage(this.hudModeLabel());
+        if (this.hudModeButton != null) {
+            this.hudModeButton.setMessage(this.hudModeLabel());
+        }
         this.actionButton.setMessage(this.toggleLabel("actionbar", this.menu.getSettings().actionBar()));
         this.soundButton.setMessage(this.toggleLabel("sound", this.menu.getSettings().sound()));
         this.hudButton.setMessage(this.toggleLabel("hud", this.menu.getSettings().hud()));
+        this.stepButton.setMessage(this.stepLabel());
         this.failedButton.setMessage(this.toggleLabel("failed", this.menu.getSettings().failedInsertionWarning()));
         for (int index = 0; index < this.thresholdButtons.length; index++) {
             if (this.thresholdButtons[index] != null) {
@@ -193,6 +185,10 @@ public class CapacityWarningUpgradeScreen extends LegacyContainerScreen<Capacity
         return Component.translatable("screen.smartbackpacks.capacity_warning.mode." + this.menu.getSettings().calculationMode().getSerializedName());
     }
 
+    private Component stepLabel() {
+        return Component.translatable("screen.smartbackpacks.capacity_warning.step", this.menu.getSettings().thresholdStep());
+    }
+
     private Component hudModeLabel() {
         return Component.translatable("screen.smartbackpacks.capacity_warning.hud_mode." + this.menu.getSettings().hudMode().getSerializedName());
     }
@@ -204,7 +200,7 @@ public class CapacityWarningUpgradeScreen extends LegacyContainerScreen<Capacity
     }
 
     private Component toggleLabel(String key, boolean enabled) {
-        return Component.translatable("screen.smartbackpacks.capacity_warning." + key,
+        return Component.translatable("screen.smartbackpacks.capacity_warning." + (key.equals("hud") ? "notifications" : key),
                 Component.translatable(enabled ? "screen.smartbackpacks.capacity_warning.on" : "screen.smartbackpacks.capacity_warning.off"));
     }
 

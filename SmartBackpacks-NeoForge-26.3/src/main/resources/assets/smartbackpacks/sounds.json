@@ -1,0 +1,13 @@
+{
+  "capacity_warning": {
+    "sounds": [
+      {"name": "smartbackpacks:capacity_warning", "stream": false}
+    ]
+  },
+  "capacity_full": {
+    "sounds": [
+      {"name": "smartbackpacks:capacity_full", "stream": false}
+    ]
+  }
+}
+

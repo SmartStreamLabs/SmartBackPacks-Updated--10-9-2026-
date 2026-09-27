@@ -1,0 +1,68 @@
+{
+  "parent": "smartbackpacks:root",
+  "display": {
+    "icon": {
+      "id": "smartbackpacks:fluid_storage_upgrade"
+    },
+    "title": {
+      "translate": "advancement.smartbackpacks.categories.energy_fluids.title"
+    },
+    "description": {
+      "translate": "advancement.smartbackpacks.categories.energy_fluids.description"
+    },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "item_0": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:fluid_storage_upgrade"
+          }
+        ]
+      }
+    },
+    "item_1": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:fluid_transfer_upgrade"
+          }
+        ]
+      }
+    },
+    "item_2": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:capacitor_upgrade"
+          }
+        ]
+      }
+    },
+    "item_3": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:xp_transfer_upgrade"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "item_0",
+      "item_1",
+      "item_2",
+      "item_3"
+    ]
+  ]
+}

@@ -19,6 +19,9 @@ public final class BackpackCraftingHandler {
             return;
         }
 
+        if (event.getEntity() instanceof net.minecraft.server.level.ServerPlayer serverPlayer)
+            awardCraftedDye(craftedStack, serverPlayer, event.getInventory());
+
         ItemStack sourceBackpack = findBackpackIngredient(event.getInventory(), craftedBackpack.getTier());
         if (sourceBackpack.isEmpty()) {
             return;
@@ -32,6 +35,15 @@ public final class BackpackCraftingHandler {
             return;
         }
 
+        if (player instanceof net.minecraft.server.level.ServerPlayer serverPlayer) {
+            for (Slot slot : player.containerMenu.slots) {
+                if (slot.container instanceof CraftingContainer grid) {
+                    awardCraftedDye(craftedStack, serverPlayer, grid);
+                    break;
+                }
+            }
+        }
+
         for (Slot slot : player.containerMenu.slots) {
             if (!(slot.container instanceof CraftingContainer)) {
                 continue;
@@ -43,6 +55,22 @@ public final class BackpackCraftingHandler {
                 return;
             }
         }
+    }
+
+    private static void awardCraftedDye(ItemStack crafted, net.minecraft.server.level.ServerPlayer player, Container grid) {
+        var color = crafted.get(net.minecraft.core.component.DataComponents.DYED_COLOR);
+        if (color == null) return;
+        boolean hasDye = false;
+        boolean changed = false;
+        for (int slot = 0; slot < grid.getContainerSize(); slot++) {
+            ItemStack ingredient = grid.getItem(slot);
+            if (ingredient.getItem() instanceof net.minecraft.world.item.DyeItem) hasDye = true;
+            if (ingredient.getItem() == crafted.getItem()) {
+                var previous = ingredient.get(net.minecraft.core.component.DataComponents.DYED_COLOR);
+                changed = previous == null || previous.rgb() != color.rgb();
+            }
+        }
+        if (hasDye && changed) com.teamsmartstreamlabs.smartbackpacks.progress.BackpackProgression.grant(player, "make_it_yours");
     }
 
     private static ItemStack findBackpackIngredient(Container container, BackpackTier resultTier) {

@@ -5,10 +5,10 @@
       "id": "smartbackpacks:netherite_vault_backpack"
     },
     "title": {
-      "text": "A Vault on Your Back"
+      "translate": "advancement.smartbackpacks.backpacks.netherite_vault_backpack.title"
     },
     "description": {
-      "text": "Obtain the colossal Netherite Vault Backpack."
+      "translate": "advancement.smartbackpacks.backpacks.netherite_vault_backpack.description"
     },
     "frame": "challenge",
     "show_toast": true,

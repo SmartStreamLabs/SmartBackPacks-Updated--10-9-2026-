@@ -1,0 +1,28 @@
+{
+  "parent": "smartbackpacks:categories/exploration",
+  "display": {
+    "icon": {
+      "id": "smartbackpacks:leather_backpack"
+    },
+    "title": {
+      "translate": "advancement.smartbackpacks.usage.lost_and_found.title"
+    },
+    "description": {
+      "translate": "advancement.smartbackpacks.usage.lost_and_found.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "used": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "used"
+    ]
+  ]
+}

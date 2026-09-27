@@ -5,10 +5,10 @@
       "id": "smartbackpacks:ultimate_storage_upgrade"
     },
     "title": {
-      "text": "Beyond Capacity"
+      "translate": "advancement.smartbackpacks.upgrades.ultimate_storage_upgrade.title"
     },
     "description": {
-      "text": "Unlock the Ultimate Storage Upgrade."
+      "translate": "advancement.smartbackpacks.upgrades.ultimate_storage_upgrade.description"
     },
     "frame": "challenge",
     "show_toast": true,

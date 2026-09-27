@@ -5,10 +5,10 @@
       "id": "smartbackpacks:copper_backpack"
     },
     "title": {
-      "text": "Copper Carryall"
+      "translate": "advancement.smartbackpacks.backpacks.copper_backpack.title"
     },
     "description": {
-      "text": "Forge a dependable Copper Backpack."
+      "translate": "advancement.smartbackpacks.backpacks.copper_backpack.description"
     },
     "frame": "task",
     "show_toast": true,

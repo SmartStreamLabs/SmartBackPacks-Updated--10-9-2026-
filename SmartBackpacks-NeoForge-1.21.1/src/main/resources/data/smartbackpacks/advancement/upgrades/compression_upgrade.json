@@ -5,10 +5,10 @@
       "id": "smartbackpacks:compression_upgrade"
     },
     "title": {
-      "text": "Space Saver"
+      "translate": "advancement.smartbackpacks.upgrades.compression_upgrade.title"
     },
     "description": {
-      "text": "Compress materials to reclaim precious storage."
+      "translate": "advancement.smartbackpacks.upgrades.compression_upgrade.description"
     },
     "frame": "goal",
     "show_toast": true,

@@ -5,10 +5,10 @@
       "id": "smartbackpacks:grindstone_upgrade"
     },
     "title": {
-      "text": "Smooth Operator"
+      "translate": "advancement.smartbackpacks.upgrades.grindstone_upgrade.title"
     },
     "description": {
-      "text": "Carry a grindstone in your backpack."
+      "translate": "advancement.smartbackpacks.upgrades.grindstone_upgrade.description"
     },
     "frame": "task",
     "show_toast": true,

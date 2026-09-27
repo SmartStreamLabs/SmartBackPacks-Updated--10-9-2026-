@@ -1,0 +1,28 @@
+{
+  "parent": "smartbackpacks:upgrades/compression_upgrade",
+  "display": {
+    "icon": {
+      "id": "smartbackpacks:compression_upgrade"
+    },
+    "title": {
+      "translate": "advancement.smartbackpacks.usage.pack_it_down.title"
+    },
+    "description": {
+      "translate": "advancement.smartbackpacks.usage.pack_it_down.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "used": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "used"
+    ]
+  ]
+}

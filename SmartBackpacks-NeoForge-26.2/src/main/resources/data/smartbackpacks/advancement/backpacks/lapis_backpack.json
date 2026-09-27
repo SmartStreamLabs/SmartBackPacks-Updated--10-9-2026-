@@ -5,10 +5,10 @@
       "id": "smartbackpacks:lapis_backpack"
     },
     "title": {
-      "text": "Blue-Sky Storage"
+      "translate": "advancement.smartbackpacks.backpacks.lapis_backpack.title"
     },
     "description": {
-      "text": "Carry your adventures in a Lapis Lazuli Backpack."
+      "translate": "advancement.smartbackpacks.backpacks.lapis_backpack.description"
     },
     "frame": "task",
     "show_toast": true,

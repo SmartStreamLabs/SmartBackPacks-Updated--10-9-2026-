@@ -1,5 +1,5 @@
 {
-  "type": "minecraft:crafting_shaped",
+  "type": "smartbackpacks:backpack_workbench",
   "category": "misc",
   "pattern": [
     "RER",
@@ -7,10 +7,18 @@
     "RER"
   ],
   "key": {
-    "R": "minecraft:redstone",
-    "E": "minecraft:ender_pearl",
-    "C": "minecraft:chest",
-    "F": "smartbackpacks:filter_upgrade"
+    "R": {
+      "item": "minecraft:redstone"
+    },
+    "E": {
+      "item": "minecraft:ender_pearl"
+    },
+    "C": {
+      "item": "minecraft:chest"
+    },
+    "F": {
+      "item": "smartbackpacks:filter_upgrade"
+    }
   },
   "result": {
     "id": "smartbackpacks:courier_upgrade",

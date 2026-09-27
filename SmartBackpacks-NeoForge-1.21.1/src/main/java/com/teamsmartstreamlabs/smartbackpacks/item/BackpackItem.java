@@ -1,5 +1,10 @@
 package com.teamsmartstreamlabs.smartbackpacks.item;
 
+import java.util.Optional;
+import java.util.function.BooleanSupplier;
+import net.minecraft.world.inventory.tooltip.TooltipComponent;
+import com.teamsmartstreamlabs.smartbackpacks.backpack.BackpackContentPreview;
+
 import java.util.List;
 
 
@@ -32,6 +37,18 @@ import net.minecraft.world.level.Level;
 import com.teamsmartstreamlabs.smartbackpacks.upgrade.ItemContainerContentsHelper;
 
 public class BackpackItem extends Item {
+    private static BooleanSupplier previewShiftDown = () -> false;
+
+    public static void setPreviewShiftDown(BooleanSupplier shiftDown) {
+        previewShiftDown = shiftDown;
+    }
+
+    @Override
+    public Optional<TooltipComponent> getTooltipImage(ItemStack stack) {
+        return previewShiftDown.getAsBoolean()
+                ? Optional.of(BackpackContentPreview.capture(stack, this.tier))
+                : super.getTooltipImage(stack);
+    }
     private final BackpackTier tier;
 
     public BackpackItem(BackpackTier tier, Properties properties) {
@@ -95,9 +112,12 @@ public class BackpackItem extends Item {
 
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
-        long filledStacks = ItemContainerContentsHelper.nonEmptyStream(stack.getOrDefault(DataComponents.CONTAINER, ItemContainerContents.EMPTY)).count();
+        long filledStacks = BackpackContentPreview.capture(stack, this.tier).usedSlots();
         tooltipComponents.add(Component.translatable("tooltip.smartbackpacks.slot_count", this.tier.getSlotCount()).withStyle(ChatFormatting.GRAY));
         tooltipComponents.add(Component.translatable("tooltip.smartbackpacks.contents_count", filledStacks).withStyle(ChatFormatting.DARK_GRAY));
+        if (!previewShiftDown.getAsBoolean()) {
+            tooltipComponents.add(Component.translatable("tooltip.smartbackpacks.preview_hint").withStyle(ChatFormatting.DARK_GRAY));
+        }
         if (CuriosCompat.isAvailable()) {
             tooltipComponents.add(Component.translatable("tooltip.smartbackpacks.curios_equip").withStyle(ChatFormatting.GRAY));
         }
@@ -111,6 +131,12 @@ public class BackpackItem extends Item {
         ItemContainerContents contents = source.get(DataComponents.CONTAINER);
         if (contents != null) {
             target.set(DataComponents.CONTAINER, contents);
+        }
+        var storage = source.get(ModDataComponents.BACKPACK_STORAGE.get());
+        if (storage != null) {
+            target.set(ModDataComponents.BACKPACK_STORAGE.get(), storage);
+        } else {
+            target.remove(ModDataComponents.BACKPACK_STORAGE.get());
         }
         var overflow = source.get(ModDataComponents.BACKPACK_STORAGE_OVERFLOW.get());
         if (overflow != null) {

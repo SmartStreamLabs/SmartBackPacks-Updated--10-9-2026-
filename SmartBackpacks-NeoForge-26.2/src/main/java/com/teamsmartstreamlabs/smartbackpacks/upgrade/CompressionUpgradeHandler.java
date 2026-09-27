@@ -21,20 +21,20 @@ public final class CompressionUpgradeHandler {
         }
 
         for (int slot = 0; slot < 36; slot++) {
-            tickCompressionInBackpack(player.getInventory().getItem(slot), player.level(), backpack -> player.getInventory().setChanged());
+            tickCompressionInBackpack(player, player.getInventory().getItem(slot), backpack -> player.getInventory().setChanged());
         }
 
-        tickCompressionInBackpack(player.getOffhandItem(), player.level(), backpack -> player.getInventory().setChanged());
-        tickCompressionInBackpack(player.getItemBySlot(EquipmentSlot.CHEST), player.level(), backpack -> player.getInventory().setChanged());
+        tickCompressionInBackpack(player, player.getOffhandItem(), backpack -> player.getInventory().setChanged());
+        tickCompressionInBackpack(player, player.getItemBySlot(EquipmentSlot.CHEST), backpack -> player.getInventory().setChanged());
 
         for (int slot = 0; slot < CuriosCompat.getBackSlotCount(player); slot++) {
             int curioSlot = slot;
-            tickCompressionInBackpack(CuriosCompat.getBackStack(player, curioSlot), player.level(),
+            tickCompressionInBackpack(player, CuriosCompat.getBackStack(player, curioSlot),
                     backpack -> CuriosCompat.setBackStack(player, curioSlot, backpack));
         }
     }
 
-    public static void tickCompressionInBackpack(ItemStack backpack, net.minecraft.world.level.Level level, Consumer<ItemStack> saver) {
+    public static void tickCompressionInBackpack(ServerPlayer player, ItemStack backpack, Consumer<ItemStack> saver) {
         if (!(backpack.getItem() instanceof BackpackItem backpackItem)) {
             return;
         }
@@ -47,8 +47,9 @@ public final class CompressionUpgradeHandler {
             }
         }
 
-        if (hasUpgrade && CompressionUpgradeLogic.tick(level, backpack, backpackItem.getTier())) {
+        if (hasUpgrade && CompressionUpgradeLogic.tick(player.level(), backpack, backpackItem.getTier())) {
             saver.accept(backpack);
+            com.teamsmartstreamlabs.smartbackpacks.progress.BackpackProgression.add(player, "compression_operations", 1);
         }
     }
 }

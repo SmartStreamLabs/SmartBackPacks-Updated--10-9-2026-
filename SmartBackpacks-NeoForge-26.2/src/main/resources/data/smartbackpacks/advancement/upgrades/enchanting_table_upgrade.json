@@ -5,10 +5,10 @@
       "id": "smartbackpacks:enchanting_table_upgrade"
     },
     "title": {
-      "text": "Arcane on the Go"
+      "translate": "advancement.smartbackpacks.upgrades.enchanting_table_upgrade.title"
     },
     "description": {
-      "text": "Bring enchanting power on every journey."
+      "translate": "advancement.smartbackpacks.upgrades.enchanting_table_upgrade.description"
     },
     "frame": "challenge",
     "show_toast": true,

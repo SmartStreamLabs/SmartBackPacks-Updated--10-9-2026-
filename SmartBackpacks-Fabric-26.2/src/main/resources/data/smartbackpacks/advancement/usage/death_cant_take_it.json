@@ -1,0 +1,28 @@
+{
+  "parent": "smartbackpacks:usage/bound_beyond_death",
+  "display": {
+    "icon": {
+      "id": "smartbackpacks:soulbound_upgrade"
+    },
+    "title": {
+      "translate": "advancement.smartbackpacks.usage.death_cant_take_it.title"
+    },
+    "description": {
+      "translate": "advancement.smartbackpacks.usage.death_cant_take_it.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "used": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "used"
+    ]
+  ]
+}

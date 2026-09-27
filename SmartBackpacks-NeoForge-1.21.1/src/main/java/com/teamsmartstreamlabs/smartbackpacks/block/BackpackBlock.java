@@ -145,6 +145,9 @@ public class BackpackBlock extends BaseEntityBlock implements EntityBlock {
                 heldStack.shrink(1);
             }
             level.playSound(null, pos, SoundEvents.DYE_USE, SoundSource.BLOCKS, 1.0F, 1.0F);
+            if (player instanceof net.minecraft.server.level.ServerPlayer serverPlayer) {
+                com.teamsmartstreamlabs.smartbackpacks.progress.BackpackProgression.grant(serverPlayer, "make_it_yours");
+            }
         }
         return ItemInteractionResult.CONSUME;
     }

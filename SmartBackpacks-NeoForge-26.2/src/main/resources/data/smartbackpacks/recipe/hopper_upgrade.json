@@ -1,19 +1,19 @@
-﻿{
-    "type":  "minecraft:crafting_shaped",
-    "category":  "misc",
-    "pattern":  [
-                    " I ",
-                    "HCH",
-                    "RIR"
-                ],
-    "key":  {
-                "I":  "minecraft:iron_ingot",
-                "H":  "minecraft:hopper",
-                "C":  "minecraft:chest",
-                "R":  "minecraft:redstone"
-            },
-    "result":  {
-                   "id":  "smartbackpacks:hopper_upgrade",
-                   "count":  1
-               }
+{
+  "type": "smartbackpacks:backpack_workbench",
+  "category": "misc",
+  "pattern": [
+    " I ",
+    "HCH",
+    "RIR"
+  ],
+  "key": {
+    "I": "minecraft:iron_ingot",
+    "H": "minecraft:hopper",
+    "C": "minecraft:chest",
+    "R": "minecraft:redstone"
+  },
+  "result": {
+    "id": "smartbackpacks:hopper_upgrade",
+    "count": 1
+  }
 }

@@ -1,0 +1,28 @@
+{
+  "parent": "smartbackpacks:items/backpack_workbench",
+  "display": {
+    "icon": {
+      "id": "smartbackpacks:backpack_workbench"
+    },
+    "title": {
+      "translate": "advancement.smartbackpacks.usage.backpack_engineer.title"
+    },
+    "description": {
+      "translate": "advancement.smartbackpacks.usage.backpack_engineer.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "used": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "used"
+    ]
+  ]
+}

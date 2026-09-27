@@ -87,6 +87,12 @@ final class SmartBackpacksConfigEntries {
         entries.add(integer("magnet_radius", Category.UPGRADES, "magnet", Scope.SERVER, 10,
                 SmartBackpacksConfig::magnetRadius, SmartBackpacksConfig::setMagnetRadius,
                 1, 128, 1, Unit.BLOCKS, "pickup collection range radius"));
+        entries.add(bool("block_drop_magnet_protection", Category.UPGRADES, "magnet", Scope.SERVER, true,
+                SmartBackpacksConfig::blockDropMagnetProtectionEnabled, SmartBackpacksConfig::setBlockDropMagnetProtectionEnabled,
+                "protect mined drops from other players' magnets"));
+        entries.add(integer("block_drop_magnet_protection_seconds", Category.UPGRADES, "magnet", Scope.SERVER, 30,
+                SmartBackpacksConfig::blockDropMagnetProtectionSeconds, SmartBackpacksConfig::setBlockDropMagnetProtectionSeconds,
+                0, 86400, 1, Unit.SECONDS, "0 protects until the dropped item disappears"));
         entries.add(integer("advanced_magnet_radius", Category.UPGRADES, "advanced_magnet", Scope.SERVER, 35,
                 SmartBackpacksConfig::advancedMagnetRadius, SmartBackpacksConfig::setAdvancedMagnetRadius,
                 1, 256, 1, Unit.BLOCKS, "pickup collection range radius"));
@@ -320,6 +326,27 @@ final class SmartBackpacksConfigEntries {
         entries.add(integer("network_nodes", Category.STORAGE_NETWORK, "network", Scope.SERVER, 4096,
                 SmartBackpacksConfig::storageNetworkMaxNodes, SmartBackpacksConfig::setStorageNetworkMaxNodes,
                 128, 32768, 128, Unit.NODES, "maximum nodes bfs performance safety"));
+        entries.add(bool("importer_enabled", Category.STORAGE_NETWORK, "import_export", Scope.SERVER, true,
+                SmartBackpacksConfig::storageImporterEnabled, SmartBackpacksConfig::setStorageImporterEnabled,
+                "placed backpack to storage network"));
+        entries.add(bool("exporter_enabled", Category.STORAGE_NETWORK, "import_export", Scope.SERVER, true,
+                SmartBackpacksConfig::storageExporterEnabled, SmartBackpacksConfig::setStorageExporterEnabled,
+                "storage network to placed backpack"));
+        entries.add(integer("importer_interval", Category.STORAGE_NETWORK, "import_export", Scope.SERVER, 5,
+                SmartBackpacksConfig::storageImporterTransferInterval, SmartBackpacksConfig::setStorageImporterTransferInterval,
+                1, 1200, 1, Unit.TICKS, "import operation interval"));
+        entries.add(integer("importer_amount", Category.STORAGE_NETWORK, "import_export", Scope.SERVER, 8,
+                SmartBackpacksConfig::storageImporterTransferAmount, SmartBackpacksConfig::setStorageImporterTransferAmount,
+                1, 64, 1, Unit.STACKS, "maximum source stacks per import operation"));
+        entries.add(integer("exporter_interval", Category.STORAGE_NETWORK, "import_export", Scope.SERVER, 5,
+                SmartBackpacksConfig::storageExporterTransferInterval, SmartBackpacksConfig::setStorageExporterTransferInterval,
+                1, 1200, 1, Unit.TICKS, "export operation interval"));
+        entries.add(integer("exporter_amount", Category.STORAGE_NETWORK, "import_export", Scope.SERVER, 8,
+                SmartBackpacksConfig::storageExporterTransferAmount, SmartBackpacksConfig::setStorageExporterTransferAmount,
+                1, 64, 1, Unit.ITEMS, "maximum export batch"));
+        entries.add(bool("transfer_redstone", Category.STORAGE_NETWORK, "import_export", Scope.SERVER, true,
+                SmartBackpacksConfig::storageTransferRedstoneControlEnabled, SmartBackpacksConfig::setStorageTransferRedstoneControlEnabled,
+                "importer exporter redstone modes"));
         entries.add(bool("monitor_enabled", Category.STORAGE_NETWORK, "monitor", Scope.SERVER, true,
                 SmartBackpacksConfig::storageMonitorEnabled, SmartBackpacksConfig::setStorageMonitorEnabled,
                 "remote terminal storage monitor"));
@@ -495,6 +522,8 @@ final class SmartBackpacksConfigEntries {
         SECONDS("seconds"),
         BLOCKS("blocks"),
         ENTRIES("entries"),
+        ITEMS("items"),
+        STACKS("stacks"),
         LEVELS("levels"),
         NODES("nodes"),
         WEIGHT("weight"),

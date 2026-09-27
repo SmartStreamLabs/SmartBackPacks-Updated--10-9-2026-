@@ -5,10 +5,10 @@
       "id": "smartbackpacks:brewing_stand_upgrade"
     },
     "title": {
-      "text": "Potions in Your Pocket"
+      "translate": "advancement.smartbackpacks.upgrades.brewing_stand_upgrade.title"
     },
     "description": {
-      "text": "Brew potions from inside your backpack."
+      "translate": "advancement.smartbackpacks.upgrades.brewing_stand_upgrade.description"
     },
     "frame": "goal",
     "show_toast": true,

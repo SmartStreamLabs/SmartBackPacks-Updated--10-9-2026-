@@ -5,10 +5,10 @@
       "id": "smartbackpacks:nested_storage_upgrade"
     },
     "title": {
-      "text": "Bags Within Bags"
+      "translate": "advancement.smartbackpacks.upgrades.nested_storage_upgrade.title"
     },
     "description": {
-      "text": "Unlock the secrets of nested storage."
+      "translate": "advancement.smartbackpacks.upgrades.nested_storage_upgrade.description"
     },
     "frame": "challenge",
     "show_toast": true,

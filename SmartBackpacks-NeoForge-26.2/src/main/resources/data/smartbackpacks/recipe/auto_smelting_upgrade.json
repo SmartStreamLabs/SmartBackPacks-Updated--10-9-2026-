@@ -1,20 +1,20 @@
-﻿{
-    "type":  "minecraft:crafting_shaped",
-    "category":  "misc",
-    "pattern":  [
-                    "IFI",
-                    "RHR",
-                    "ICI"
-                ],
-    "key":  {
-                "I":  "minecraft:iron_ingot",
-                "F":  "minecraft:furnace",
-                "R":  "minecraft:redstone",
-                "H":  "minecraft:hopper",
-                "C":  "minecraft:coal"
-            },
-    "result":  {
-                   "id":  "smartbackpacks:auto_smelting_upgrade",
-                   "count":  1
-               }
+{
+  "type": "smartbackpacks:backpack_workbench",
+  "category": "misc",
+  "pattern": [
+    "IFI",
+    "RHR",
+    "ICI"
+  ],
+  "key": {
+    "I": "minecraft:iron_ingot",
+    "F": "minecraft:furnace",
+    "R": "minecraft:redstone",
+    "H": "minecraft:hopper",
+    "C": "minecraft:coal"
+  },
+  "result": {
+    "id": "smartbackpacks:auto_smelting_upgrade",
+    "count": 1
+  }
 }

@@ -5,10 +5,10 @@
       "id": "smartbackpacks:coal_backpack"
     },
     "title": {
-      "text": "Fueled for the Journey"
+      "translate": "advancement.smartbackpacks.backpacks.coal_backpack.title"
     },
     "description": {
-      "text": "Upgrade your storage with a Coal Backpack."
+      "translate": "advancement.smartbackpacks.backpacks.coal_backpack.description"
     },
     "frame": "task",
     "show_toast": true,

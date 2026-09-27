@@ -1,14 +1,14 @@
 {
-  "parent": "smartbackpacks:backpacks/leather_backpack",
+  "parent": "smartbackpacks:categories/automation",
   "display": {
     "icon": {
       "id": "smartbackpacks:auto_feed_upgrade"
     },
     "title": {
-      "text": "Backpack Buffet"
+      "translate": "advancement.smartbackpacks.upgrades.auto_feed_upgrade.title"
     },
     "description": {
-      "text": "Have your backpack keep hunger away."
+      "translate": "advancement.smartbackpacks.upgrades.auto_feed_upgrade.description"
     },
     "frame": "goal",
     "show_toast": true,

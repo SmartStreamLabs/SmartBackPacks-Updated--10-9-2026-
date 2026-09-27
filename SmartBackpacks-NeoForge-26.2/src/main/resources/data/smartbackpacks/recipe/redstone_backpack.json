@@ -1,17 +1,17 @@
-﻿{
-    "type":  "minecraft:crafting_shaped",
-    "category":  "misc",
-    "pattern":  [
-                    "RRR",
-                    "RBR",
-                    "RRR"
-                ],
-    "key":  {
-                "R":  "minecraft:redstone",
-                "B":  "smartbackpacks:lapis_backpack"
-            },
-    "result":  {
-                   "id":  "smartbackpacks:redstone_backpack",
-                   "count":  1
-               }
+{
+  "type": "smartbackpacks:backpack_workbench",
+  "category": "misc",
+  "pattern": [
+    "RRR",
+    "RBR",
+    "RRR"
+  ],
+  "key": {
+    "R": "minecraft:redstone",
+    "B": "smartbackpacks:lapis_backpack"
+  },
+  "result": {
+    "id": "smartbackpacks:redstone_backpack",
+    "count": 1
+  }
 }

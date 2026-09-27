@@ -5,10 +5,10 @@
       "id": "smartbackpacks:advanced_magnet_upgrade"
     },
     "title": {
-      "text": "Event Horizon"
+      "translate": "advancement.smartbackpacks.upgrades.advanced_magnet_upgrade.title"
     },
     "description": {
-      "text": "Harness the stronger Advanced Magnet Upgrade."
+      "translate": "advancement.smartbackpacks.upgrades.advanced_magnet_upgrade.description"
     },
     "frame": "goal",
     "show_toast": true,

@@ -18,6 +18,8 @@ public final class ModCreativeTabs {
             .withTabsBefore(CreativeModeTabs.TOOLS_AND_UTILITIES)
             .icon(() -> ModItems.NETHERITE_BACKPACK.get().getDefaultInstance())
             .displayItems((parameters, output) -> {
+                output.accept(ModItems.BACKPACK_WORKBENCH.get());
+                output.accept(ModItems.BACKPACK_DISPLAY_HOOK.get());
                 output.accept(ModItems.LEATHER_BACKPACK.get());
                 output.accept(ModItems.COAL_BACKPACK.get());
                 output.accept(ModItems.LAPIS_BACKPACK.get());
@@ -34,6 +36,8 @@ public final class ModCreativeTabs {
                 output.accept(ModItems.NETHERITE_VAULT_BACKPACK.get());
                 output.accept(ModItems.STORAGE_CONTROLLER.get());
                 output.accept(ModItems.STORAGE_CABLE.get());
+                output.accept(ModItems.STORAGE_IMPORTER.get());
+                output.accept(ModItems.STORAGE_EXPORTER.get());
                 output.accept(ModItems.STORAGE_MONITOR.get());
                 output.accept(ModItems.MAGNET_UPGRADE.get());
                 output.accept(ModItems.ADVANCED_MAGNET_UPGRADE.get());
@@ -54,6 +58,11 @@ public final class ModCreativeTabs {
                 output.accept(ModItems.AUTO_FEED_UPGRADE.get());
                 output.accept(ModItems.SURVIVAL_ASSIST_UPGRADE.get());
                 output.accept(ModItems.LIGHT_UPGRADE.get());
+                output.accept(ModItems.NIGHT_VISION_UPGRADE.get());
+                output.accept(ModItems.FLIGHT_UPGRADE.get());
+                output.accept(ModItems.REPAIR_UPGRADE.get());
+                output.accept(ModItems.FALL_PROTECTION_UPGRADE.get());
+                output.accept(ModItems.DEATH_EMERGENCY_KIT_UPGRADE.get());
                 output.accept(ModItems.WIRELESS_UPGRADE.get());
                 output.accept(ModItems.SOULBOUND_UPGRADE.get());
                 output.accept(ModItems.FILTER_UPGRADE.get());

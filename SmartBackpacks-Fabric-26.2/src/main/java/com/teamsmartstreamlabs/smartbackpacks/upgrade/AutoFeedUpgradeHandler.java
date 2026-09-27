@@ -57,6 +57,7 @@ public final class AutoFeedUpgradeHandler {
             BackpackStackData.saveStorage(autoFeedBackpack.backpack(), storage);
             autoFeedBackpack.saver().accept(autoFeedBackpack.backpack());
             NEXT_ALLOWED_USE.put(player.getUUID(), gameTime + USE_COOLDOWN_TICKS);
+            com.teamsmartstreamlabs.smartbackpacks.progress.BackpackProgression.add(player, "auto_feed_items_consumed", 1);
         }
     }
 

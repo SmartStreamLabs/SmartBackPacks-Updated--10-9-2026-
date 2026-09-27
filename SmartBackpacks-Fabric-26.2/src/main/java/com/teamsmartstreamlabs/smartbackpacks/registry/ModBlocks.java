@@ -3,8 +3,11 @@ package com.teamsmartstreamlabs.smartbackpacks.registry;
 import com.teamsmartstreamlabs.smartbackpacks.SmartBackpacks;
 import com.teamsmartstreamlabs.smartbackpacks.backpack.BackpackTier;
 import com.teamsmartstreamlabs.smartbackpacks.block.BackpackBlock;
+import com.teamsmartstreamlabs.smartbackpacks.block.BackpackWorkbenchBlock;
+import com.teamsmartstreamlabs.smartbackpacks.block.BackpackDisplayHookBlock;
 import com.teamsmartstreamlabs.smartbackpacks.block.StorageCableBlock;
 import com.teamsmartstreamlabs.smartbackpacks.block.StorageControllerBlock;
+import com.teamsmartstreamlabs.smartbackpacks.block.StorageTransferBlock;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
@@ -13,6 +16,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.level.material.PushReaction;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -48,10 +52,21 @@ public final class ModBlocks {
             BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_CYAN).strength(0.8F).sound(SoundType.WOOL).noOcclusion());
     public static final DeferredBlock<Block> NETHERITE_VAULT_BACKPACK = registerBackpackBlock("netherite_vault_backpack_block", BackpackTier.NETHERITE_VAULT,
             BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLACK).strength(0.8F).sound(SoundType.WOOL).noOcclusion());
+    public static final DeferredBlock<Block> BACKPACK_WORKBENCH = registerBlock("backpack_workbench", BackpackWorkbenchBlock::new,
+            BlockBehaviour.Properties.of().mapColor(MapColor.WOOD).strength(2.5F).sound(SoundType.WOOD).noOcclusion());
     public static final DeferredBlock<Block> STORAGE_CONTROLLER = registerBlock("storage_controller", StorageControllerBlock::new,
             BlockBehaviour.Properties.of().mapColor(MapColor.METAL).strength(3.5F).sound(SoundType.COPPER));
+    public static final DeferredBlock<Block> BACKPACK_DISPLAY_HOOK = registerBlock("backpack_display_hook", BackpackDisplayHookBlock::new,
+            BlockBehaviour.Properties.of().mapColor(MapColor.METAL).strength(1.5F).sound(SoundType.METAL)
+                    .noOcclusion().pushReaction(PushReaction.BLOCK));
     public static final DeferredBlock<Block> STORAGE_CABLE = registerBlock("storage_cable", StorageCableBlock::new,
             BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(0.6F).sound(SoundType.COPPER).noOcclusion());
+    public static final DeferredBlock<Block> STORAGE_IMPORTER = registerBlock("storage_importer",
+            properties -> new StorageTransferBlock(properties, true),
+            BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(2.5F).sound(SoundType.COPPER).noOcclusion());
+    public static final DeferredBlock<Block> STORAGE_EXPORTER = registerBlock("storage_exporter",
+            properties -> new StorageTransferBlock(properties, false),
+            BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(2.5F).sound(SoundType.COPPER).noOcclusion());
 
     private ModBlocks() {
     }

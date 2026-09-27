@@ -96,6 +96,7 @@ public class FluidTransferUpgradeMenu extends AbstractContainerMenu {
     }
 
     public void fillTankFromContainer() {
+        int beforeFluid = this.getFluidAmount();
         ItemStack container = this.containerSlot.getItem(0);
         if (container.isEmpty()) {
             return;
@@ -113,6 +114,8 @@ public class FluidTransferUpgradeMenu extends AbstractContainerMenu {
 
         this.containerSlot.setItem(0, result.getResult());
         this.saveTankUpgradeStack(tankUpgrade);
+        if (this.owner instanceof net.minecraft.server.level.ServerPlayer serverPlayer)
+            com.teamsmartstreamlabs.smartbackpacks.progress.BackpackProgression.add(serverPlayer, "fluid_stored_mb", Math.max(0L, (long) this.getFluidAmount() - beforeFluid));
     }
 
     public void fillContainerFromTank() {

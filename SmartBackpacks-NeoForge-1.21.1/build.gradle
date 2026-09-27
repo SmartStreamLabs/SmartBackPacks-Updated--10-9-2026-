@@ -127,6 +127,7 @@ configurations {
 dependencies {
     compileOnly "top.theillusivec4.curios:curios-neoforge:${curios_version}:api"
     localRuntime "top.theillusivec4.curios:curios-neoforge:${curios_version}"
+    compileOnly "curse.maven:jei-238222:5745660"
     localRuntime "curse.maven:jei-238222:5745660"
     localRuntime "maven.modrinth:Mzc2vHe7:y4idwcop"
     localRuntime "curse.maven:create-328085:7963363"

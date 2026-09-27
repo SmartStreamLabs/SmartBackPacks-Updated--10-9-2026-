@@ -5,10 +5,10 @@
       "id": "smartbackpacks:smithing_table_upgrade"
     },
     "title": {
-      "text": "Portable Smithy"
+      "translate": "advancement.smartbackpacks.upgrades.smithing_table_upgrade.title"
     },
     "description": {
-      "text": "Upgrade equipment wherever adventure takes you."
+      "translate": "advancement.smartbackpacks.upgrades.smithing_table_upgrade.description"
     },
     "frame": "goal",
     "show_toast": true,

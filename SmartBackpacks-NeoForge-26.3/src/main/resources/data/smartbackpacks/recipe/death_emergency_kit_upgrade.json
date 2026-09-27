@@ -1,0 +1,19 @@
+{
+  "type": "smartbackpacks:backpack_workbench",
+  "category": "misc",
+  "pattern": [
+    "CTC",
+    "GUG",
+    " C "
+  ],
+  "key": {
+    "C": "minecraft:chest",
+    "T": "minecraft:totem_of_undying",
+    "G": "minecraft:golden_apple",
+    "U": "smartbackpacks:survival_assist_upgrade"
+  },
+  "result": {
+    "id": "smartbackpacks:death_emergency_kit_upgrade",
+    "count": 1
+  }
+}

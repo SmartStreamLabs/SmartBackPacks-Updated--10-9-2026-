@@ -5,10 +5,10 @@
       "id": "smartbackpacks:pickup_notifier_upgrade"
     },
     "title": {
-      "text": "Signed, Sealed, Collected"
+      "translate": "advancement.smartbackpacks.upgrades.pickup_notifier_upgrade.title"
     },
     "description": {
-      "text": "Keep track of everything your backpack picks up."
+      "translate": "advancement.smartbackpacks.upgrades.pickup_notifier_upgrade.description"
     },
     "frame": "goal",
     "show_toast": true,

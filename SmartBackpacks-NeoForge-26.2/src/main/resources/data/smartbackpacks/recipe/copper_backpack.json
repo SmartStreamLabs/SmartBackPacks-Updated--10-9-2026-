@@ -1,17 +1,17 @@
-﻿{
-    "type":  "minecraft:crafting_shaped",
-    "category":  "misc",
-    "pattern":  [
-                    "CCC",
-                    "CBC",
-                    "CCC"
-                ],
-    "key":  {
-                "C":  "minecraft:copper_ingot",
-                "B":  "smartbackpacks:quartz_backpack"
-            },
-    "result":  {
-                   "id":  "smartbackpacks:copper_backpack",
-                   "count":  1
-               }
+{
+  "type": "smartbackpacks:backpack_workbench",
+  "category": "misc",
+  "pattern": [
+    "CCC",
+    "CBC",
+    "CCC"
+  ],
+  "key": {
+    "C": "minecraft:copper_ingot",
+    "B": "smartbackpacks:quartz_backpack"
+  },
+  "result": {
+    "id": "smartbackpacks:copper_backpack",
+    "count": 1
+  }
 }

@@ -5,6 +5,7 @@ import java.util.function.Consumer;
 import com.teamsmartstreamlabs.smartbackpacks.compat.CuriosCompat;
 import com.teamsmartstreamlabs.smartbackpacks.item.BackpackItem;
 import com.teamsmartstreamlabs.smartbackpacks.item.CompressionUpgradeItem;
+import com.teamsmartstreamlabs.smartbackpacks.progress.BackpackProgression;
 
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -21,20 +22,20 @@ public final class CompressionUpgradeHandler {
         }
 
         for (int slot = 0; slot < 36; slot++) {
-            tickCompressionInBackpack(player.getInventory().getItem(slot), player.level(), backpack -> player.getInventory().setChanged());
+            tickCompressionInBackpack(player, player.getInventory().getItem(slot), player.level(), backpack -> player.getInventory().setChanged());
         }
 
-        tickCompressionInBackpack(player.getOffhandItem(), player.level(), backpack -> player.getInventory().setChanged());
-        tickCompressionInBackpack(player.getItemBySlot(EquipmentSlot.CHEST), player.level(), backpack -> player.getInventory().setChanged());
+        tickCompressionInBackpack(player, player.getOffhandItem(), player.level(), backpack -> player.getInventory().setChanged());
+        tickCompressionInBackpack(player, player.getItemBySlot(EquipmentSlot.CHEST), player.level(), backpack -> player.getInventory().setChanged());
 
         for (int slot = 0; slot < CuriosCompat.getBackSlotCount(player); slot++) {
             int curioSlot = slot;
-            tickCompressionInBackpack(CuriosCompat.getBackStack(player, curioSlot), player.level(),
+            tickCompressionInBackpack(player, CuriosCompat.getBackStack(player, curioSlot), player.level(),
                     backpack -> CuriosCompat.setBackStack(player, curioSlot, backpack));
         }
     }
 
-    public static void tickCompressionInBackpack(ItemStack backpack, net.minecraft.world.level.Level level, Consumer<ItemStack> saver) {
+    public static void tickCompressionInBackpack(ServerPlayer player, ItemStack backpack, net.minecraft.world.level.Level level, Consumer<ItemStack> saver) {
         if (!(backpack.getItem() instanceof BackpackItem backpackItem)) {
             return;
         }
@@ -49,6 +50,7 @@ public final class CompressionUpgradeHandler {
 
         if (hasUpgrade && CompressionUpgradeLogic.tick(level, backpack, backpackItem.getTier())) {
             saver.accept(backpack);
+            BackpackProgression.add(player, "compression_operations", 1);
         }
     }
 }

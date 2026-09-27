@@ -27,6 +27,11 @@ public final class PickupNotifierServer {
 
     public static void reportInserted(ServerPlayer player, ItemStack backpack, BackpackTier tier, ItemStack inserted,
             PickupNotifierDestination destination, PickupNotifierSource source) {
+        if (player != null && !player.level().isClientSide() && !inserted.isEmpty()
+                && destination == PickupNotifierDestination.MAIN_STORAGE) {
+            com.teamsmartstreamlabs.smartbackpacks.progress.BackpackProgression.recordInsertion(
+                    player, backpack, tier, inserted.getCount());
+        }
         if (player == null
                 || player.level().isClientSide()
                 || !SmartBackpacksConfig.pickupNotifierEnabled()

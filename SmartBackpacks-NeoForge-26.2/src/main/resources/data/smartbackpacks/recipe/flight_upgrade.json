@@ -1,0 +1,19 @@
+{
+  "type": "smartbackpacks:backpack_workbench",
+  "category": "misc",
+  "pattern": [
+    "NBN",
+    "SUS",
+    " B "
+  ],
+  "key": {
+    "N": "minecraft:netherite_block",
+    "B": "smartbackpacks:backpack_link_upgrade",
+    "S": "smartbackpacks:soulbound_upgrade",
+    "U": "smartbackpacks:ultimate_storage_upgrade"
+  },
+  "result": {
+    "id": "smartbackpacks:flight_upgrade",
+    "count": 1
+  }
+}

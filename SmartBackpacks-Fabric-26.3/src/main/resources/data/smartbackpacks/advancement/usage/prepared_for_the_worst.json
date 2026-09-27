@@ -1,0 +1,28 @@
+{
+  "parent": "smartbackpacks:upgrades/death_emergency_kit_upgrade",
+  "display": {
+    "icon": {
+      "id": "smartbackpacks:death_emergency_kit_upgrade"
+    },
+    "title": {
+      "translate": "advancement.smartbackpacks.usage.prepared_for_the_worst.title"
+    },
+    "description": {
+      "translate": "advancement.smartbackpacks.usage.prepared_for_the_worst.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "used": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "used"
+    ]
+  ]
+}

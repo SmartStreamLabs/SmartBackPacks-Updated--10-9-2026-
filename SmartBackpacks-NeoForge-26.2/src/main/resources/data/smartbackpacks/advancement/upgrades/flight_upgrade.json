@@ -1,0 +1,35 @@
+{
+  "parent": "smartbackpacks:categories/survival",
+  "display": {
+    "icon": {
+      "id": "smartbackpacks:flight_upgrade"
+    },
+    "title": {
+      "translate": "advancement.smartbackpacks.upgrades.flight_upgrade.title"
+    },
+    "description": {
+      "translate": "advancement.smartbackpacks.upgrades.flight_upgrade.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "item_0": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:flight_upgrade"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "item_0"
+    ]
+  ]
+}

@@ -1,14 +1,14 @@
 {
-  "parent": "smartbackpacks:backpacks/leather_backpack",
+  "parent": "smartbackpacks:categories/machines",
   "display": {
     "icon": {
       "id": "smartbackpacks:crafting_table_upgrade"
     },
     "title": {
-      "text": "Pocket Workbench"
+      "translate": "advancement.smartbackpacks.upgrades.crafting_table_upgrade.title"
     },
     "description": {
-      "text": "Carry a crafting table wherever you go."
+      "translate": "advancement.smartbackpacks.upgrades.crafting_table_upgrade.description"
     },
     "frame": "task",
     "show_toast": true,

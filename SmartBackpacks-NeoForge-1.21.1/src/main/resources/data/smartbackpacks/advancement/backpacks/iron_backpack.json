@@ -5,10 +5,10 @@
       "id": "smartbackpacks:iron_backpack"
     },
     "title": {
-      "text": "Iron-Clad Inventory"
+      "translate": "advancement.smartbackpacks.backpacks.iron_backpack.title"
     },
     "description": {
-      "text": "Secure your supplies in an Iron Backpack."
+      "translate": "advancement.smartbackpacks.backpacks.iron_backpack.description"
     },
     "frame": "task",
     "show_toast": true,

@@ -1,14 +1,14 @@
 {
-  "parent": "smartbackpacks:backpacks/leather_backpack",
+  "parent": "smartbackpacks:categories/automation",
   "display": {
     "icon": {
       "id": "smartbackpacks:builder_upgrade"
     },
     "title": {
-      "text": "Build From the Backpack"
+      "translate": "advancement.smartbackpacks.upgrades.builder_upgrade.title"
     },
     "description": {
-      "text": "Keep your building blocks ready for action."
+      "translate": "advancement.smartbackpacks.upgrades.builder_upgrade.description"
     },
     "frame": "goal",
     "show_toast": true,

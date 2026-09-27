@@ -1,14 +1,14 @@
 {
-  "parent": "smartbackpacks:backpacks/leather_backpack",
+  "parent": "smartbackpacks:categories/automation",
   "display": {
     "icon": {
       "id": "smartbackpacks:auto_tool_upgrade"
     },
     "title": {
-      "text": "The Right Tool"
+      "translate": "advancement.smartbackpacks.upgrades.auto_tool_upgrade.title"
     },
     "description": {
-      "text": "Let your backpack choose the right tool automatically."
+      "translate": "advancement.smartbackpacks.upgrades.auto_tool_upgrade.description"
     },
     "frame": "goal",
     "show_toast": true,

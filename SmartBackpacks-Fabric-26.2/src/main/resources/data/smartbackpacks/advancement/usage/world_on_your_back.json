@@ -1,0 +1,28 @@
+{
+  "parent": "smartbackpacks:usage/long_haul",
+  "display": {
+    "icon": {
+      "id": "smartbackpacks:netherite_vault_backpack"
+    },
+    "title": {
+      "translate": "advancement.smartbackpacks.usage.world_on_your_back.title"
+    },
+    "description": {
+      "translate": "advancement.smartbackpacks.usage.world_on_your_back.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "used": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "used"
+    ]
+  ]
+}

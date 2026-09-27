@@ -5,10 +5,10 @@
       "id": "smartbackpacks:ultimate_diamond_backpack"
     },
     "title": {
-      "text": "Limitless Luxury"
+      "translate": "advancement.smartbackpacks.backpacks.ultimate_diamond_backpack.title"
     },
     "description": {
-      "text": "Master portable storage with an Ultimate Diamond Backpack."
+      "translate": "advancement.smartbackpacks.backpacks.ultimate_diamond_backpack.description"
     },
     "frame": "challenge",
     "show_toast": true,

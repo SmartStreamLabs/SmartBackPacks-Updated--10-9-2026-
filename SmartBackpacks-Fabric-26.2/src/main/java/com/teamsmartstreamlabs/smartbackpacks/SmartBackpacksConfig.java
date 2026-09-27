@@ -1,6 +1,7 @@
 package com.teamsmartstreamlabs.smartbackpacks;
 
 import com.teamsmartstreamlabs.smartbackpacks.backpack.BackpackTier;
+import com.teamsmartstreamlabs.smartbackpacks.loot.AbandonedBackpackProfile;
 import com.teamsmartstreamlabs.smartbackpacks.mobbackpack.MobBackpackType;
 import com.teamsmartstreamlabs.smartbackpacks.upgrade.TrashProtectionLevel;
 
@@ -30,6 +31,19 @@ public final class SmartBackpacksConfig {
     private static final ModConfigSpec.IntValue PICKUP_NOTIFIER_GROUPING_WINDOW_TICKS;
     private static final ModConfigSpec.IntValue PICKUP_NOTIFIER_MAX_VISIBLE;
     private static final ModConfigSpec.IntValue PICKUP_NOTIFIER_QUEUE_LIMIT;
+    private static final ModConfigSpec.BooleanValue BLOCK_DROP_MAGNET_PROTECTION_ENABLED;
+    private static final ModConfigSpec.BooleanValue FLIGHT_UPGRADE_ENABLED;
+    private static final ModConfigSpec.BooleanValue REPAIR_UPGRADE_ENABLED;
+    private static final ModConfigSpec.BooleanValue FALL_PROTECTION_UPGRADE_ENABLED;
+    private static final ModConfigSpec.BooleanValue DEATH_EMERGENCY_KIT_ENABLED;
+    private static final ModConfigSpec.IntValue FALL_PROTECTION_COOLDOWN_SECONDS;
+    private static final ModConfigSpec.IntValue FALL_PROTECTION_SLOW_FALLING_SECONDS;
+    private static final ModConfigSpec.IntValue FALL_PROTECTION_MAX_CHARGES;
+    private static final ModConfigSpec.IntValue FALL_PROTECTION_TRIGGER_HEALTH_MARGIN;
+    private static final ModConfigSpec.IntValue REPAIR_UPGRADE_TICKS_PER_REPAIR;
+    private static final ModConfigSpec.IntValue REPAIR_UPGRADE_DURABILITY_PER_CYCLE;
+    private static final ModConfigSpec.IntValue REPAIR_UPGRADE_DURABILITY_PER_XP;
+    private static final ModConfigSpec.IntValue BLOCK_DROP_MAGNET_PROTECTION_SECONDS;
     private static final ModConfigSpec.IntValue MAGNET_RADIUS;
     private static final ModConfigSpec.IntValue ADVANCED_MAGNET_RADIUS;
     private static final ModConfigSpec.IntValue QUIVER_SLOT_COUNT;
@@ -117,6 +131,22 @@ public final class SmartBackpacksConfig {
     private static final ModConfigSpec.BooleanValue STORAGE_NETWORK_ENABLED;
     private static final ModConfigSpec.IntValue STORAGE_NETWORK_MAX_CABLE_PATH;
     private static final ModConfigSpec.IntValue STORAGE_NETWORK_MAX_NODES;
+    private static final ModConfigSpec.BooleanValue STORAGE_IMPORTER_ENABLED;
+    private static final ModConfigSpec.BooleanValue STORAGE_EXPORTER_ENABLED;
+    private static final ModConfigSpec.IntValue STORAGE_IMPORTER_TRANSFER_INTERVAL;
+    private static final ModConfigSpec.IntValue STORAGE_IMPORTER_TRANSFER_AMOUNT;
+    private static final ModConfigSpec.IntValue STORAGE_EXPORTER_TRANSFER_INTERVAL;
+    private static final ModConfigSpec.IntValue STORAGE_EXPORTER_TRANSFER_AMOUNT;
+    private static final ModConfigSpec.BooleanValue STORAGE_TRANSFER_REDSTONE_CONTROL_ENABLED;
+    private static final ModConfigSpec.BooleanValue ABANDONED_BACKPACKS_ENABLED;
+    private static final ModConfigSpec.BooleanValue BACKPACKER_CAMP_ENABLED;
+    private static final ModConfigSpec.IntValue BACKPACKER_CAMP_ABANDONED_WEIGHT;
+    private static final ModConfigSpec.IntValue BACKPACKER_CAMP_BACKPACK_WEIGHT;
+    private static final ModConfigSpec.IntValue BACKPACKER_CAMP_TRADER_WEIGHT;
+    private static final ModConfigSpec.DoubleValue BACKPACKER_CAMP_BACKPACK_LOOT_CHANCE;
+    private static final ModConfigSpec.DoubleValue ABANDONED_BACKPACK_UPGRADE_CHANCE;
+    private static final ModConfigSpec.DoubleValue ABANDONED_BACKPACK_CUSTOM_NAME_CHANCE;
+    private static final Map<AbandonedBackpackProfile, ModConfigSpec.DoubleValue> ABANDONED_BACKPACK_CHANCES = new EnumMap<>(AbandonedBackpackProfile.class);
     private static final ModConfigSpec.BooleanValue MOB_BACKPACKS_ENABLED;
     private static final ModConfigSpec.DoubleValue MOB_BACKPACK_SPAWN_CHANCE;
     private static final ModConfigSpec.DoubleValue MOB_BACKPACK_DROP_CHANCE;
@@ -206,6 +236,35 @@ public final class SmartBackpacksConfig {
         builder.pop();
 
         builder.push("upgrades");
+        FLIGHT_UPGRADE_ENABLED = builder
+                .comment("Allows the Flight Upgrade to grant flight while an equipped backpack is active.")
+                .define("flight_upgrade_enabled", true);
+        REPAIR_UPGRADE_ENABLED = builder.comment("Allows the Repair Upgrade to consume player XP and repair backpack contents.")
+                .define("repair_upgrade_enabled", true);
+        FALL_PROTECTION_UPGRADE_ENABLED = builder.comment("Allows the Fall Protection Upgrade to prevent dangerous falls.")
+                .define("fall_protection_upgrade_enabled", true);
+        DEATH_EMERGENCY_KIT_ENABLED = builder.comment("Allows the Death Emergency Kit Upgrade to retrieve stored supplies after respawn.")
+                .define("death_emergency_kit_enabled", true);
+        FALL_PROTECTION_COOLDOWN_SECONDS = builder.comment("Seconds between Fall Protection activations.")
+                .defineInRange("fall_protection_cooldown_seconds", 60, 0, 3600);
+        FALL_PROTECTION_SLOW_FALLING_SECONDS = builder.comment("Slow Falling duration per safety activation.")
+                .defineInRange("fall_protection_slow_falling_seconds", 5, 1, 60);
+        FALL_PROTECTION_MAX_CHARGES = builder.comment("Usable charges before this 32-durability upgrade is depleted.")
+                .defineInRange("fall_protection_max_charges", 32, 1, 32);
+        FALL_PROTECTION_TRIGGER_HEALTH_MARGIN = builder.comment("Activate if predicted fall damage would leave this much health or less.")
+                .defineInRange("fall_protection_trigger_health_margin", 4, 0, 20);
+        REPAIR_UPGRADE_TICKS_PER_REPAIR = builder.comment("Ticks between repair cycles.")
+                .defineInRange("repair_upgrade_ticks_per_repair", 10, 1, 1200);
+        REPAIR_UPGRADE_DURABILITY_PER_CYCLE = builder.comment("Durability contributed by each repair cycle.")
+                .defineInRange("repair_upgrade_durability_per_cycle", 1, 1, 64);
+        REPAIR_UPGRADE_DURABILITY_PER_XP = builder.comment("Durability restored per raw XP point.")
+                .defineInRange("repair_upgrade_durability_per_xp", 2, 1, 64);
+        BLOCK_DROP_MAGNET_PROTECTION_ENABLED = builder
+                .comment("Prevents other players' magnets from collecting freshly mined block drops.")
+                .define("blockDropMagnetProtectionEnabled", true);
+        BLOCK_DROP_MAGNET_PROTECTION_SECONDS = builder
+                .comment("Seconds of magnet protection for mined block drops; 0 protects until the item disappears.")
+                .defineInRange("blockDropMagnetProtectionSeconds", 30, 0, 86400);
         MAGNET_RADIUS = builder
                 .comment("Pickup radius for the regular Magnet Upgrade.")
                 .defineInRange("magnetRadius", 10, 1, 128);
@@ -464,6 +523,22 @@ public final class SmartBackpacksConfig {
         STORAGE_NETWORK_MAX_NODES = builder
                 .comment("Maximum number of Storage Cable nodes visited by one network scan.")
                 .defineInRange("maximumNetworkNodes", 4096, 128, 32768);
+        builder.push("import_export");
+        STORAGE_IMPORTER_ENABLED = builder.comment("Enables Storage Importer transfers from placed backpacks into a storage network.")
+                .define("storageImporterEnabled", true);
+        STORAGE_EXPORTER_ENABLED = builder.comment("Enables Storage Exporter transfers from a storage network into placed backpacks.")
+                .define("storageExporterEnabled", true);
+        STORAGE_IMPORTER_TRANSFER_INTERVAL = builder.comment("Ticks between Storage Importer operations.")
+                .defineInRange("storageImporterTransferInterval", 5, 1, 1200);
+        STORAGE_IMPORTER_TRANSFER_AMOUNT = builder.comment("Maximum source stacks moved by one Storage Importer operation; each stack can move in full.")
+                .defineInRange("storageImporterTransferAmount", 8, 1, 64);
+        STORAGE_EXPORTER_TRANSFER_INTERVAL = builder.comment("Ticks between Storage Exporter operations.")
+                .defineInRange("storageExporterTransferInterval", 5, 1, 1200);
+        STORAGE_EXPORTER_TRANSFER_AMOUNT = builder.comment("Maximum items moved by one Storage Exporter operation.")
+                .defineInRange("storageExporterTransferAmount", 8, 1, 64);
+        STORAGE_TRANSFER_REDSTONE_CONTROL_ENABLED = builder.comment("Allows Importer and Exporter redstone control modes.")
+                .define("allowRedstoneControl", true);
+        builder.pop();
         STORAGE_MONITOR_ENABLED = builder.comment("Enables Storage Monitors and remote Storage Controller access.")
                 .define("storageMonitorEnabled", true);
         STORAGE_MONITOR_CROSS_DIMENSION_ACCESS = builder
@@ -502,6 +577,28 @@ public final class SmartBackpacksConfig {
         defineMobBackpackTierWeight(builder, BackpackTier.GOLD, 15);
         defineMobBackpackTierWeight(builder, BackpackTier.EMERALD, 5);
         builder.pop();
+        builder.pop();
+
+        builder.push("backpacker_camp");
+        BACKPACKER_CAMP_ENABLED = builder.define("enabled", true);
+        BACKPACKER_CAMP_ABANDONED_WEIGHT = builder.defineInRange("abandonedWeight", 65, 0, 1000);
+        BACKPACKER_CAMP_BACKPACK_WEIGHT = builder.defineInRange("backpackWeight", 25, 0, 1000);
+        BACKPACKER_CAMP_TRADER_WEIGHT = builder.defineInRange("traderWeight", 10, 0, 1000);
+        BACKPACKER_CAMP_BACKPACK_LOOT_CHANCE = builder.defineInRange("backpackLootChance", 0.08D, 0.0D, 1.0D);
+        builder.pop();
+
+        builder.push("abandoned_backpacks");
+        ABANDONED_BACKPACKS_ENABLED = builder.comment("Allow rare prefilled backpacks in selected vanilla structure chests.")
+                .define("enabled", true);
+        ABANDONED_BACKPACK_UPGRADE_CHANCE = builder.comment("Chance for one safe preinstalled upgrade.")
+                .defineInRange("upgradeChance", 0.08D, 0.0D, 1.0D);
+        ABANDONED_BACKPACK_CUSTOM_NAME_CHANCE = builder.comment("Chance for a cosmetic explorer name.")
+                .defineInRange("customNameChance", 0.15D, 0.0D, 1.0D);
+        for (AbandonedBackpackProfile profile : AbandonedBackpackProfile.values()) {
+            if (profile == AbandonedBackpackProfile.CAMP) continue;
+            ABANDONED_BACKPACK_CHANCES.put(profile, builder.comment("Chance per " + profile.id() + " structure chest.")
+                    .defineInRange(profile.id() + "Chance", profile.defaultChance(), 0.0D, 1.0D));
+        }
         builder.pop();
 
         builder.push("backpacks");
@@ -546,6 +643,41 @@ public final class SmartBackpacksConfig {
         public String displayName() {
             return this.displayName;
         }
+    }
+
+    public static boolean flightUpgradeEnabled() {
+        return FLIGHT_UPGRADE_ENABLED.get();
+    }
+    public static boolean repairUpgradeEnabled() {
+        return REPAIR_UPGRADE_ENABLED.get();
+    }
+    public static boolean fallProtectionUpgradeEnabled() {
+        return FALL_PROTECTION_UPGRADE_ENABLED.get();
+    }
+    public static int fallProtectionCooldownSeconds() {
+        return FALL_PROTECTION_COOLDOWN_SECONDS.get();
+    }
+
+    public static boolean deathEmergencyKitEnabled() {
+        return DEATH_EMERGENCY_KIT_ENABLED.get();
+    }
+    public static int fallProtectionSlowFallingSeconds() {
+        return FALL_PROTECTION_SLOW_FALLING_SECONDS.get();
+    }
+    public static int fallProtectionMaxCharges() {
+        return FALL_PROTECTION_MAX_CHARGES.get();
+    }
+    public static int fallProtectionTriggerHealthMargin() {
+        return FALL_PROTECTION_TRIGGER_HEALTH_MARGIN.get();
+    }
+    public static int repairUpgradeTicksPerRepair() {
+        return REPAIR_UPGRADE_TICKS_PER_REPAIR.get();
+    }
+    public static int repairUpgradeDurabilityPerCycle() {
+        return REPAIR_UPGRADE_DURABILITY_PER_CYCLE.get();
+    }
+    public static int repairUpgradeDurabilityPerXp() {
+        return REPAIR_UPGRADE_DURABILITY_PER_XP.get();
     }
 
     public static boolean canWearBackpackOnBack() {
@@ -654,6 +786,14 @@ public final class SmartBackpacksConfig {
 
     public static int magnetRadius() {
         return MAGNET_RADIUS.get();
+    }
+
+    public static boolean blockDropMagnetProtectionEnabled() {
+        return BLOCK_DROP_MAGNET_PROTECTION_ENABLED.get();
+    }
+
+    public static int blockDropMagnetProtectionSeconds() {
+        return BLOCK_DROP_MAGNET_PROTECTION_SECONDS.get();
     }
 
     public static int advancedMagnetRadius() {
@@ -1056,6 +1196,34 @@ public final class SmartBackpacksConfig {
         return STORAGE_NETWORK_MAX_NODES.get();
     }
 
+    public static boolean storageImporterEnabled() {
+        return STORAGE_IMPORTER_ENABLED.get();
+    }
+
+    public static boolean storageExporterEnabled() {
+        return STORAGE_EXPORTER_ENABLED.get();
+    }
+
+    public static int storageImporterTransferInterval() {
+        return STORAGE_IMPORTER_TRANSFER_INTERVAL.get();
+    }
+
+    public static int storageImporterTransferAmount() {
+        return STORAGE_IMPORTER_TRANSFER_AMOUNT.get();
+    }
+
+    public static int storageExporterTransferInterval() {
+        return STORAGE_EXPORTER_TRANSFER_INTERVAL.get();
+    }
+
+    public static int storageExporterTransferAmount() {
+        return STORAGE_EXPORTER_TRANSFER_AMOUNT.get();
+    }
+
+    public static boolean storageTransferRedstoneControlEnabled() {
+        return STORAGE_TRANSFER_REDSTONE_CONTROL_ENABLED.get();
+    }
+
     public static boolean storageMonitorCrossDimensionAccess() {
         return STORAGE_MONITOR_CROSS_DIMENSION_ACCESS.get();
     }
@@ -1108,6 +1276,18 @@ public final class SmartBackpacksConfig {
         return BACKPACK_LINK_CROSS_DIMENSION_COOLDOWN_SECONDS.get();
     }
 
+    public static boolean abandonedBackpacksEnabled() { return ABANDONED_BACKPACKS_ENABLED.get(); }
+    public static boolean backpackerCampEnabled() { return BACKPACKER_CAMP_ENABLED.get(); }
+    public static int backpackerCampAbandonedWeight() { return BACKPACKER_CAMP_ABANDONED_WEIGHT.get(); }
+    public static int backpackerCampBackpackWeight() { return BACKPACKER_CAMP_BACKPACK_WEIGHT.get(); }
+    public static int backpackerCampTraderWeight() { return BACKPACKER_CAMP_TRADER_WEIGHT.get(); }
+    public static double backpackerCampBackpackLootChance() { return BACKPACKER_CAMP_BACKPACK_LOOT_CHANCE.get(); }
+    public static double abandonedBackpackUpgradeChance() { return ABANDONED_BACKPACK_UPGRADE_CHANCE.get(); }
+    public static double abandonedBackpackCustomNameChance() { return ABANDONED_BACKPACK_CUSTOM_NAME_CHANCE.get(); }
+    public static double abandonedBackpackChance(AbandonedBackpackProfile profile) {
+        return profile == AbandonedBackpackProfile.CAMP
+                ? BACKPACKER_CAMP_BACKPACK_LOOT_CHANCE.get() : ABANDONED_BACKPACK_CHANCES.get(profile).get();
+    }
     public static boolean mobBackpacksEnabled() { return MOB_BACKPACKS_ENABLED.get(); }
     public static double mobBackpackSpawnChance() { return MOB_BACKPACK_SPAWN_CHANCE.get(); }
     public static double mobBackpackDropChance() { return MOB_BACKPACK_DROP_CHANCE.get(); }
@@ -1196,6 +1376,14 @@ public final class SmartBackpacksConfig {
 
     public static void setMagnetRadius(int value) {
         set(MAGNET_RADIUS, value);
+    }
+
+    public static void setBlockDropMagnetProtectionEnabled(boolean value) {
+        set(BLOCK_DROP_MAGNET_PROTECTION_ENABLED, value);
+    }
+
+    public static void setBlockDropMagnetProtectionSeconds(int value) {
+        set(BLOCK_DROP_MAGNET_PROTECTION_SECONDS, value);
     }
 
     public static void setAdvancedMagnetRadius(int value) {
@@ -1492,6 +1680,34 @@ public final class SmartBackpacksConfig {
 
     public static void setStorageNetworkMaxNodes(int value) {
         set(STORAGE_NETWORK_MAX_NODES, value);
+    }
+
+    public static void setStorageImporterEnabled(boolean value) {
+        set(STORAGE_IMPORTER_ENABLED, value);
+    }
+
+    public static void setStorageExporterEnabled(boolean value) {
+        set(STORAGE_EXPORTER_ENABLED, value);
+    }
+
+    public static void setStorageImporterTransferInterval(int value) {
+        set(STORAGE_IMPORTER_TRANSFER_INTERVAL, value);
+    }
+
+    public static void setStorageImporterTransferAmount(int value) {
+        set(STORAGE_IMPORTER_TRANSFER_AMOUNT, value);
+    }
+
+    public static void setStorageExporterTransferInterval(int value) {
+        set(STORAGE_EXPORTER_TRANSFER_INTERVAL, value);
+    }
+
+    public static void setStorageExporterTransferAmount(int value) {
+        set(STORAGE_EXPORTER_TRANSFER_AMOUNT, value);
+    }
+
+    public static void setStorageTransferRedstoneControlEnabled(boolean value) {
+        set(STORAGE_TRANSFER_REDSTONE_CONTROL_ENABLED, value);
     }
 
     public static void setStorageMonitorCrossDimensionAccess(boolean value) {

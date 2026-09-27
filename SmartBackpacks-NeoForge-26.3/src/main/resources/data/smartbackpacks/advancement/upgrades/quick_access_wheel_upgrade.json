@@ -1,0 +1,35 @@
+{
+  "parent": "smartbackpacks:categories/exploration",
+  "display": {
+    "icon": {
+      "id": "smartbackpacks:quick_access_wheel_upgrade"
+    },
+    "title": {
+      "translate": "advancement.smartbackpacks.upgrades.quick_access_wheel_upgrade.title"
+    },
+    "description": {
+      "translate": "advancement.smartbackpacks.upgrades.quick_access_wheel_upgrade.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "item_0": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:quick_access_wheel_upgrade"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "item_0"
+    ]
+  ]
+}

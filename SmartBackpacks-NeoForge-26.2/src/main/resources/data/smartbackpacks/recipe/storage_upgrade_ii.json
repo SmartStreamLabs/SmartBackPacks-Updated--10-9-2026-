@@ -1,16 +1,16 @@
-﻿{
-    "type":  "minecraft:crafting_shaped",
-    "pattern":  [
-                    "III",
-                    "ISI",
-                    "III"
-                ],
-    "key":  {
-                "I":  "minecraft:iron_ingot",
-                "S":  "smartbackpacks:storage_upgrade_i"
-            },
-    "result":  {
-                   "id":  "smartbackpacks:storage_upgrade_ii",
-                   "count":  1
-               }
+{
+  "type": "smartbackpacks:backpack_workbench",
+  "pattern": [
+    "III",
+    "ISI",
+    "III"
+  ],
+  "key": {
+    "I": "minecraft:iron_ingot",
+    "S": "smartbackpacks:storage_upgrade_i"
+  },
+  "result": {
+    "id": "smartbackpacks:storage_upgrade_ii",
+    "count": 1
+  }
 }

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "smartbackpacks:item/death_emergency_kit_upgrade"
+  }
+}

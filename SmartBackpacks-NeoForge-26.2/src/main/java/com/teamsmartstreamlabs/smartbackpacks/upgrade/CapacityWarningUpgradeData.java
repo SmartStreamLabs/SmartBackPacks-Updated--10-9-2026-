@@ -30,7 +30,7 @@ public record CapacityWarningUpgradeData(
     public static final CapacityWarningUpgradeData DEFAULT = new CapacityWarningUpgradeData(
             true,
             CapacityWarningCalculationMode.OCCUPIED_SLOTS,
-            75,
+            10,
             90,
             100,
             true,
@@ -48,7 +48,7 @@ public record CapacityWarningUpgradeData(
     public static final Codec<CapacityWarningUpgradeData> CODEC = RecordCodecBuilder.create(instance -> instance.group(
             Codec.BOOL.optionalFieldOf("enabled", true).forGetter(CapacityWarningUpgradeData::enabled),
             CapacityWarningCalculationMode.CODEC.optionalFieldOf("calculation_mode", CapacityWarningCalculationMode.OCCUPIED_SLOTS).forGetter(CapacityWarningUpgradeData::calculationMode),
-            Codec.INT.optionalFieldOf("threshold_1", 75).forGetter(CapacityWarningUpgradeData::threshold1),
+            Codec.INT.optionalFieldOf("threshold_1", 10).forGetter(CapacityWarningUpgradeData::threshold1),
             Codec.INT.optionalFieldOf("threshold_2", 90).forGetter(CapacityWarningUpgradeData::threshold2),
             Codec.INT.optionalFieldOf("threshold_3", 100).forGetter(CapacityWarningUpgradeData::threshold3),
             Codec.BOOL.optionalFieldOf("threshold_1_enabled", true).forGetter(CapacityWarningUpgradeData::threshold1Enabled),
@@ -80,6 +80,10 @@ public record CapacityWarningUpgradeData(
             case 2 -> this.threshold3;
             default -> this.threshold3;
         };
+    }
+
+    public int thresholdStep() {
+        return this.threshold1 == 25 ? 25 : 10;
     }
 
     public boolean thresholdEnabled(int index) {

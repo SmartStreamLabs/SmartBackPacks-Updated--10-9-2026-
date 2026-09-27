@@ -1,14 +1,14 @@
 {
-  "parent": "smartbackpacks:backpacks/leather_backpack",
+  "parent": "smartbackpacks:categories/storage",
   "display": {
     "icon": {
       "id": "smartbackpacks:backpack_link_upgrade"
     },
     "title": {
-      "text": "Long-Distance Luggage"
+      "translate": "advancement.smartbackpacks.upgrades.backpack_link_upgrade.title"
     },
     "description": {
-      "text": "Link backpacks across the world."
+      "translate": "advancement.smartbackpacks.upgrades.backpack_link_upgrade.description"
     },
     "frame": "challenge",
     "show_toast": true,

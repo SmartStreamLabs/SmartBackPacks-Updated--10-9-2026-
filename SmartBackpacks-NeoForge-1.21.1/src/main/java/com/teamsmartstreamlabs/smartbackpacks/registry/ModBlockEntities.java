@@ -2,6 +2,8 @@ package com.teamsmartstreamlabs.smartbackpacks.registry;
 
 import com.teamsmartstreamlabs.smartbackpacks.SmartBackpacks;
 import com.teamsmartstreamlabs.smartbackpacks.blockentity.PlacedBackpackBlockEntity;
+import com.teamsmartstreamlabs.smartbackpacks.blockentity.BackpackDisplayHookBlockEntity;
+import com.teamsmartstreamlabs.smartbackpacks.blockentity.StorageTransferBlockEntity;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.neoforged.bus.api.IEventBus;
@@ -28,6 +30,16 @@ public final class ModBlockEntities {
                     ModBlocks.ANCIENT_NETHERITE_BACKPACK.get(),
                     ModBlocks.ULTIMATE_DIAMOND_BACKPACK.get(),
                     ModBlocks.NETHERITE_VAULT_BACKPACK.get()
+            ).build(null));
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<StorageTransferBlockEntity>> STORAGE_TRANSFER =
+            BLOCK_ENTITY_TYPES.register("storage_transfer", () -> BlockEntityType.Builder.of(
+                    StorageTransferBlockEntity::new,
+                    ModBlocks.STORAGE_IMPORTER.get(),
+                    ModBlocks.STORAGE_EXPORTER.get()
+            ).build(null));
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<BackpackDisplayHookBlockEntity>> BACKPACK_DISPLAY_HOOK =
+            BLOCK_ENTITY_TYPES.register("backpack_display_hook", () -> BlockEntityType.Builder.of(
+                    BackpackDisplayHookBlockEntity::new, ModBlocks.BACKPACK_DISPLAY_HOOK.get()
             ).build(null));
     private ModBlockEntities() {
     }

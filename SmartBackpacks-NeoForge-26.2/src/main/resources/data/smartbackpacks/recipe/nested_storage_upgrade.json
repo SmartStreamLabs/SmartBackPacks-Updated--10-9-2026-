@@ -1,18 +1,18 @@
-﻿{
-    "type":  "minecraft:crafting_shaped",
-    "category":  "misc",
-    "pattern":  [
-                    "NSN",
-                    "SES",
-                    "NSN"
-                ],
-    "key":  {
-                "N":  "minecraft:netherite_ingot",
-                "S":  "minecraft:shulker_shell",
-                "E":  "minecraft:ender_chest"
-            },
-    "result":  {
-                   "id":  "smartbackpacks:nested_storage_upgrade",
-                   "count":  1
-               }
+{
+  "type": "smartbackpacks:backpack_workbench",
+  "category": "misc",
+  "pattern": [
+    "NSN",
+    "SES",
+    "NSN"
+  ],
+  "key": {
+    "N": "minecraft:netherite_ingot",
+    "S": "minecraft:shulker_shell",
+    "E": "minecraft:ender_chest"
+  },
+  "result": {
+    "id": "smartbackpacks:nested_storage_upgrade",
+    "count": 1
+  }
 }

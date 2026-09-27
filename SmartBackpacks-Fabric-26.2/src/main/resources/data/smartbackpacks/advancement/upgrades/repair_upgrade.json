@@ -1,0 +1,35 @@
+{
+  "parent": "smartbackpacks:categories/survival",
+  "display": {
+    "icon": {
+      "id": "smartbackpacks:repair_upgrade"
+    },
+    "title": {
+      "translate": "advancement.smartbackpacks.upgrades.repair_upgrade.title"
+    },
+    "description": {
+      "translate": "advancement.smartbackpacks.upgrades.repair_upgrade.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "item_0": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:repair_upgrade"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "item_0"
+    ]
+  ]
+}

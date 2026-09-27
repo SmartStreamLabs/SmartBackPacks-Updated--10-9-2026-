@@ -5,10 +5,10 @@
       "id": "smartbackpacks:redstone_backpack"
     },
     "title": {
-      "text": "Powered Pockets"
+      "translate": "advancement.smartbackpacks.backpacks.redstone_backpack.title"
     },
     "description": {
-      "text": "Upgrade to a Redstone Backpack."
+      "translate": "advancement.smartbackpacks.backpacks.redstone_backpack.description"
     },
     "frame": "task",
     "show_toast": true,

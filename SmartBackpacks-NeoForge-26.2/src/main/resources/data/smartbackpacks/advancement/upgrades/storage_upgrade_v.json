@@ -5,10 +5,10 @@
       "id": "smartbackpacks:storage_upgrade_v"
     },
     "title": {
-      "text": "Bottomless Ambition"
+      "translate": "advancement.smartbackpacks.upgrades.storage_upgrade_v.title"
     },
     "description": {
-      "text": "Reach the highest standard storage tier."
+      "translate": "advancement.smartbackpacks.upgrades.storage_upgrade_v.description"
     },
     "frame": "challenge",
     "show_toast": true,

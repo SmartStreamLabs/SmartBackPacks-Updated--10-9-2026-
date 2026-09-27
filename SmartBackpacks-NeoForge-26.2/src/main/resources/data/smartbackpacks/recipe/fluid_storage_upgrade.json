@@ -1,19 +1,19 @@
-﻿{
-    "type":  "minecraft:crafting_shaped",
-    "category":  "misc",
-    "pattern":  [
-                    "GBG",
-                    "WCG",
-                    "GBG"
-                ],
-    "key":  {
-                "G":  "minecraft:glass",
-                "B":  "minecraft:bucket",
-                "W":  "minecraft:water_bucket",
-                "C":  "minecraft:copper_ingot"
-            },
-    "result":  {
-                   "id":  "smartbackpacks:fluid_storage_upgrade",
-                   "count":  1
-               }
+{
+  "type": "smartbackpacks:backpack_workbench",
+  "category": "misc",
+  "pattern": [
+    "GBG",
+    "WCG",
+    "GBG"
+  ],
+  "key": {
+    "G": "minecraft:glass",
+    "B": "minecraft:bucket",
+    "W": "minecraft:water_bucket",
+    "C": "minecraft:copper_ingot"
+  },
+  "result": {
+    "id": "smartbackpacks:fluid_storage_upgrade",
+    "count": 1
+  }
 }

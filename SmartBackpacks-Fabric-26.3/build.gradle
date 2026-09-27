@@ -1,0 +1,129 @@
+plugins {
+    id 'fabric-loom' version '1.17.12'
+    id 'maven-publish'
+    id 'idea'
+}
+
+version = mod_version
+group = mod_group_id
+
+base {
+    archivesName = mod_id
+}
+
+sourceSets.main.resources {
+    srcDir('src/generated/resources')
+    exclude("**/*.bbmodel")
+    exclude("src/generated/**/.cache")
+}
+
+repositories {
+    maven {
+        name = "Fabric"
+        url = "https://maven.fabricmc.net/"
+    }
+    mavenCentral()
+    maven {
+        name = "TerraformersMC"
+        url = "https://maven.terraformersmc.com/"
+    }
+    maven {
+        name = "Ladysnake"
+        url = "https://maven.ladysnake.org/releases"
+    }
+    maven {
+        name = "Nucleoid"
+        url = "https://maven.nucleoid.xyz/releases"
+    }
+    maven {
+        name = "Fuzs Mod Resources"
+        url = "https://raw.githubusercontent.com/Fuzss/modresources/main/maven/"
+    }
+    maven {
+        name = "Curse Maven"
+        url = "https://cursemaven.com"
+    }
+    maven {
+        name = "Modrinth"
+        url = "https://api.modrinth.com/maven"
+    }
+}
+
+loom {
+    accessWidenerPath = file("src/main/resources/smartbackpacks.accesswidener")
+    productionNamespace = "named"
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:${minecraft_version}"
+    mappings files("mappings/official-named-empty.jar")
+    implementation "net.fabricmc:fabric-loader:${loader_version}"
+    implementation "net.fabricmc.fabric-api:fabric-api:${fabric_api_version}"
+    implementation "net.fabricmc:sponge-mixin:0.17.2+mixin.0.8.7"
+    implementation "org.ow2.asm:asm:9.9.1"
+    implementation "org.ow2.asm:asm-analysis:9.9.1"
+    implementation "org.ow2.asm:asm-commons:9.9.1"
+    implementation "org.ow2.asm:asm-tree:9.9.1"
+    implementation "org.ow2.asm:asm-util:9.9.1"
+    compileOnly "org.lwjgl:lwjgl-glfw:3.3.3"
+    compileOnly "eu.pb4:trinkets:4.1.0-beta.1+26.2"
+    testImplementation "org.junit.jupiter:junit-jupiter:5.10.2"
+    testRuntimeOnly "org.junit.platform:junit-platform-launcher"
+}
+
+processResources {
+    var replaceProperties = [
+            version: mod_version,
+            minecraft_version: minecraft_version,
+            loader_version: loader_version,
+            fabric_api_version: fabric_api_version,
+            mod_id: mod_id,
+            mod_name: mod_name,
+            mod_license: mod_license,
+            mod_description: mod_description,
+            mod_authors: mod_authors
+    ]
+    inputs.properties replaceProperties
+
+    filesMatching("fabric.mod.json") {
+        expand replaceProperties
+    }
+}
+
+java {
+    toolchain.languageVersion = JavaLanguageVersion.of(25)
+    withSourcesJar()
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+    options.release = 25
+}
+
+tasks.named('test', Test).configure {
+    useJUnitPlatform()
+}
+
+tasks.matching { it.name == "remapSourcesJar" }.configureEach {
+    enabled = false
+}
+
+publishing {
+    publications {
+        create("mavenJava", MavenPublication) {
+            from components.java
+        }
+    }
+    repositories {
+        maven {
+            url = "file://${project.projectDir}/repo"
+        }
+    }
+}
+
+idea {
+    module {
+        downloadSources = true
+        downloadJavadoc = true
+    }
+}

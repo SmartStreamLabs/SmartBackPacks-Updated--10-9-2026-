@@ -1,0 +1,28 @@
+{
+  "parent": "smartbackpacks:upgrades/magnet_upgrade",
+  "display": {
+    "icon": {
+      "id": "smartbackpacks:magnet_upgrade"
+    },
+    "title": {
+      "translate": "advancement.smartbackpacks.usage.come_to_me.title"
+    },
+    "description": {
+      "translate": "advancement.smartbackpacks.usage.come_to_me.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "used": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "used"
+    ]
+  ]
+}

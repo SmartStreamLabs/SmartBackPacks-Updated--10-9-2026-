@@ -1,14 +1,14 @@
 {
-  "parent": "smartbackpacks:backpacks/leather_backpack",
+  "parent": "smartbackpacks:categories/automation",
   "display": {
     "icon": {
       "id": "smartbackpacks:pickup_upgrade"
     },
     "title": {
-      "text": "No Item Left Behind"
+      "translate": "advancement.smartbackpacks.upgrades.pickup_upgrade.title"
     },
     "description": {
-      "text": "Collect matching drops straight into your backpack."
+      "translate": "advancement.smartbackpacks.upgrades.pickup_upgrade.description"
     },
     "frame": "task",
     "show_toast": true,

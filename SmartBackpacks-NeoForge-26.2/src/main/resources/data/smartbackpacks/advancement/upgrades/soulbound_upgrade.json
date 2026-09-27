@@ -1,14 +1,14 @@
 {
-  "parent": "smartbackpacks:backpacks/leather_backpack",
+  "parent": "smartbackpacks:categories/survival",
   "display": {
     "icon": {
       "id": "smartbackpacks:soulbound_upgrade"
     },
     "title": {
-      "text": "Till Death, Still Packed"
+      "translate": "advancement.smartbackpacks.upgrades.soulbound_upgrade.title"
     },
     "description": {
-      "text": "Bind a backpack to its owner beyond death."
+      "translate": "advancement.smartbackpacks.upgrades.soulbound_upgrade.description"
     },
     "frame": "challenge",
     "show_toast": true,

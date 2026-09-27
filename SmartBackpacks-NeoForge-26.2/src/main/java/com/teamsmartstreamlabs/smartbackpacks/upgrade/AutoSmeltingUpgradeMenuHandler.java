@@ -30,20 +30,20 @@ public final class AutoSmeltingUpgradeMenuHandler {
         }
 
         for (int slot = 0; slot < 36; slot++) {
-            tickAutoSmeltingInBackpack(player.getInventory().getItem(slot), player.level(), backpack -> player.getInventory().setChanged());
+            tickAutoSmeltingInBackpack(player, player.getInventory().getItem(slot), backpack -> player.getInventory().setChanged());
         }
 
-        tickAutoSmeltingInBackpack(player.getOffhandItem(), player.level(), backpack -> player.getInventory().setChanged());
-        tickAutoSmeltingInBackpack(player.getItemBySlot(EquipmentSlot.CHEST), player.level(), backpack -> player.getInventory().setChanged());
+        tickAutoSmeltingInBackpack(player, player.getOffhandItem(), backpack -> player.getInventory().setChanged());
+        tickAutoSmeltingInBackpack(player, player.getItemBySlot(EquipmentSlot.CHEST), backpack -> player.getInventory().setChanged());
 
         for (int slot = 0; slot < CuriosCompat.getBackSlotCount(player); slot++) {
             int curioSlot = slot;
-            tickAutoSmeltingInBackpack(CuriosCompat.getBackStack(player, curioSlot), player.level(),
+            tickAutoSmeltingInBackpack(player, CuriosCompat.getBackStack(player, curioSlot),
                     backpack -> CuriosCompat.setBackStack(player, curioSlot, backpack));
         }
     }
 
-    private static void tickAutoSmeltingInBackpack(ItemStack backpack, net.minecraft.world.level.Level level, Consumer<ItemStack> saver) {
+    private static void tickAutoSmeltingInBackpack(ServerPlayer player, ItemStack backpack, Consumer<ItemStack> saver) {
         if (!(backpack.getItem() instanceof BackpackItem backpackItem)) {
             return;
         }
@@ -57,7 +57,9 @@ public final class AutoSmeltingUpgradeMenuHandler {
             }
 
             AutoSmeltingUpgradeData current = upgrade.getOrDefault(ModDataComponents.AUTO_SMELTING_UPGRADE_DATA.get(), AutoSmeltingUpgradeData.DEFAULT);
-            AutoSmeltingUpgradeData updated = AutoSmeltingUpgradeLogic.tick(level, backpack, backpackItem.getTier(), current);
+            AutoSmeltingUpgradeData updated = AutoSmeltingUpgradeLogic.tick(player.level(), backpack,
+                    backpackItem.getTier(), current, count ->
+                            com.teamsmartstreamlabs.smartbackpacks.progress.BackpackProgression.add(player, "auto_smelts_completed", count));
             if (!updated.equals(current)) {
                 upgrade.set(ModDataComponents.AUTO_SMELTING_UPGRADE_DATA.get(), updated);
                 upgrades.set(slot, upgrade);

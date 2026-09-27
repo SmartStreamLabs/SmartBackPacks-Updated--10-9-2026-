@@ -1,14 +1,14 @@
 {
-  "parent": "smartbackpacks:backpacks/leather_backpack",
+  "parent": "smartbackpacks:categories/energy_fluids",
   "display": {
     "icon": {
       "id": "smartbackpacks:capacitor_upgrade"
     },
     "title": {
-      "text": "Power Reserve"
+      "translate": "advancement.smartbackpacks.upgrades.capacitor_upgrade.title"
     },
     "description": {
-      "text": "Give your backpack an internal energy reserve."
+      "translate": "advancement.smartbackpacks.upgrades.capacitor_upgrade.description"
     },
     "frame": "goal",
     "show_toast": true,

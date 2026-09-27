@@ -1,0 +1,28 @@
+{
+  "parent": "smartbackpacks:usage/prepared_for_the_worst",
+  "display": {
+    "icon": {
+      "id": "smartbackpacks:death_emergency_kit_upgrade"
+    },
+    "title": {
+      "translate": "advancement.smartbackpacks.usage.always_prepared.title"
+    },
+    "description": {
+      "translate": "advancement.smartbackpacks.usage.always_prepared.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "used": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "used"
+    ]
+  ]
+}

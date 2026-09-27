@@ -1,0 +1,28 @@
+{
+  "parent": "smartbackpacks:usage/packed_lunch",
+  "display": {
+    "icon": {
+      "id": "smartbackpacks:auto_feed_upgrade"
+    },
+    "title": {
+      "translate": "advancement.smartbackpacks.usage.never_hungry.title"
+    },
+    "description": {
+      "translate": "advancement.smartbackpacks.usage.never_hungry.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "used": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "used"
+    ]
+  ]
+}

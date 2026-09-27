@@ -1,14 +1,14 @@
 {
-  "parent": "smartbackpacks:backpacks/leather_backpack",
+  "parent": "smartbackpacks:categories/exploration",
   "display": {
     "icon": {
       "id": "smartbackpacks:wireless_upgrade"
     },
     "title": {
-      "text": "No Strings Attached"
+      "translate": "advancement.smartbackpacks.upgrades.wireless_upgrade.title"
     },
     "description": {
-      "text": "Access backpack utility without staying nearby."
+      "translate": "advancement.smartbackpacks.upgrades.wireless_upgrade.description"
     },
     "frame": "goal",
     "show_toast": true,

@@ -1,0 +1,28 @@
+{
+  "parent": "smartbackpacks:upgrades/void_upgrade",
+  "display": {
+    "icon": {
+      "id": "smartbackpacks:void_upgrade"
+    },
+    "title": {
+      "translate": "advancement.smartbackpacks.usage.didnt_need_that.title"
+    },
+    "description": {
+      "translate": "advancement.smartbackpacks.usage.didnt_need_that.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "used": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "used"
+    ]
+  ]
+}

@@ -1,14 +1,14 @@
 {
-  "parent": "smartbackpacks:backpacks/leather_backpack",
+  "parent": "smartbackpacks:categories/storage",
   "display": {
     "icon": {
       "id": "smartbackpacks:item_lock_upgrade"
     },
     "title": {
-      "text": "Hands Off"
+      "translate": "advancement.smartbackpacks.upgrades.item_lock_upgrade.title"
     },
     "description": {
-      "text": "Protect important items from accidental movement."
+      "translate": "advancement.smartbackpacks.upgrades.item_lock_upgrade.description"
     },
     "frame": "challenge",
     "show_toast": true,

@@ -1,14 +1,14 @@
 {
-  "parent": "smartbackpacks:backpacks/leather_backpack",
+  "parent": "smartbackpacks:categories/exploration",
   "display": {
     "icon": {
       "id": "smartbackpacks:chunk_loader_upgrade"
     },
     "title": {
-      "text": "Stay With Me"
+      "translate": "advancement.smartbackpacks.upgrades.chunk_loader_upgrade.title"
     },
     "description": {
-      "text": "Keep the world active around your backpack."
+      "translate": "advancement.smartbackpacks.upgrades.chunk_loader_upgrade.description"
     },
     "frame": "challenge",
     "show_toast": true,

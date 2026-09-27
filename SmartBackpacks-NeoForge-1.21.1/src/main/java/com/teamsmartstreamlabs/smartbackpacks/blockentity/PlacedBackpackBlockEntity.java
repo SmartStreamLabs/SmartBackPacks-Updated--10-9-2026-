@@ -105,6 +105,7 @@ public class PlacedBackpackBlockEntity extends BlockEntity implements WorldlyCon
     private boolean suppressCacheFlushOnSetChanged;
     private long lastHopperReceiveGameTime = Long.MIN_VALUE;
     private long lastHopperTransferGameTime = Long.MIN_VALUE;
+    private long lastStorageTransferGameTime = Long.MIN_VALUE;
     private int openMenuCount;
     private long lastOpenMenuSyncGameTime = Long.MIN_VALUE;
     private boolean chunkForced;
@@ -846,6 +847,14 @@ public class PlacedBackpackBlockEntity extends BlockEntity implements WorldlyCon
                 this.storedBackpack, stack, this.getCachedStorageUpgradeTier());
     }
 
+    public boolean claimStorageTransfer(long gameTime) {
+        if (this.lastStorageTransferGameTime == gameTime) {
+            return false;
+        }
+        this.lastStorageTransferGameTime = gameTime;
+        return true;
+    }
+
     private void invalidateItemCache() {
         this.cachedItems = NonNullList.create();
         this.cachedItemSize = -1;
@@ -875,6 +884,7 @@ public class PlacedBackpackBlockEntity extends BlockEntity implements WorldlyCon
         ItemStack updateStack = this.storedBackpack.copy();
         if (!updateStack.isEmpty()) {
             updateStack.remove(DataComponents.CONTAINER);
+            updateStack.remove(ModDataComponents.BACKPACK_STORAGE.get());
             updateStack.remove(ModDataComponents.BACKPACK_STORAGE_OVERFLOW.get());
         }
         return updateStack;
@@ -1571,7 +1581,7 @@ public class PlacedBackpackBlockEntity extends BlockEntity implements WorldlyCon
                 return ItemStack.EMPTY;
             }
 
-            int extracted = Math.min(amount, Math.min(existing.getCount(), this.getAutomationStackLimit(existing)));
+            int extracted = Math.min(amount, Math.min(existing.getCount(), existing.getMaxStackSize()));
             ItemStack result = existing.copyWithCount(extracted);
             if (!simulate) {
                 int remaining = existing.getCount() - extracted;
@@ -1616,7 +1626,7 @@ public class PlacedBackpackBlockEntity extends BlockEntity implements WorldlyCon
             if (stack.isEmpty()) {
                 return ItemStack.EMPTY;
             }
-            return stack.copyWithCount(Math.min(stack.getCount(), this.getAutomationStackLimit(stack)));
+            return stack.copyWithCount(Math.min(stack.getCount(), Math.max(1, stack.getMaxStackSize())));
         }
 
         private int getAutomationStackLimit(ItemStack stack) {

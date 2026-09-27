@@ -5,10 +5,10 @@
       "id": "smartbackpacks:emerald_backpack"
     },
     "title": {
-      "text": "A Trader's Treasure"
+      "translate": "advancement.smartbackpacks.backpacks.emerald_backpack.title"
     },
     "description": {
-      "text": "Obtain an Emerald Backpack fit for a master trader."
+      "translate": "advancement.smartbackpacks.backpacks.emerald_backpack.description"
     },
     "frame": "goal",
     "show_toast": true,

@@ -1,0 +1,230 @@
+{
+  "parent": "smartbackpacks:categories/automation",
+  "display": {
+    "icon": {
+      "id": "smartbackpacks:magnet_upgrade"
+    },
+    "title": {
+      "translate": "advancement.smartbackpacks.collections.automation_expert.title"
+    },
+    "description": {
+      "translate": "advancement.smartbackpacks.collections.automation_expert.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "item_0": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:magnet_upgrade"
+          }
+        ]
+      }
+    },
+    "item_1": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:advanced_magnet_upgrade"
+          }
+        ]
+      }
+    },
+    "item_2": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:pickup_upgrade"
+          }
+        ]
+      }
+    },
+    "item_3": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:pickup_notifier_upgrade"
+          }
+        ]
+      }
+    },
+    "item_4": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:trash_can_upgrade"
+          }
+        ]
+      }
+    },
+    "item_5": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:builder_upgrade"
+          }
+        ]
+      }
+    },
+    "item_6": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:torch_placer_upgrade"
+          }
+        ]
+      }
+    },
+    "item_7": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:hopper_upgrade"
+          }
+        ]
+      }
+    },
+    "item_8": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:auto_tool_upgrade"
+          }
+        ]
+      }
+    },
+    "item_9": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:auto_feed_upgrade"
+          }
+        ]
+      }
+    },
+    "item_10": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:courier_upgrade"
+          }
+        ]
+      }
+    },
+    "item_11": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:restock_upgrade"
+          }
+        ]
+      }
+    },
+    "item_12": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:deposit_upgrade"
+          }
+        ]
+      }
+    },
+    "item_13": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:auto_smelting_upgrade"
+          }
+        ]
+      }
+    },
+    "item_14": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:compression_upgrade"
+          }
+        ]
+      }
+    },
+    "item_15": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:void_upgrade"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "item_0"
+    ],
+    [
+      "item_1"
+    ],
+    [
+      "item_2"
+    ],
+    [
+      "item_3"
+    ],
+    [
+      "item_4"
+    ],
+    [
+      "item_5"
+    ],
+    [
+      "item_6"
+    ],
+    [
+      "item_7"
+    ],
+    [
+      "item_8"
+    ],
+    [
+      "item_9"
+    ],
+    [
+      "item_10"
+    ],
+    [
+      "item_11"
+    ],
+    [
+      "item_12"
+    ],
+    [
+      "item_13"
+    ],
+    [
+      "item_14"
+    ],
+    [
+      "item_15"
+    ]
+  ]
+}

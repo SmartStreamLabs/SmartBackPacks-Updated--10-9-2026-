@@ -1,14 +1,14 @@
 {
-  "parent": "smartbackpacks:backpacks/leather_backpack",
+  "parent": "smartbackpacks:categories/survival",
   "display": {
     "icon": {
       "id": "smartbackpacks:quiver_upgrade"
     },
     "title": {
-      "text": "Ready, Aim, Store"
+      "translate": "advancement.smartbackpacks.upgrades.quiver_upgrade.title"
     },
     "description": {
-      "text": "Turn your backpack into an adventurer's quiver."
+      "translate": "advancement.smartbackpacks.upgrades.quiver_upgrade.description"
     },
     "frame": "goal",
     "show_toast": true,

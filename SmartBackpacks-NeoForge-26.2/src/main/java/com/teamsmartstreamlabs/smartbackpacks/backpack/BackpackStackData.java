@@ -239,14 +239,24 @@ public final class BackpackStackData {
             return getBackpackMaxStackSize(backpack);
         }
 
-        int baseLimit = stack.getMaxStackSize();
-        if (baseLimit <= 1) {
+        int multiplierTier = getStorageUpgradeTier(backpack);
+        return getStorageStackLimit(stack.getMaxStackSize(), multiplierTier);
+    }
+
+    static int getStorageStackLimit(int baseLimit, int multiplierTier) {
+        if (multiplierTier <= 0) {
             return baseLimit;
         }
 
-        int multiplierTier = getStorageUpgradeTier(backpack);
-        if (multiplierTier <= 0) {
-            return baseLimit;
+        if (baseLimit <= 1) {
+            return switch (multiplierTier) {
+                case 6 -> ULTIMATE_STORAGE_STACK_LIMIT;
+                case 5 -> STORAGE_UPGRADE_V_STACK_LIMIT;
+                case 4 -> STORAGE_UPGRADE_IV_STACK_LIMIT;
+                case 3 -> STORAGE_UPGRADE_III_STACK_LIMIT;
+                case 2 -> 256;
+                default -> 96;
+            };
         }
 
         if (multiplierTier >= 2) {

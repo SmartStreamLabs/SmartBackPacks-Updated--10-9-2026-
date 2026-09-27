@@ -1,0 +1,28 @@
+{
+  "parent": "smartbackpacks:upgrades/restock_upgrade",
+  "display": {
+    "icon": {
+      "id": "smartbackpacks:restock_upgrade"
+    },
+    "title": {
+      "translate": "advancement.smartbackpacks.usage.always_stocked.title"
+    },
+    "description": {
+      "translate": "advancement.smartbackpacks.usage.always_stocked.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "used": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "used"
+    ]
+  ]
+}

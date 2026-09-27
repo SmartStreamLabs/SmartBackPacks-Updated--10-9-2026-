@@ -1,15 +1,15 @@
-﻿{
-    "type":  "minecraft:crafting_shaped",
-    "pattern":  [
-                    "SSS",
-                    "SSS",
-                    "SSS"
-                ],
-    "key":  {
-                "S":  "smartbackpacks:storage_upgrade_v"
-            },
-    "result":  {
-                   "id":  "smartbackpacks:ultimate_storage_upgrade",
-                   "count":  1
-               }
+{
+  "type": "smartbackpacks:backpack_workbench",
+  "pattern": [
+    "SSS",
+    "SSS",
+    "SSS"
+  ],
+  "key": {
+    "S": "smartbackpacks:storage_upgrade_v"
+  },
+  "result": {
+    "id": "smartbackpacks:ultimate_storage_upgrade",
+    "count": 1
+  }
 }

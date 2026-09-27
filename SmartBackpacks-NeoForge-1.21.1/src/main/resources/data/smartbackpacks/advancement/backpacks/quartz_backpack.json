@@ -5,10 +5,10 @@
       "id": "smartbackpacks:quartz_backpack"
     },
     "title": {
-      "text": "Through the Nether"
+      "translate": "advancement.smartbackpacks.backpacks.quartz_backpack.title"
     },
     "description": {
-      "text": "Refine your storage with a Quartz Backpack."
+      "translate": "advancement.smartbackpacks.backpacks.quartz_backpack.description"
     },
     "frame": "task",
     "show_toast": true,

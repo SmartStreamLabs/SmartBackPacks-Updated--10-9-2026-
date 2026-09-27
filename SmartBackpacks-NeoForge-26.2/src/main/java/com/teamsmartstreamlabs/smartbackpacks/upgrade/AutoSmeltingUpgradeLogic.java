@@ -24,6 +24,11 @@ public final class AutoSmeltingUpgradeLogic {
     }
 
     public static AutoSmeltingUpgradeData tick(Level level, ItemStack backpack, BackpackTier tier, AutoSmeltingUpgradeData current) {
+        return tick(level, backpack, tier, current, ignored -> { });
+    }
+
+    public static AutoSmeltingUpgradeData tick(Level level, ItemStack backpack, BackpackTier tier,
+            AutoSmeltingUpgradeData current, java.util.function.IntConsumer onSmelt) {
         NonNullList<ItemStack> storage = BackpackStackData.loadStorage(backpack, tier);
         NonNullList<ItemStack> items = loadItems(current);
 
@@ -31,7 +36,7 @@ public final class AutoSmeltingUpgradeLogic {
         pullInputFromBackpack(level, backpack, storage, items);
         pullFuelFromBackpack(level, backpack, storage, items, current.litTime());
 
-        AutoSmeltingUpgradeData updated = tickInternal(level, items, current);
+        AutoSmeltingUpgradeData updated = tickInternal(level, items, current, onSmelt);
         items = loadItems(updated);
 
         moveOutputToBackpack(backpack, storage, items);
@@ -53,7 +58,8 @@ public final class AutoSmeltingUpgradeLogic {
         return items;
     }
 
-    private static AutoSmeltingUpgradeData tickInternal(Level level, NonNullList<ItemStack> items, AutoSmeltingUpgradeData current) {
+    private static AutoSmeltingUpgradeData tickInternal(Level level, NonNullList<ItemStack> items,
+            AutoSmeltingUpgradeData current, java.util.function.IntConsumer onSmelt) {
         ItemStack input = items.get(INPUT_SLOT);
         ItemStack fuel = items.get(FUEL_SLOT);
         ItemStack output = items.get(RESULT_SLOT);
@@ -87,7 +93,7 @@ public final class AutoSmeltingUpgradeLogic {
         if (lit && canSmelt) {
             cookingProgress++;
             if (cookingProgress >= cookingTotalTime) {
-                smelt(level, recipeHolder.get(), items);
+                if (smelt(level, recipeHolder.get(), items)) onSmelt.accept(1);
                 cookingProgress = 0;
                 cookingTotalTime = AutoSmeltingUpgradeData.DEFAULT_COOK_TIME;
             }
@@ -218,12 +224,12 @@ public final class AutoSmeltingUpgradeLogic {
         return output.getCount() + result.getCount() <= output.getMaxStackSize();
     }
 
-    private static void smelt(Level level, RecipeHolder<SmeltingRecipe> recipeHolder, NonNullList<ItemStack> items) {
+    private static boolean smelt(Level level, RecipeHolder<SmeltingRecipe> recipeHolder, NonNullList<ItemStack> items) {
         ItemStack input = items.get(INPUT_SLOT);
         ItemStack output = items.get(RESULT_SLOT);
         ItemStack result = recipeHolder.value().assemble(new SingleRecipeInput(input));
         if (result.isEmpty()) {
-            return;
+            return false;
         }
 
         if (output.isEmpty()) {
@@ -236,5 +242,6 @@ public final class AutoSmeltingUpgradeLogic {
         if (input.isEmpty()) {
             items.set(INPUT_SLOT, ItemStack.EMPTY);
         }
+        return true;
     }
 }

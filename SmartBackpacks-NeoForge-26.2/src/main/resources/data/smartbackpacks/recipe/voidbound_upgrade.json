@@ -1,19 +1,19 @@
-﻿{
-    "type":  "minecraft:crafting_shaped",
-    "category":  "misc",
-    "pattern":  [
-                    "COC",
-                    "NVN",
-                    "COC"
-                ],
-    "key":  {
-                "C":  "minecraft:crying_obsidian",
-                "O":  "minecraft:obsidian",
-                "N":  "minecraft:netherite_ingot",
-                "V":  "minecraft:nether_star"
-            },
-    "result":  {
-                   "id":  "smartbackpacks:voidbound_upgrade",
-                   "count":  1
-               }
+{
+  "type": "smartbackpacks:backpack_workbench",
+  "category": "misc",
+  "pattern": [
+    "COC",
+    "NVN",
+    "COC"
+  ],
+  "key": {
+    "C": "minecraft:crying_obsidian",
+    "O": "minecraft:obsidian",
+    "N": "minecraft:netherite_ingot",
+    "V": "minecraft:nether_star"
+  },
+  "result": {
+    "id": "smartbackpacks:voidbound_upgrade",
+    "count": 1
+  }
 }

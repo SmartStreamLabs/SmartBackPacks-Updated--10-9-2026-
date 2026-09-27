@@ -12,8 +12,12 @@ import com.teamsmartstreamlabs.smartbackpacks.registry.ModBlocks;
 import com.teamsmartstreamlabs.smartbackpacks.registry.ModCreativeTabs;
 import com.teamsmartstreamlabs.smartbackpacks.registry.ModDataComponents;
 import com.teamsmartstreamlabs.smartbackpacks.registry.ModItems;
+import com.teamsmartstreamlabs.smartbackpacks.registry.ModLootFunctions;
+import com.teamsmartstreamlabs.smartbackpacks.worldgen.ModCampStructures;
+import com.teamsmartstreamlabs.smartbackpacks.worldgen.CampTreeClearance;
 import com.teamsmartstreamlabs.smartbackpacks.registry.ModMenuTypes;
 import com.teamsmartstreamlabs.smartbackpacks.registry.ModRecipeSerializers;
+import com.teamsmartstreamlabs.smartbackpacks.registry.ModRecipeTypes;
 import com.teamsmartstreamlabs.smartbackpacks.upgrade.AutoFeedUpgradeHandler;
 import com.teamsmartstreamlabs.smartbackpacks.upgrade.AutoSmeltingUpgradeMenuHandler;
 import com.teamsmartstreamlabs.smartbackpacks.upgrade.BlastFurnaceUpgradeHandler;
@@ -24,11 +28,16 @@ import com.teamsmartstreamlabs.smartbackpacks.upgrade.CompressionUpgradeHandler;
 import com.teamsmartstreamlabs.smartbackpacks.upgrade.DepositUpgradeHandler;
 import com.teamsmartstreamlabs.smartbackpacks.upgrade.FurnaceUpgradeHandler;
 import com.teamsmartstreamlabs.smartbackpacks.upgrade.LightUpgradeHandler;
+import com.teamsmartstreamlabs.smartbackpacks.upgrade.NightVisionUpgradeHandler;
+import com.teamsmartstreamlabs.smartbackpacks.upgrade.FlightUpgradeHandler;
+import com.teamsmartstreamlabs.smartbackpacks.upgrade.RepairUpgradeHandler;
+import com.teamsmartstreamlabs.smartbackpacks.upgrade.FallProtectionUpgradeHandler;
 import com.teamsmartstreamlabs.smartbackpacks.upgrade.MagnetUpgradeHandler;
 import com.teamsmartstreamlabs.smartbackpacks.upgrade.PickupUpgradeHandler;
 import com.teamsmartstreamlabs.smartbackpacks.upgrade.RestockUpgradeHandler;
 import com.teamsmartstreamlabs.smartbackpacks.upgrade.SmokerUpgradeHandler;
 import com.teamsmartstreamlabs.smartbackpacks.upgrade.SoulboundUpgradeHandler;
+import com.teamsmartstreamlabs.smartbackpacks.upgrade.DeathEmergencyKitHandler;
 import com.teamsmartstreamlabs.smartbackpacks.upgrade.SurvivalAssistUpgradeHandler;
 import com.teamsmartstreamlabs.smartbackpacks.upgrade.VoidUpgradeHandler;
 import net.fabricmc.fabric.api.entity.event.v1.ServerPlayerEvents;
@@ -61,7 +70,12 @@ public final class SmartBackpacks {
       ModBlockEntities.register(FABRIC_REGISTER_BUS);
       ModDataComponents.register(FABRIC_REGISTER_BUS);
       ModRecipeSerializers.register(FABRIC_REGISTER_BUS);
+        ModRecipeTypes.register(FABRIC_REGISTER_BUS);
       ModItems.register(FABRIC_REGISTER_BUS);
+      ModLootFunctions.register(FABRIC_REGISTER_BUS);
+        ModCampStructures.register(FABRIC_REGISTER_BUS);
+        com.teamsmartstreamlabs.smartbackpacks.registry.ModSounds.register(FABRIC_REGISTER_BUS);
+      CampTreeClearance.register();
       ModMenuTypes.register(FABRIC_REGISTER_BUS);
       ModCreativeTabs.register(FABRIC_REGISTER_BUS);
       ModPayloads.registerCommon();
@@ -74,6 +88,11 @@ public final class SmartBackpacks {
    private static void registerFabricEvents() {
       CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> MobBackpackCommands.register(dispatcher));
       ServerLivingEntityEvents.AFTER_DEATH.register(MobBackpackHandler::onAfterDeath);
+      ServerLivingEntityEvents.AFTER_DEATH.register((entity, source) -> {
+         if (entity instanceof ServerPlayer player) {
+            DeathEmergencyKitHandler.onPlayerDeath(player);
+         }
+      });
       ServerTickEvents.END_SERVER_TICK.register((EndTick)server -> {
          for (ServerPlayer player : server.getPlayerList().getPlayers()) {
             PlayerTickEvent.Post event = new PlayerTickEvent.Post(player);
@@ -86,12 +105,18 @@ public final class SmartBackpacks {
             SmokerUpgradeHandler.onPlayerTick(event);
             SurvivalAssistUpgradeHandler.onPlayerTick(event);
             LightUpgradeHandler.onPlayerTick(event);
+            NightVisionUpgradeHandler.onPlayerTick(event);
+            FlightUpgradeHandler.onPlayerTick(event);
+            RepairUpgradeHandler.onPlayerTick(event);
+            FallProtectionUpgradeHandler.onPlayerTick(event);
+            DeathEmergencyKitHandler.onPlayerTick(event);
             MagnetUpgradeHandler.onPlayerTick(event);
             PickupUpgradeHandler.onPlayerTick(event);
             CapacityWarningUpgradeHandler.onPlayerTick(event);
             CourierUpgradeHandler.onPlayerTick(event);
             VoidUpgradeHandler.onPlayerTick(event);
             PickupNotifierServer.flush(player);
+            com.teamsmartstreamlabs.smartbackpacks.progress.BackpackProgression.onPlayerTick(event);
          }
       });
       UseBlockCallback.EVENT
@@ -114,10 +139,16 @@ public final class SmartBackpacks {
          .register((Disconnect)(handler, server) -> {
             PlayerEvent.PlayerLoggedOutEvent event = new PlayerEvent.PlayerLoggedOutEvent(handler.player);
             LightUpgradeHandler.onPlayerLoggedOut(event);
+            NightVisionUpgradeHandler.onPlayerLoggedOut(event);
+            FlightUpgradeHandler.onPlayerLoggedOut(event);
+            RepairUpgradeHandler.onPlayerLoggedOut(event);
+            FallProtectionUpgradeHandler.onPlayerLoggedOut(event);
             CapacityWarningUpgradeHandler.onPlayerLoggedOut(event);
          });
       ServerPlayerEvents.AFTER_RESPAWN
          .register((AfterRespawn)(oldPlayer, newPlayer, alive) -> SoulboundUpgradeHandler.onPlayerRespawn(new PlayerEvent.PlayerRespawnEvent(newPlayer)));
+      ServerPlayerEvents.AFTER_RESPAWN
+         .register((AfterRespawn)(oldPlayer, newPlayer, alive) -> DeathEmergencyKitHandler.onPlayerRespawn(new PlayerEvent.PlayerRespawnEvent(newPlayer)));
    }
 
    private static InteractionResult mapActionResult(InteractionResult result) {

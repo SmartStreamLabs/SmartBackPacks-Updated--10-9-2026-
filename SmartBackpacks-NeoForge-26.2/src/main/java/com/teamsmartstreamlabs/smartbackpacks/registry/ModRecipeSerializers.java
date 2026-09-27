@@ -2,6 +2,7 @@ package com.teamsmartstreamlabs.smartbackpacks.registry;
 
 import com.teamsmartstreamlabs.smartbackpacks.SmartBackpacks;
 import com.teamsmartstreamlabs.smartbackpacks.recipe.BackpackDyeRecipe;
+import com.teamsmartstreamlabs.smartbackpacks.recipe.BackpackWorkbenchRecipe;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.crafting.RecipeSerializer;
@@ -15,6 +16,9 @@ public final class ModRecipeSerializers {
 
     public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<BackpackDyeRecipe>> BACKPACK_DYE =
             SERIALIZERS.register("backpack_dye", () -> BackpackDyeRecipe.SERIALIZER);
+
+    public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<BackpackWorkbenchRecipe>> BACKPACK_WORKBENCH =
+            SERIALIZERS.register("backpack_workbench", () -> BackpackWorkbenchRecipe.SERIALIZER);
 
     private ModRecipeSerializers() {
     }

@@ -5,10 +5,10 @@
       "id": "smartbackpacks:voidbound_upgrade"
     },
     "title": {
-      "text": "Nothing Gets Lost"
+      "translate": "advancement.smartbackpacks.upgrades.voidbound_upgrade.title"
     },
     "description": {
-      "text": "Bind dropped backpack items against destruction."
+      "translate": "advancement.smartbackpacks.upgrades.voidbound_upgrade.description"
     },
     "frame": "challenge",
     "show_toast": true,

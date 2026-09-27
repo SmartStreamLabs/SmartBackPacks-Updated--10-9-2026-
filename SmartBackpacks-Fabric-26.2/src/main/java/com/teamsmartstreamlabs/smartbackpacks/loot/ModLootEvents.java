@@ -13,9 +13,14 @@ public final class ModLootEvents {
 
     public static void register() {
         LootTableEvents.MODIFY.register((key, tableBuilder, source, registries) -> {
-            if (!key.equals(BuiltInLootTables.SPAWN_BONUS_CHEST)) {
-                return;
+            AbandonedBackpackProfile profile = AbandonedBackpackProfile.forChest(key);
+            if (profile != null) {
+                tableBuilder.withPool(LootPool.lootPool()
+                        .setRolls(ConstantValue.exactly(1.0F))
+                        .add(LootItem.lootTableItem(ModItems.LEATHER_BACKPACK.get())
+                                .apply(() -> new AbandonedBackpackLootFunction(profile))));
             }
+            if (!key.equals(BuiltInLootTables.SPAWN_BONUS_CHEST)) return;
 
             tableBuilder.withPool(LootPool.lootPool()
                     .setRolls(ConstantValue.exactly(1.0F))

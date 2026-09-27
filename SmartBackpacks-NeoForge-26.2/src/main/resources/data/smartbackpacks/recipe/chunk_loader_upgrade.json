@@ -1,17 +1,17 @@
-﻿{
-    "type":  "minecraft:crafting_shaped",
-    "pattern":  [
-                    "EOE",
-                    "OCO",
-                    "EOE"
-                ],
-    "key":  {
-                "E":  "minecraft:ender_pearl",
-                "O":  "minecraft:obsidian",
-                "C":  "minecraft:clock"
-            },
-    "result":  {
-                   "id":  "smartbackpacks:chunk_loader_upgrade",
-                   "count":  1
-               }
+{
+  "type": "smartbackpacks:backpack_workbench",
+  "pattern": [
+    "EOE",
+    "OCO",
+    "EOE"
+  ],
+  "key": {
+    "E": "minecraft:ender_pearl",
+    "O": "minecraft:obsidian",
+    "C": "minecraft:clock"
+  },
+  "result": {
+    "id": "smartbackpacks:chunk_loader_upgrade",
+    "count": 1
+  }
 }

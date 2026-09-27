@@ -5,10 +5,10 @@
       "id": "smartbackpacks:storage_upgrade_iii"
     },
     "title": {
-      "text": "Expanding Horizons"
+      "translate": "advancement.smartbackpacks.upgrades.storage_upgrade_iii.title"
     },
     "description": {
-      "text": "Push your backpack capacity even further."
+      "translate": "advancement.smartbackpacks.upgrades.storage_upgrade_iii.description"
     },
     "frame": "goal",
     "show_toast": true,

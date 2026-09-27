@@ -1,14 +1,14 @@
 {
-  "parent": "smartbackpacks:backpacks/leather_backpack",
+  "parent": "smartbackpacks:categories/automation",
   "display": {
     "icon": {
       "id": "smartbackpacks:restock_upgrade"
     },
     "title": {
-      "text": "Never Run Dry"
+      "translate": "advancement.smartbackpacks.upgrades.restock_upgrade.title"
     },
     "description": {
-      "text": "Automatically restock supplies from your backpack."
+      "translate": "advancement.smartbackpacks.upgrades.restock_upgrade.description"
     },
     "frame": "goal",
     "show_toast": true,

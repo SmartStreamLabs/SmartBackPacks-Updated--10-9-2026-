@@ -5,10 +5,10 @@
       "id": "smartbackpacks:diamond_backpack"
     },
     "title": {
-      "text": "Storage Forever"
+      "translate": "advancement.smartbackpacks.backpacks.diamond_backpack.title"
     },
     "description": {
-      "text": "Upgrade to a brilliant Diamond Backpack."
+      "translate": "advancement.smartbackpacks.backpacks.diamond_backpack.description"
     },
     "frame": "goal",
     "show_toast": true,

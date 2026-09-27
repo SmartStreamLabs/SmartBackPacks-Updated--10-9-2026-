@@ -5,10 +5,10 @@
       "id": "smartbackpacks:fluid_transfer_upgrade"
     },
     "title": {
-      "text": "Go With the Flow"
+      "translate": "advancement.smartbackpacks.upgrades.fluid_transfer_upgrade.title"
     },
     "description": {
-      "text": "Move stored fluids wherever they are needed."
+      "translate": "advancement.smartbackpacks.upgrades.fluid_transfer_upgrade.description"
     },
     "frame": "goal",
     "show_toast": true,

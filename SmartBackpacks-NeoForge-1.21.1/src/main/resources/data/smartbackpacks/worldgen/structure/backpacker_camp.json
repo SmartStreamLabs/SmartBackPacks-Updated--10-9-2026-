@@ -1,0 +1,7 @@
+{
+  "type": "smartbackpacks:backpacker_camp",
+  "biomes": "#smartbackpacks:has_backpacker_camp",
+  "step": "surface_structures",
+  "terrain_adaptation": "beard_thin",
+  "spawn_overrides": {}
+}

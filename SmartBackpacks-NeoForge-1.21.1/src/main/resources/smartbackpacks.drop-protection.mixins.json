@@ -1,0 +1,7 @@
+{
+  "required": true,
+  "package": "com.teamsmartstreamlabs.smartbackpacks.mixin",
+  "mixins": ["BlockBreakOwnerMixin", "ItemEntityDropProtectionMixin", "BackpackQuickInsertMixin", "BackpackQuickInsertServerMixin", "BackpackDropServerMixin"],
+  "client": ["BackpackDropClientMixin"],
+  "injectors": { "defaultRequire": 1 }
+}

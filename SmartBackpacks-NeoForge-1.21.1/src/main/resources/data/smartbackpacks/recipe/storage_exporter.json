@@ -1,0 +1,26 @@
+{
+  "type": "smartbackpacks:backpack_workbench",
+  "pattern": [
+    "ICI",
+    "RDR",
+    "ICI"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:copper_ingot"
+    },
+    "C": {
+      "item": "smartbackpacks:storage_cable"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    },
+    "D": {
+      "item": "minecraft:dropper"
+    }
+  },
+  "result": {
+    "id": "smartbackpacks:storage_exporter",
+    "count": 1
+  }
+}

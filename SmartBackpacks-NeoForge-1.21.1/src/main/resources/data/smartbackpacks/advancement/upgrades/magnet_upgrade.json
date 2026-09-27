@@ -1,14 +1,14 @@
 {
-  "parent": "smartbackpacks:backpacks/leather_backpack",
+  "parent": "smartbackpacks:categories/automation",
   "display": {
     "icon": {
       "id": "smartbackpacks:magnet_upgrade"
     },
     "title": {
-      "text": "Magnetic Personality"
+      "translate": "advancement.smartbackpacks.upgrades.magnet_upgrade.title"
     },
     "description": {
-      "text": "Pull nearby items directly toward your backpack."
+      "translate": "advancement.smartbackpacks.upgrades.magnet_upgrade.description"
     },
     "frame": "task",
     "show_toast": true,

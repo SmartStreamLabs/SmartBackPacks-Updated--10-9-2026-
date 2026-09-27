@@ -1,20 +1,20 @@
-﻿{
-    "type":  "minecraft:crafting_shaped",
-    "category":  "misc",
-    "pattern":  [
-                    "BCB",
-                    "FAF",
-                    "GGG"
-                ],
-    "key":  {
-                "B":  "minecraft:bread",
-                "C":  "minecraft:cooked_beef",
-                "F":  "smartbackpacks:filter_upgrade",
-                "A":  "minecraft:apple",
-                "G":  "minecraft:golden_carrot"
-            },
-    "result":  {
-                   "id":  "smartbackpacks:auto_feed_upgrade",
-                   "count":  1
-               }
+{
+  "type": "smartbackpacks:backpack_workbench",
+  "category": "misc",
+  "pattern": [
+    "BCB",
+    "FAF",
+    "GGG"
+  ],
+  "key": {
+    "B": "minecraft:bread",
+    "C": "minecraft:cooked_beef",
+    "F": "smartbackpacks:filter_upgrade",
+    "A": "minecraft:apple",
+    "G": "minecraft:golden_carrot"
+  },
+  "result": {
+    "id": "smartbackpacks:auto_feed_upgrade",
+    "count": 1
+  }
 }

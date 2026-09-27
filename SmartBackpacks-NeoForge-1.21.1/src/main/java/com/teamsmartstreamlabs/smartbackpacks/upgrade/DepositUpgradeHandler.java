@@ -48,6 +48,7 @@ public final class DepositUpgradeHandler {
         container.setChanged();
         target.save().accept(target.backpack());
         player.getInventory().setChanged();
+        com.teamsmartstreamlabs.smartbackpacks.progress.BackpackProgression.add(player, "deposit_operations", 1);
         event.setCancellationResult(InteractionResult.SUCCESS);
         event.setCanceled(true);
     }

@@ -1,14 +1,14 @@
 {
-  "parent": "smartbackpacks:backpacks/leather_backpack",
+  "parent": "smartbackpacks:categories/survival",
   "display": {
     "icon": {
       "id": "smartbackpacks:light_upgrade"
     },
     "title": {
-      "text": "Pocket Sunshine"
+      "translate": "advancement.smartbackpacks.upgrades.light_upgrade.title"
     },
     "description": {
-      "text": "Carry a portable source of light."
+      "translate": "advancement.smartbackpacks.upgrades.light_upgrade.description"
     },
     "frame": "task",
     "show_toast": true,

@@ -1,0 +1,28 @@
+{
+  "parent": "smartbackpacks:usage/portable_warehouse",
+  "display": {
+    "icon": {
+      "id": "smartbackpacks:netherite_vault_backpack"
+    },
+    "title": {
+      "translate": "advancement.smartbackpacks.usage.where_does_it_all_fit.title"
+    },
+    "description": {
+      "translate": "advancement.smartbackpacks.usage.where_does_it_all_fit.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "used": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "used"
+    ]
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "parent": "smartbackpacks:categories/survival",
+  "display": {
+    "icon": {
+      "id": "smartbackpacks:night_vision_upgrade"
+    },
+    "title": {
+      "translate": "advancement.smartbackpacks.upgrades.night_vision_upgrade.title"
+    },
+    "description": {
+      "translate": "advancement.smartbackpacks.upgrades.night_vision_upgrade.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "item_0": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "smartbackpacks:night_vision_upgrade"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "item_0"
+    ]
+  ]
+}

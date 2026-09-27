@@ -1,0 +1,28 @@
+{
+  "parent": "smartbackpacks:usage/on_the_road",
+  "display": {
+    "icon": {
+      "id": "smartbackpacks:iron_backpack"
+    },
+    "title": {
+      "translate": "advancement.smartbackpacks.usage.seasoned_traveler.title"
+    },
+    "description": {
+      "translate": "advancement.smartbackpacks.usage.seasoned_traveler.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "used": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "used"
+    ]
+  ]
+}

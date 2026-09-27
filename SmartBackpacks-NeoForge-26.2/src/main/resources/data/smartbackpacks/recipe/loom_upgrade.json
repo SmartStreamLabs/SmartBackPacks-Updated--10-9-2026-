@@ -1,18 +1,18 @@
-﻿{
-    "type":  "minecraft:crafting_shaped",
-    "category":  "misc",
-    "pattern":  [
-                    " S ",
-                    " L ",
-                    " C "
-                ],
-    "key":  {
-                "S":  "minecraft:string",
-                "L":  "minecraft:loom",
-                "C":  "minecraft:chest"
-            },
-    "result":  {
-                   "id":  "smartbackpacks:loom_upgrade",
-                   "count":  1
-               }
+{
+  "type": "smartbackpacks:backpack_workbench",
+  "category": "misc",
+  "pattern": [
+    " S ",
+    " L ",
+    " C "
+  ],
+  "key": {
+    "S": "minecraft:string",
+    "L": "minecraft:loom",
+    "C": "minecraft:chest"
+  },
+  "result": {
+    "id": "smartbackpacks:loom_upgrade",
+    "count": 1
+  }
 }

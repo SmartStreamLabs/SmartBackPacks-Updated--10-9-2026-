@@ -1,0 +1,10 @@
+{
+  "parent": "smartbackpacks:item/backpack",
+  "textures": {
+    "2": "smartbackpacks:block/backpack/quartz_base",
+    "1": "smartbackpacks:block/backpack/overlay",
+    "particle": "smartbackpacks:block/backpack/quartz_base",
+    "dyeable": "smartbackpacks:block/backpack/quartz_dyeable",
+    "details": "smartbackpacks:block/backpack/quartz_details"
+  }
+}

@@ -121,15 +121,18 @@ public class StorageCableBlock extends Block {
         return shape;
     }
 
-    private static boolean connectsTo(BlockState state) {
+    private static boolean connectsTo(BlockState state, Direction direction) {
         Block block = state.getBlock();
+        if (block instanceof StorageTransferBlock) {
+            return state.getValue(StorageTransferBlock.FACING) != direction.getOpposite();
+        }
         return block instanceof StorageCableBlock
                 || block instanceof StorageControllerBlock
                 || block instanceof BackpackBlock;
     }
 
     private static BlockState updateConnection(BlockState state, Direction direction, BlockState neighborState) {
-        return state.setValue(property(direction), connectsTo(neighborState))
+        return state.setValue(property(direction), connectsTo(neighborState, direction))
                 .setValue(backpackProperty(direction), neighborState.getBlock() instanceof BackpackBlock);
     }
 

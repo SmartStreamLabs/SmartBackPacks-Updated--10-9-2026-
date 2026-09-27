@@ -1,14 +1,14 @@
 {
-  "parent": "smartbackpacks:backpacks/leather_backpack",
+  "parent": "smartbackpacks:categories/storage",
   "display": {
     "icon": {
       "id": "smartbackpacks:capacity_warning_upgrade"
     },
     "title": {
-      "text": "Room to Spare"
+      "translate": "advancement.smartbackpacks.upgrades.capacity_warning_upgrade.title"
     },
     "description": {
-      "text": "Know when your backpack is running out of space."
+      "translate": "advancement.smartbackpacks.upgrades.capacity_warning_upgrade.description"
     },
     "frame": "goal",
     "show_toast": true,

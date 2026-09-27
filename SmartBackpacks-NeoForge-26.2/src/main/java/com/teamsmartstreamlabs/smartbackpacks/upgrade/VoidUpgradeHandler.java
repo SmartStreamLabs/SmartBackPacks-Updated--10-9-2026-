@@ -25,20 +25,20 @@ public final class VoidUpgradeHandler {
         }
 
         for (int slot = 0; slot < 36; slot++) {
-            tickVoidInBackpack(player.getInventory().getItem(slot), backpack -> player.getInventory().setChanged());
+            tickVoidInBackpack(player, player.getInventory().getItem(slot), backpack -> player.getInventory().setChanged());
         }
 
-        tickVoidInBackpack(player.getOffhandItem(), backpack -> player.getInventory().setChanged());
-        tickVoidInBackpack(player.getItemBySlot(EquipmentSlot.CHEST), backpack -> player.getInventory().setChanged());
+        tickVoidInBackpack(player, player.getOffhandItem(), backpack -> player.getInventory().setChanged());
+        tickVoidInBackpack(player, player.getItemBySlot(EquipmentSlot.CHEST), backpack -> player.getInventory().setChanged());
 
         for (int slot = 0; slot < CuriosCompat.getBackSlotCount(player); slot++) {
             int curioSlot = slot;
-            tickVoidInBackpack(CuriosCompat.getBackStack(player, curioSlot),
+            tickVoidInBackpack(player, CuriosCompat.getBackStack(player, curioSlot),
                     backpack -> CuriosCompat.setBackStack(player, curioSlot, backpack));
         }
     }
 
-    public static void tickVoidInBackpack(ItemStack backpack, Consumer<ItemStack> saver) {
+    public static void tickVoidInBackpack(ServerPlayer player, ItemStack backpack, Consumer<ItemStack> saver) {
         if (!(backpack.getItem() instanceof BackpackItem backpackItem)) {
             return;
         }
@@ -46,6 +46,7 @@ public final class VoidUpgradeHandler {
         NonNullList<ItemStack> upgrades = BackpackStackData.loadUpgrades(backpack);
         NonNullList<ItemStack> storage = BackpackStackData.loadStorage(backpack, backpackItem.getTier());
         boolean changed = false;
+        long removed = 0;
 
         for (ItemStack upgrade : upgrades) {
             if (!(upgrade.getItem() instanceof VoidUpgradeItem)) {
@@ -61,7 +62,9 @@ public final class VoidUpgradeHandler {
                 continue;
             }
 
-            if (voidMatchingItems(backpack, storage, data)) {
+            long count = voidMatchingItems(backpack, storage, data);
+            removed += count;
+            if (count > 0) {
                 changed = true;
             }
         }
@@ -69,11 +72,12 @@ public final class VoidUpgradeHandler {
         if (changed) {
             BackpackStackData.saveStorage(backpack, storage);
             saver.accept(backpack);
+            com.teamsmartstreamlabs.smartbackpacks.progress.BackpackProgression.add(player, "voided_item_count", removed);
         }
     }
 
-    private static boolean voidMatchingItems(ItemStack backpack, NonNullList<ItemStack> storage, VoidUpgradeData data) {
-        boolean changed = false;
+    private static long voidMatchingItems(ItemStack backpack, NonNullList<ItemStack> storage, VoidUpgradeData data) {
+        long removed = 0;
         for (int slot = 0; slot < storage.size(); slot++) {
             ItemStack stack = storage.get(slot);
             if (stack.isEmpty()
@@ -82,10 +86,10 @@ public final class VoidUpgradeHandler {
                 continue;
             }
 
+            removed += stack.getCount();
             storage.set(slot, ItemStack.EMPTY);
-            changed = true;
         }
-        return changed;
+        return removed;
     }
 
     private static boolean hasAvailableSpace(ItemStack backpack, NonNullList<ItemStack> storage) {

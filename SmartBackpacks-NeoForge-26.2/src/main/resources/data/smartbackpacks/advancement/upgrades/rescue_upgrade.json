@@ -1,14 +1,14 @@
 {
-  "parent": "smartbackpacks:backpacks/leather_backpack",
+  "parent": "smartbackpacks:categories/survival",
   "display": {
     "icon": {
       "id": "smartbackpacks:rescue_upgrade"
     },
     "title": {
-      "text": "Not Today"
+      "translate": "advancement.smartbackpacks.upgrades.rescue_upgrade.title"
     },
     "description": {
-      "text": "Prepare an emergency rescue for a deadly moment."
+      "translate": "advancement.smartbackpacks.upgrades.rescue_upgrade.description"
     },
     "frame": "challenge",
     "show_toast": true,

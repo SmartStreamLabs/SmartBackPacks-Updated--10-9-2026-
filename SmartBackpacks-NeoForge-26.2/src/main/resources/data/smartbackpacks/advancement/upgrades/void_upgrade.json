@@ -1,14 +1,14 @@
 {
-  "parent": "smartbackpacks:backpacks/leather_backpack",
+  "parent": "smartbackpacks:categories/automation",
   "display": {
     "icon": {
       "id": "smartbackpacks:void_upgrade"
     },
     "title": {
-      "text": "Into the Void"
+      "translate": "advancement.smartbackpacks.upgrades.void_upgrade.title"
     },
     "description": {
-      "text": "Destroy unwanted items before they take up space."
+      "translate": "advancement.smartbackpacks.upgrades.void_upgrade.description"
     },
     "frame": "goal",
     "show_toast": true,

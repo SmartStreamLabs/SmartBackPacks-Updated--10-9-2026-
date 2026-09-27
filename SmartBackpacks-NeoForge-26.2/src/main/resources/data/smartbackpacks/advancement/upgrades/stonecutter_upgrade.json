@@ -5,10 +5,10 @@
       "id": "smartbackpacks:stonecutter_upgrade"
     },
     "title": {
-      "text": "Cut to Size"
+      "translate": "advancement.smartbackpacks.upgrades.stonecutter_upgrade.title"
     },
     "description": {
-      "text": "Cut stone directly from your backpack."
+      "translate": "advancement.smartbackpacks.upgrades.stonecutter_upgrade.description"
     },
     "frame": "task",
     "show_toast": true,

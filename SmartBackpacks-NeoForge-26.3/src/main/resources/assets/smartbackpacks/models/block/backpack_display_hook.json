@@ -1,0 +1,701 @@
+{
+  "textures": {
+    "particle": "smartbackpacks:block/backpack_hanger_metal",
+    "backpack_hanger_metal": "smartbackpacks:block/backpack_hanger_metal",
+    "backpack_hanger_dark_metal": "smartbackpacks:block/backpack_hanger_dark_metal",
+    "backpack_hanger_brass": "smartbackpacks:block/backpack_hanger_brass",
+    "backpack_hanger_leather": "smartbackpacks:block/backpack_hanger_leather"
+  },
+  "elements": [
+    {
+      "name": "mount_plate",
+      "from": [
+        6.2,
+        5.2,
+        15
+      ],
+      "to": [
+        9.8,
+        10.8,
+        16
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#backpack_hanger_dark_metal"
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#backpack_hanger_dark_metal"
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#backpack_hanger_dark_metal"
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#backpack_hanger_dark_metal"
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#backpack_hanger_dark_metal"
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#backpack_hanger_dark_metal"
+        }
+      }
+    },
+    {
+      "name": "mount_plate_face",
+      "from": [
+        6.6,
+        5.6,
+        14.65
+      ],
+      "to": [
+        9.4,
+        10.4,
+        15.2
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#backpack_hanger_metal"
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#backpack_hanger_metal"
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#backpack_hanger_metal"
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#backpack_hanger_metal"
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#backpack_hanger_metal"
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#backpack_hanger_metal"
+        }
+      }
+    },
+    {
+      "name": "bolt_top",
+      "from": [
+        7.55,
+        9.15,
+        14.1
+      ],
+      "to": [
+        8.45,
+        10.05,
+        14.8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#backpack_hanger_brass"
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#backpack_hanger_brass"
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#backpack_hanger_brass"
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#backpack_hanger_brass"
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#backpack_hanger_brass"
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#backpack_hanger_brass"
+        }
+      }
+    },
+    {
+      "name": "bolt_bottom",
+      "from": [
+        7.55,
+        5.95,
+        14.1
+      ],
+      "to": [
+        8.45,
+        6.85,
+        14.8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#backpack_hanger_brass"
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#backpack_hanger_brass"
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#backpack_hanger_brass"
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#backpack_hanger_brass"
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#backpack_hanger_brass"
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#backpack_hanger_brass"
+        }
+      }
+    },
+    {
+      "name": "support_arm",
+      "from": [
+        7.2,
+        7.45,
+        10.6
+      ],
+      "to": [
+        8.8,
+        8.95,
+        15
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#backpack_hanger_metal"
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#backpack_hanger_metal"
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#backpack_hanger_metal"
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#backpack_hanger_metal"
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#backpack_hanger_metal"
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#backpack_hanger_metal"
+        }
+      }
+    },
+    {
+      "name": "hook_drop",
+      "from": [
+        7.2,
+        5.9,
+        9.25
+      ],
+      "to": [
+        8.8,
+        7.9,
+        10.7
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#backpack_hanger_metal"
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#backpack_hanger_metal"
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#backpack_hanger_metal"
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#backpack_hanger_metal"
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#backpack_hanger_metal"
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#backpack_hanger_metal"
+        }
+      }
+    },
+    {
+      "name": "hook_cradle",
+      "from": [
+        7.2,
+        5,
+        6.8
+      ],
+      "to": [
+        8.8,
+        6.35,
+        9.45
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#backpack_hanger_dark_metal"
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#backpack_hanger_dark_metal"
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#backpack_hanger_dark_metal"
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#backpack_hanger_dark_metal"
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#backpack_hanger_dark_metal"
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#backpack_hanger_dark_metal"
+        }
+      }
+    },
+    {
+      "name": "hook_tip",
+      "from": [
+        7.2,
+        5.1,
+        5.55
+      ],
+      "to": [
+        8.8,
+        7.45,
+        7.15
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#backpack_hanger_metal"
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#backpack_hanger_metal"
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#backpack_hanger_metal"
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#backpack_hanger_metal"
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#backpack_hanger_metal"
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#backpack_hanger_metal"
+        }
+      }
+    },
+    {
+      "name": "strap_rest",
+      "from": [
+        6.9,
+        6.05,
+        7.15
+      ],
+      "to": [
+        9.1,
+        6.65,
+        8.45
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#backpack_hanger_leather"
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#backpack_hanger_leather"
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#backpack_hanger_leather"
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#backpack_hanger_leather"
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#backpack_hanger_leather"
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#backpack_hanger_leather"
+        }
+      }
+    },
+    {
+      "name": "hook_tip_cap",
+      "from": [
+        7.4,
+        7.1,
+        5.35
+      ],
+      "to": [
+        8.6,
+        7.85,
+        6.2
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#backpack_hanger_brass"
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#backpack_hanger_brass"
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#backpack_hanger_brass"
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#backpack_hanger_brass"
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#backpack_hanger_brass"
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#backpack_hanger_brass"
+        }
+      }
+    }
+  ]
+}

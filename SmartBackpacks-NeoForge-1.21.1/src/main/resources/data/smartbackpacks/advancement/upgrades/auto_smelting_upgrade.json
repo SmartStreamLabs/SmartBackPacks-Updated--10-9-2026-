@@ -5,10 +5,10 @@
       "id": "smartbackpacks:auto_smelting_upgrade"
     },
     "title": {
-      "text": "Set It and Smelt It"
+      "translate": "advancement.smartbackpacks.upgrades.auto_smelting_upgrade.title"
     },
     "description": {
-      "text": "Automate smelting inside your backpack."
+      "translate": "advancement.smartbackpacks.upgrades.auto_smelting_upgrade.description"
     },
     "frame": "goal",
     "show_toast": true,

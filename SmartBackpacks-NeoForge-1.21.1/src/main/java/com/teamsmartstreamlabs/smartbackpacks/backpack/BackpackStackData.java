@@ -32,8 +32,13 @@ public final class BackpackStackData {
     }
 
     public static NonNullList<ItemStack> loadStorage(ItemStack backpack, BackpackTier tier) {
-        NonNullList<ItemStack> items = loadContents(backpack.getOrDefault(DataComponents.CONTAINER, ItemContainerContents.EMPTY), tier.getSlotCount());
-        List<Integer> overflow = backpack.getOrDefault(ModDataComponents.BACKPACK_STORAGE_OVERFLOW.get(), List.of());
+        BackpackStorageContents storedContents = backpack.get(ModDataComponents.BACKPACK_STORAGE.get());
+        NonNullList<ItemStack> items = storedContents != null
+                ? storedContents.copyInto(tier.getSlotCount())
+                : loadContents(backpack.getOrDefault(DataComponents.CONTAINER, ItemContainerContents.EMPTY), tier.getSlotCount());
+        List<Integer> overflow = storedContents != null
+                ? storedContents.overflow()
+                : backpack.getOrDefault(ModDataComponents.BACKPACK_STORAGE_OVERFLOW.get(), List.of());
         int storageUpgradeTier = getStorageUpgradeTier(backpack);
         for (int slot = 0; slot < items.size(); slot++) {
             ItemStack stack = items.get(slot);
@@ -55,7 +60,6 @@ public final class BackpackStackData {
     public static void saveStorage(ItemStack backpack, NonNullList<ItemStack> items) {
         NonNullList<ItemStack> serializedItems = NonNullList.withSize(items.size(), ItemStack.EMPTY);
         List<Integer> overflow = new ArrayList<>(items.size());
-        boolean hasOverflow = false;
         int storageUpgradeTier = getStorageUpgradeTier(backpack);
 
         for (int slot = 0; slot < items.size(); slot++) {
@@ -72,15 +76,11 @@ public final class BackpackStackData {
 
             serializedItems.set(slot, serialized);
             overflow.add(counts.overflow());
-            hasOverflow |= counts.overflow() > 0;
         }
 
-        backpack.set(DataComponents.CONTAINER, ItemContainerContents.fromItems(serializedItems));
-        if (hasOverflow) {
-            backpack.set(ModDataComponents.BACKPACK_STORAGE_OVERFLOW.get(), overflow);
-        } else {
-            backpack.remove(ModDataComponents.BACKPACK_STORAGE_OVERFLOW.get());
-        }
+        backpack.set(ModDataComponents.BACKPACK_STORAGE.get(), new BackpackStorageContents(serializedItems, overflow));
+        backpack.remove(DataComponents.CONTAINER);
+        backpack.remove(ModDataComponents.BACKPACK_STORAGE_OVERFLOW.get());
     }
 
     public static NonNullList<ItemStack> loadUpgrades(ItemStack backpack) {
@@ -246,13 +246,16 @@ public final class BackpackStackData {
             return getBackpackMaxStackSize(storageUpgradeTier);
         }
 
-        int baseLimit = stack.getMaxStackSize();
-        if (baseLimit <= 1) {
+        return getStorageStackLimit(stack.getMaxStackSize(), storageUpgradeTier);
+    }
+
+    static int getStorageStackLimit(int baseLimit, int storageUpgradeTier) {
+        if (storageUpgradeTier <= 0) {
             return baseLimit;
         }
 
-        if (storageUpgradeTier <= 0) {
-            return baseLimit;
+        if (baseLimit <= 1) {
+            return getBackpackMaxStackSize(storageUpgradeTier);
         }
 
         if (storageUpgradeTier >= 2) {

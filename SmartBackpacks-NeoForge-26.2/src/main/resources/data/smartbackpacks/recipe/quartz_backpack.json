@@ -1,17 +1,17 @@
-﻿{
-    "type":  "minecraft:crafting_shaped",
-    "category":  "misc",
-    "pattern":  [
-                    "QQQ",
-                    "QBQ",
-                    "QQQ"
-                ],
-    "key":  {
-                "Q":  "minecraft:quartz",
-                "B":  "smartbackpacks:redstone_backpack"
-            },
-    "result":  {
-                   "id":  "smartbackpacks:quartz_backpack",
-                   "count":  1
-               }
+{
+  "type": "smartbackpacks:backpack_workbench",
+  "category": "misc",
+  "pattern": [
+    "QQQ",
+    "QBQ",
+    "QQQ"
+  ],
+  "key": {
+    "Q": "minecraft:quartz",
+    "B": "smartbackpacks:redstone_backpack"
+  },
+  "result": {
+    "id": "smartbackpacks:quartz_backpack",
+    "count": 1
+  }
 }

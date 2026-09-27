@@ -1,10 +1,15 @@
 package com.teamsmartstreamlabs.smartbackpacks.client;
 
+import com.teamsmartstreamlabs.smartbackpacks.backpack.BackpackContentPreview;
+import net.neoforged.neoforge.client.event.RegisterClientTooltipComponentFactoriesEvent;
+
 import java.util.List;
 
 import com.teamsmartstreamlabs.smartbackpacks.SmartBackpacks;
 import com.teamsmartstreamlabs.smartbackpacks.backpack.BackpackStackData;
 import com.teamsmartstreamlabs.smartbackpacks.client.render.BackpackRenderLayer;
+import com.teamsmartstreamlabs.smartbackpacks.client.render.BackpackDisplayHookRenderer;
+import com.teamsmartstreamlabs.smartbackpacks.registry.ModBlockEntities;
 import com.teamsmartstreamlabs.smartbackpacks.client.render.MobBackpackRenderLayer;
 import com.teamsmartstreamlabs.smartbackpacks.client.screen.BackpackScreen;
 import com.teamsmartstreamlabs.smartbackpacks.client.screen.AutoFeedUpgradeScreen;
@@ -21,17 +26,21 @@ import com.teamsmartstreamlabs.smartbackpacks.client.screen.QuiverUpgradeScreen;
 import com.teamsmartstreamlabs.smartbackpacks.client.screen.QuickAccessWheelScreen;
 import com.teamsmartstreamlabs.smartbackpacks.client.screen.QuickAccessWheelUpgradeScreen;
 import com.teamsmartstreamlabs.smartbackpacks.client.screen.RescueUpgradeScreen;
+import com.teamsmartstreamlabs.smartbackpacks.client.screen.DeathEmergencyKitUpgradeScreen;
 import com.teamsmartstreamlabs.smartbackpacks.client.screen.SmartBackpacksConfigScreen;
 import com.teamsmartstreamlabs.smartbackpacks.client.screen.SurvivalAssistUpgradeScreen;
 import com.teamsmartstreamlabs.smartbackpacks.client.screen.TorchPlacerUpgradeScreen;
 import com.teamsmartstreamlabs.smartbackpacks.client.screen.XpTransferUpgradeScreen;
 import com.teamsmartstreamlabs.smartbackpacks.client.screen.StorageControllerScreen;
+import com.teamsmartstreamlabs.smartbackpacks.client.screen.StorageTransferScreen;
+import com.teamsmartstreamlabs.smartbackpacks.client.screen.BackpackWorkbenchScreen;
 import com.teamsmartstreamlabs.smartbackpacks.client.screen.StorageGuideScreen;
 import com.teamsmartstreamlabs.smartbackpacks.compat.CuriosCompat;
 import com.teamsmartstreamlabs.smartbackpacks.block.BackpackBlock;
 import com.teamsmartstreamlabs.smartbackpacks.blockentity.PlacedBackpackBlockEntity;
 import com.teamsmartstreamlabs.smartbackpacks.inventory.BackpackSortMode;
 import com.teamsmartstreamlabs.smartbackpacks.network.OpenWornBackpackPayload;
+import com.teamsmartstreamlabs.smartbackpacks.network.OpenStorageMonitorPayload;
 import com.teamsmartstreamlabs.smartbackpacks.network.PlaceHeldBackpackPayload;
 import com.teamsmartstreamlabs.smartbackpacks.network.PickupPlacedBackpackPayload;
 import com.teamsmartstreamlabs.smartbackpacks.network.RequestAutoToolSwapPayload;
@@ -103,6 +112,7 @@ public class SmartBackpacksClient {
     private static final int DEFAULT_BACKPACK_TINT = 0xFF7A5330;
     private static final String KEY_CATEGORY = "key.categories.smartbackpacks";
     private static final KeyMapping OPEN_WORN_BACKPACK = new KeyMapping("key.smartbackpacks.open_backpack", InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_B, KEY_CATEGORY);
+    private static final KeyMapping OPEN_STORAGE_MONITOR = new KeyMapping("key.smartbackpacks.open_storage_monitor", InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_B, KEY_CATEGORY);
     private static final KeyMapping MANUAL_AUTO_TOOL_SWAP = new KeyMapping("key.smartbackpacks.auto_tool_swap", InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_V, KEY_CATEGORY);
     private static final KeyMapping MANUAL_BUILDER_REFILL = new KeyMapping("key.smartbackpacks.builder_refill", InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_N, KEY_CATEGORY);
     private static final KeyMapping QUICK_ACCESS_WHEEL = new KeyMapping("key.smartbackpacks.quick_access_wheel", InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_G, KEY_CATEGORY);
@@ -117,7 +127,10 @@ public class SmartBackpacksClient {
     public SmartBackpacksClient(IEventBus modEventBus) {
         ModLoadingContext.get().registerExtensionPoint(IConfigScreenFactory.class, () -> (container, parent) -> new SmartBackpacksConfigScreen(parent));
         modEventBus.addListener(this::registerScreens);
+        modEventBus.addListener(this::registerPreviewTooltip);
+        BackpackItem.setPreviewShiftDown(() -> net.minecraft.client.gui.screens.Screen.hasShiftDown());
         modEventBus.addListener(this::addLayers);
+        modEventBus.addListener(this::registerDisplayHookRenderer);
         modEventBus.addListener(this::registerKeyMappings);
         modEventBus.addListener(this::registerBackpackItemColors);
         modEventBus.addListener(this::registerBackpackBlockColors);
@@ -156,6 +169,10 @@ public class SmartBackpacksClient {
                 .forEach(block -> ItemBlockRenderTypes.setRenderLayer(block, RenderType.cutout())));
     }
 
+    private void registerPreviewTooltip(RegisterClientTooltipComponentFactoriesEvent event) {
+        event.register(BackpackContentPreview.class, BackpackPreviewTooltip::new);
+    }
+
     private void registerScreens(RegisterMenuScreensEvent event) {
         event.register(ModMenuTypes.BACKPACK.get(), BackpackScreen::new);
         event.register(ModMenuTypes.MAGNET_UPGRADE.get(), MagnetUpgradeScreen::new);
@@ -171,11 +188,14 @@ public class SmartBackpacksClient {
         event.register(ModMenuTypes.QUIVER_UPGRADE.get(), QuiverUpgradeScreen::new);
         event.register(ModMenuTypes.QUICK_ACCESS_WHEEL_UPGRADE.get(), QuickAccessWheelUpgradeScreen::new);
         event.register(ModMenuTypes.RESCUE_UPGRADE.get(), RescueUpgradeScreen::new);
+        event.register(ModMenuTypes.DEATH_EMERGENCY_KIT_UPGRADE.get(), DeathEmergencyKitUpgradeScreen::new);
         event.register(ModMenuTypes.BUILDER_UPGRADE.get(), BuilderUpgradeScreen::new);
         event.register(ModMenuTypes.TORCH_PLACER_UPGRADE.get(), TorchPlacerUpgradeScreen::new);
         event.register(ModMenuTypes.CAPACITY_WARNING_UPGRADE.get(), CapacityWarningUpgradeScreen::new);
         event.register(ModMenuTypes.BACKPACK_LINK_UPGRADE.get(), BackpackLinkUpgradeScreen::new);
         event.register(ModMenuTypes.STORAGE_CONTROLLER.get(), StorageControllerScreen::new);
+        event.register(ModMenuTypes.STORAGE_TRANSFER.get(), StorageTransferScreen::new);
+        event.register(ModMenuTypes.BACKPACK_WORKBENCH.get(), BackpackWorkbenchScreen::new);
     }
 
     private void onRenderGui(RenderGuiEvent.Post event) {
@@ -185,6 +205,10 @@ public class SmartBackpacksClient {
 
     private void onRenderScreen(ScreenEvent.Render.Post event) {
         CapacityWarningHud.render(event.getGuiGraphics());
+    }
+
+    private void registerDisplayHookRenderer(EntityRenderersEvent.RegisterRenderers event) {
+        event.registerBlockEntityRenderer(ModBlockEntities.BACKPACK_DISPLAY_HOOK.get(), BackpackDisplayHookRenderer::new);
     }
 
     private void addLayers(EntityRenderersEvent.AddLayers event) {
@@ -219,6 +243,7 @@ public class SmartBackpacksClient {
 
     private void registerKeyMappings(RegisterKeyMappingsEvent event) {
         event.register(OPEN_WORN_BACKPACK);
+        event.register(OPEN_STORAGE_MONITOR);
         event.register(MANUAL_AUTO_TOOL_SWAP);
         event.register(MANUAL_BUILDER_REFILL);
         event.register(QUICK_ACCESS_WHEEL);
@@ -250,8 +275,18 @@ public class SmartBackpacksClient {
             spawnChunkLoaderBackpackParticles(minecraft);
         }
 
+        boolean backpackPressed = false;
         while (OPEN_WORN_BACKPACK.consumeClick()) {
+            backpackPressed = true;
+        }
+        boolean monitorPressed = false;
+        while (OPEN_STORAGE_MONITOR.consumeClick()) {
+            monitorPressed = true;
+        }
+        if (backpackPressed && (!monitorPressed || BackpackItem.isBackpack(getVisibleBackpack(minecraft.player)))) {
             PacketDistributor.sendToServer(OpenWornBackpackPayload.INSTANCE);
+        } else if (monitorPressed) {
+            PacketDistributor.sendToServer(OpenStorageMonitorPayload.INSTANCE);
         }
 
         while (MANUAL_AUTO_TOOL_SWAP.consumeClick()) {

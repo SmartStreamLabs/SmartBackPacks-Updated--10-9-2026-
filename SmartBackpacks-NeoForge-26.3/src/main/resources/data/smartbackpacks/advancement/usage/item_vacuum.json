@@ -1,0 +1,28 @@
+{
+  "parent": "smartbackpacks:usage/come_to_me",
+  "display": {
+    "icon": {
+      "id": "smartbackpacks:advanced_magnet_upgrade"
+    },
+    "title": {
+      "translate": "advancement.smartbackpacks.usage.item_vacuum.title"
+    },
+    "description": {
+      "translate": "advancement.smartbackpacks.usage.item_vacuum.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "used": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "used"
+    ]
+  ]
+}

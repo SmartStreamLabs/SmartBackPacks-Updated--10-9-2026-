@@ -1,18 +1,18 @@
-﻿{
-    "type":  "minecraft:crafting_shaped",
-    "pattern":  [
-                    "LBL",
-                    "BFB",
-                    "LXL"
-                ],
-    "key":  {
-                "L":  "minecraft:lapis_lazuli",
-                "B":  "minecraft:experience_bottle",
-                "F":  "smartbackpacks:fluid_storage_upgrade",
-                "X":  "minecraft:glass_bottle"
-            },
-    "result":  {
-                   "id":  "smartbackpacks:xp_transfer_upgrade",
-                   "count":  1
-               }
+{
+  "type": "smartbackpacks:backpack_workbench",
+  "pattern": [
+    "LBL",
+    "BFB",
+    "LXL"
+  ],
+  "key": {
+    "L": "minecraft:lapis_lazuli",
+    "B": "minecraft:experience_bottle",
+    "F": "smartbackpacks:fluid_storage_upgrade",
+    "X": "minecraft:glass_bottle"
+  },
+  "result": {
+    "id": "smartbackpacks:xp_transfer_upgrade",
+    "count": 1
+  }
 }
